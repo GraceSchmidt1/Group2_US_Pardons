@@ -1,0 +1,110 @@
+Here is the Python dictionary categorizing each offense, adhering to your specified categories and the examples you provided. For citations without explicit descriptive text, I've made an educated guess based on common historical contexts for such codes, often defaulting to 'Fraud' for general regulatory or economic offenses, 'Tax' for tariff/revenue acts, 'Slavery' for specific immigration/trafficking codes, 'Violent' for general military code infractions, and 'Property' for specific military infractions like AWOL.
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    '3450 Revised Statutes': 'Tax',  # Relates to untaxed liquor/tobacco; tax evasion
+    '35 Crm. Code': 'Fraud',  # Generic criminal code, assumed broad regulatory/economic offense
+    '35, 148, 151 Crim. Code.': 'Fraud',  # Generic criminal code
+    '36 U.S.C. 1162': 'Fraud',  # Generic U.S. Code
+    '36 U.S.C. 193': 'Fraud',  # Generic U.S. Code
+    '37 Crim Code': 'Fraud',  # Generic criminal code
+    '37 Crim. Code': 'Fraud',  # Generic criminal code
+    '37 Crim. Code and Tariff Act of 1930': 'Tax',  # "Tariff Act" indicates tax/customs
+    '37 U.S.C. 315': 'Fraud',  # Generic U.S. Code
+    '37, 148-151 Crim Code': 'Fraud',  # Generic criminal code
+    '37, 186 Crim. Code': 'Fraud',  # Generic criminal code
+    '37, 215 Crim. Code': 'Fraud',  # Generic criminal code
+    '37,215 Crim. Code': 'Fraud',  # Generic criminal code
+    '38 U.S.C. 3503(a)-': 'Fraud',  # Generic U.S. Code
+    '38 U.S.C. 555': 'Fraud',  # Generic U.S. Code
+    '38 U.S.C. 556': 'Fraud',  # Generic U.S. Code
+    '38 U.S.C. 556; 18 U.S.C. 88': 'Fraud',  # Generic + conspiracy, assumed underlying fraud
+    '38 U.S.C. 556a': 'Fraud',  # Generic U.S. Code
+    '38 U.S.C. 619, 18 U.SC. 73': 'Fraud',  # Generic U.S. Code
+    '38 U.S.C. 696': 'Fraud',  # Generic U.S. Code
+    '38 U.S.C. 696(1)': 'Fraud',  # Generic U.S. Code
+    '38 U.S.C. 715': 'Fraud',  # Generic U.S. Code
+    '38 U.SC. 715': 'Fraud',  # Generic U.S. Code
+    '4 ind.vio.5418,5438,R.US.S.': 'Fraud',  # Individual violations, likely regulatory/economic
+    '4 separate consp.vio.4 sep. sec.esp.act consp.vio.': 'Fraud',  # Conspiracy, assumed economic/deceptive
+    '41 Act of August 29,1916': 'Fraud',  # Generic Act, assumed regulatory/economic
+    '41 of Act of March 3, 1899': 'Fraud',  # Generic Act, assumed regulatory/economic
+    '48 Stat. 783': 'Fraud',  # Generic statute, assumed regulatory/economic
+    '50 U.S.C. 311': 'Fraud',  # Often related to Selective Service Act, involving false statements/evasion
+    '50 U.S.C. 32': 'Fraud',  # Generic U.S. Code
+    '50 U.S.C. 32, 34': 'Fraud',  # Generic U.S. Code
+    '50 U.S.C. 462': 'Fraud',  # Related to Selective Service Act (false statements, failure to register)
+    '50 U.S.C. 701': 'Fraud',  # Generic U.S. Code
+    '50 U.S.C. 904': 'Fraud',  # Often related to wartime economic stabilization/price controls
+    '50 U.S.C. 925; 18 U.S.C. 88': 'Fraud',  # Economic controls + conspiracy
+    '50 U.S.C. App. 311': 'Fraud',  # Selective Service Act (Appendix)
+    '50 U.S.C. App. 904, 925': 'Fraud',  # Wartime price controls
+    '50 U.S.C. Appendix 311': 'Fraud',  # Selective Service Act (Appendix)
+    '50 U.S.C. Appendix 311; 18 U.S.C. 207': 'Fraud',  # Selective Service + other code
+    '50 U.S.C. Appendix 901': 'Fraud',  # Wartime regulation
+    '50 U.S.C. War App. 311': 'Fraud',  # Wartime regulation
+    '50 U.S.C. War App. 633': 'Fraud',  # Wartime regulation
+    '50 USC 462(a), appendix': 'Fraud',  # Selective Service Act
+    '50 War Appendix U.S.C. 331': 'Fraud',  # Wartime regulation
+    '50 War Appendix U.S.C. 331; 18 U.S.C. 88': 'Fraud',  # Wartime regulation + conspiracy
+    '50 War Appendix U.S.C. 633;': 'Fraud',  # Wartime regulation
+    '502,2401,title 22 DCV code': 'Fraud',  # Generic DC Code, assumed regulatory/economic
+    '5209 Revisd Statutes': 'Fraud',  # Often related to national bank fraud/embezzlement
+    '5209 Revised Statutes': 'Fraud',  # Often related to national bank fraud/embezzlement
+    '5209 Revised Statutes of the US': 'Fraud',  # Often related to national bank fraud/embezzlement
+    '5415 Revised Statutes': 'Fraud',  # Often related to counterfeiting/forgery
+    '5457 Revised Statutes': 'Fraud',  # Often related to counterfeiting/forgery
+    '58th Article of War -- court martial': 'Violent',  # General military discipline, can cover serious breaches
+    '593 (a), (b) Tariff Act of 1930': 'Tax',  # Tariff Act
+    '593 Tariff Act of 1922': 'Tax',  # Tariff Act
+    '593 Tariff Act of 1930': 'Tax',  # Tariff Act
+    '6 Code of D.C. 23 (1929 edition)': 'Fraud',  # Generic DC Code
+    '6 Code of D.C. 32': 'Fraud',  # Generic DC Code
+    '6 D.C. Code (1929 Ed.) 34': 'Fraud',  # Generic DC Code
+    '6 D.C. Code 21': 'Fraud',  # Generic DC Code
+    '6 D.C. Code 76': 'Fraud',  # Generic DC Code
+    '6 U.S.C. 414': 'Fraud',  # Generic U.S. Code
+    '6 U.SC. 55,60': 'Fraud',  # Generic U.S. Code
+    '60 U.S.C. 311': 'Fraud',  # Generic U.S. Code
+    '62 U.S.C. 1162, 1185, 1152a': 'Fraud',  # Generic U.S. Code
+    '65 & 37 of Crim Code': 'Fraud',  # Generic criminal code
+    '8 U.S.C. 1324': 'Slavery',  # Relates to bringing in/harboring aliens, often linked to human trafficking
+    '8 U.S.C. 141': 'Fraud',  # Generic immigration offense, often false statements in naturalization
+    '8 U.S.C. 144': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 152, 180a': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 180a; 18 U.S.C. 1593': 'Slavery',  # 18 USC 1593 directly relates to human trafficking/slavery
+    '8 U.S.C. 220(b)(1)': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 414': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 414; 18 U.S.C. 88': 'Fraud',  # Generic immigration + conspiracy
+    '8 U.S.C. 44': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 452, 746': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 457, 18 U.S.C. 141': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 745(a)(18)': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 746': 'Fraud',  # Generic immigration offense
+    '8 U.S.C. 912': 'Fraud',  # Generic immigration offense
+    '863 D.C. Code': 'Fraud',  # Generic DC Code
+    '96th Article of War': 'Violent',  # General military discipline, can cover serious breaches
+    '9th article of war violation': 'Violent',  # General military discipline, can cover serious breaches
+    ';oss.goods.stolen.fr.intest.ship': 'Property',  # Loss of goods stolen from interstate shipment
+    '? Expense accounts': 'Fraud',  # Suggests misuse/false reporting of funds
+    '? Spirituous liquours': 'Alcohol',  # Spirituous liquors are alcoholic beverages
+    '??': 'Fraud',  # Unknown, default to broad regulatory/economic offense
+    '?? U.S.C. 145(b)': 'Fraud',  # Unknown, default to broad regulatory/economic offense
+    '?? Crim. Code': 'Fraud',  # Unknown, default to broad regulatory/economic offense
+    '?? U.S.C. 656': 'Fraud',  # 18 U.S.C. 656 is embezzlement, which is fraud
+    '???': 'Fraud',  # Unknown, default to broad regulatory/economic offense
+    '?bigamy/polygamy?': 'Sexual',  # Marital offense categorized here
+    'AWOL': 'Property',  # Absent Without Leave - abandonment of service/duty (akin to misuse of resources/duty)
+    'Accepting Bribe': 'Fraud',  # Bribery involves deception/corruption
+    'Accepting Bribes': 'Fraud',  # Bribery involves deception/corruption
+    'Accessory to mail theft': 'Property',  # Mail theft is a property crime
+    'Act of 12,14 1914': 'Fraud',  # Generic Act, assumed regulatory/economic
+    'Act of 1924': 'Fraud',  # Generic Act, assumed regulatory/economic
+    'Act of 3/6/1915': 'Fraud',  # Generic Act, assumed regulatory/economic
+    'Act of 6/25/10': 'Fraud',  # Generic Act, assumed regulatory/economic
+}
+```

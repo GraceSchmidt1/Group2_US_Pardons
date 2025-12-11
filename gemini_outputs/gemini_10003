@@ -1,0 +1,107 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'utt,pass,poss forged writings w/intent def.US': 'Fraud',
+    'utt,pass.count.coin,poss.molds f/such': 'Fraud',
+    'utt,pres.false,fraud.writings w/int.def.gov': 'Fraud',
+    'utt,pub forged check': 'Fraud',
+    'utt,pub.fal.forg.receits,att.defr.gov.': 'Fraud',
+    'utt.counter.money': 'Fraud',
+    'utt.counterf.US notes': 'Fraud',
+    'utt.lang.bring.flag/mil.in dis,obstr.recruit and e': 'Violent', # Seditious activity/disloyalty
+    'utter, passing counterfeit note': 'Fraud',
+    'utter,counterfeiting coin': 'Fraud',
+    'utter,pass.forged check': 'Fraud',
+    'utter,poss.forged a/count.strip stamps': 'Fraud',
+    'utter.counterf.currency': 'Fraud',
+    'utter.counterf.multilated coin': 'Fraud',
+    'utter.false,forged gov.bond': 'Fraud',
+    'utter.poss.forged and counterf.strip stamps,forg.i': 'Fraud',
+    'uttered,passed counterfeit bill': 'Fraud',
+    'uttering a $20 counterf.bill': 'Fraud',
+    'uttering and passing counterfeit money': 'Fraud',
+    'uttering bad checkes': 'Fraud',
+    'uttering counterf. coins': 'Fraud',
+    'uttering counterf.Int.Rev.tobacco stamps': 'Tax', # Involves Internal Revenue stamps
+    'uttering counterf.money': 'Fraud',
+    'uttering counterfeit coin': 'Fraud',
+    'uttering counterfeit currency': 'Fraud',
+    'uttering counterfeit natl.bank note': 'Fraud',
+    'uttering counterfeit notes': 'Fraud',
+    'uttering couterf.US treas.note': 'Fraud',
+    'uttering false bills of lading': 'Fraud',
+    'uttering false coin': 'Fraud',
+    'uttering forged claim': 'Fraud',
+    'uttering forged instrument': 'Fraud',
+    'uttering forged money orders': 'Fraud',
+    'uttering seditious language': 'Violent', # Inciting disloyalty/rebellion
+    'v.s. 5469,R.S. of US': 'Fraud', # Revised Statutes 5469 often related to embezzlement
+    'v.s.3242,3258,3259,3250, Rev.US. Stat': 'Alcohol', # Sections of Title 26 (IRS) related to liquor
+    'v.sc.5457.R.S.(pos,pas.count.coin)': 'Fraud', # Possession/passing counterfeit coin
+    'vagrancy': 'Property', # Categorized as Property as a "least wrong" fit, often concerns lack of property/means, or associated with preventing petty property crimes.
+    'vagrancy,grand larceny': 'Property',
+    'var.off.ag/peace,dignity of US': 'Violent', # General acts against the state/national security
+    'vessel act violation': 'Property', # Regulatory violation concerning use of vessels
+    'vessel licensing violation': 'Fraud', # Evasion of licensing requirements/fees
+    'vio 215 37 us crim code': 'Fraud', # US Criminal Code 215 is Mail Fraud
+    'vio Act of 2/13/1913': 'Slavery', # Act of Feb 13, 1913 amended the Mann Act (White Slave Traffic Act)
+    'vio Act reg steam boats': 'Fraud', # Regulatory violation, similar to vessel licensing
+    'vio Customs Laws': 'Tax', # Evasion of duties/tariffs
+    'vio Emerg. Price Cpontrol Act': 'Fraud', # Economic regulation violation, often involves black markets/fraud
+    'vio Espionage Act': 'Violent', # Acts against national security
+    'vio Harr.Narc.Act': 'Non-Alcohol Drugs', # Harrison Narcotics Act
+    'vio Harrison Anti-narcotuc Act': 'Non-Alcohol Drugs',
+    'vio IRS law re liq': 'Alcohol', # IRS law regarding liquor
+    'vio IRS laws': 'Tax',
+    'vio IRS laws re intox.liq': 'Alcohol', # IRS law regarding intoxicating liquor
+    'vio IRS liquor laws': 'Alcohol',
+    'vio Marijuana Act': 'Non-Alcohol Drugs',
+    'vio Nat Proh Act': 'Alcohol', # National Prohibition Act (Volstead Act)
+    'vio Nat.Bank Act': 'Fraud', # Violations often involve financial regulations/fraud
+    'vio Nat.Bankrptcy laws': 'Fraud', # Violations often involve fraud
+    'vio Sect 192, 18 U.S.C. 315': 'Fraud', # Concealment/mutilation of records, often to impede fraud investigations
+    'vio Sect 20(7),Title 49 U.S.C., conspiracy': 'Fraud', # False entries in records of common carriers
+    'vio Sect 215 U.S.C.': 'Fraud', # Mail Fraud
+    'vio Sect 231? Title 18 U.S. C': 'Property', # Interstate transportation of stolen vehicles (Dyer Act)
+    'vio Sect 2553,2557, Title 26, Sect 174, Title 21 U': 'Non-Alcohol Drugs', # Taxes on narcotics and illegal importation of narcotics
+    'vio Sect 2811, Title 26 U.S.C.': 'Alcohol', # Illegal distillation of spirits
+    'vio Sect 318 title 18': 'Fraud', # Crimes by officers, often embezzlement/bribery
+    'vio Sect 318, Title 18 U.S.C.': 'Fraud', # Crimes by officers, often embezzlement/bribery
+    'vio Sect 408, Title 18, U.S.C.': 'Property', # National Motor Vehicle Theft Act (Dyer Act)
+    'vio Sect 77, Title 15': 'Fraud', # Securities Act of 1933, often related to securities fraud
+    'vio Sect 81, Title 18': 'Fraud', # False pretenses
+    'vio Sect 88, Title 18, Sect 592, Title 12 U.S. C.': 'Fraud', # Conspiracy to defraud US, false entries by bank officers
+    'vio Sect 88, Title 18, U.S.C.': 'Fraud', # Conspiracy to defraud US
+    'vio Sect 88,100,Title 18 U.S.C.': 'Fraud', # Conspiracy to defraud US, acceptance of bribes
+    'vio Sect. 876, Title 18 U.S.C.': 'Violent', # Mailing threatening communications
+    'vio Sherman Act': 'Fraud', # Anti-trust violations, market manipulation
+    'vio UC Criminal Code 195': 'Fraud', # Generic criminal code violation, assumed to be fraud if unspecified in this context
+    'vio US Criminal Code 218': 'Fraud', # Mail Fraud
+    'vio WWII veterans act': 'Fraud', # Often related to benefits fraud
+    'vio White Slave Traffic Act': 'Slavery', # Mann Act
+    'vio gun control act': 'Violent', # Regulation of instruments of violence
+    'vio nat banking laws': 'Fraud', # Financial regulation violations
+    'vio oleomargarine laws': 'Fraud', # Tax/labeling fraud (misrepresenting margarine)
+    'vio passenger act': 'Property', # Regulatory violation concerning transport property
+    'vio rev laws': 'Tax', # Revenue laws
+    'vio sect 2554, title 26': 'Non-Alcohol Drugs', # Taxes on narcotics
+    'vio sect 262 Title 18 USC': 'Fraud', # Mail fraud related
+    'vio sect 588b title 12': 'Violent', # Bank Robbery (now 18 USC 2113), involves threat/use of violence
+    'vio sect 82 title 18 us code': 'Fraud', # False claims against the Government
+    'vio sect 86 tiel 18 USC': 'Fraud', # Acceptance of bribes by members of Congress
+    'vio sect 88 title 18 US code': 'Fraud', # Conspiracy to defraud US
+    'vio set 3261b title 26': 'Alcohol', # Tax on intoxicating liquor
+    'vio steam boat act': 'Fraud', # Regulatory violation, similar to vessel acts
+    'vio,con.vio.esp.act,cause,att.cause insub,disloyal': 'Violent', # Espionage and disloyalty
+    'vio,con.vio.nat.motor-veh.theft act': 'Property', # Motor vehicle theft
+    'vio,consp.vio.espionage act': 'Violent', # Espionage
+    'vio. 64th Article of War': 'Violent', # Military discipline offense, impacting national security
+    'vio. 95th, 96th Articles of War': 'Violent', # Military discipline offense, impacting national security
+    'vio. Clayton Act': 'Fraud', # Anti-trust, consumer protection
+    'vio. Enforcement Act': 'Fraud', # General government enforcement, often involving fraud or political misconduct
+    'vio. Harrison Narcotics Act': 'Non-Alcohol Drugs'
+}
+```

@@ -1,0 +1,110 @@
+Here is the Python dictionary with each offense from your dataset assigned to one of the specified categories. For entries that are simply references to "Acts of Congress" or "Criminal Codes" without further descriptive language, a categorization often requires external knowledge. In such cases, and as per the requirement to assign *every* offense to a category, I have used 'Fraud' as a broad default, as many historical federal crimes (especially regulatory, financial, or conspiratorial ones) could fall under this umbrella when specific details are missing. Administrative entries like "Correcting a warrant" or "Court-Japan" have also been arbitrarily assigned to 'Fraud' as a fallback, given the strict requirement to categorize everything.
+
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'Act of 8/12/37': 'Fraud',  # Generic Act of Congress, defaulted to Fraud
+    'Act of Congress of May 18, 1917 Sec. 5': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of Dec. 17, 1914': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of December 14, 1914': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of December 17, 1914': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of December 17, 1914; Act of February 9, 1909': 'Fraud', # Generic Acts, defaulted to Fraud
+    'Act of December 28, 1919': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of Feb 13, 1913': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of February 13, 1313; Section 37 Crim. Code': 'Fraud', # Crim. Code 37 refers to conspiracy (often fraud)
+    'Act of February 13, 1913; Crim. Code 37': 'Fraud', # Crim. Code 37 refers to conspiracy (often fraud)
+    'Act of February 9, 1909 as amended by the Act of M': 'Fraud', # Incomplete generic Act, defaulted to Fraud
+    'Act of January 11, 1904': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of July 11, 1941': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of June 10, 1910': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of June 25, 1910': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of June 25, 1910 -- deported unless pardoned': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of June 5 1910': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of June 8, 1938 chapter 327; 18 U.S.C. 88': 'Fraud', # 18 U.S.C. 88 refers to conspiracy (often fraud)
+    'Act of March 3, 1899': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of March 4, 1909': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of March 4, 1909 Sec. 211': 'Fraud', # Sec. 211 is commonly Mail Fraud
+    'Act of May 26, 1922; Act of December 17, 1914': 'Fraud', # Generic Acts, defaulted to Fraud
+    'Act of Oct. 19, 1919': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of October 28, 1919': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act of October 29, 1919': 'Fraud', # Generic Act, defaulted to Fraud
+    'Act uf June 22, 1932': 'Fraud', # Generic Act, defaulted to Fraud
+    'Air Commerce Act': 'Fraud', # Regulatory act, often involves fraud or smuggling
+    'Alaska Bone Dry Law': 'Alcohol', # Prohibition law
+    'Alien Registration Act of 1940 -- deported unless': 'Fraud', # Often involves false statements or identities
+    'Altering Bank Nortes': 'Fraud',
+    'Altering Coinage': 'Fraud',
+    'Altering Federal Reserve Note': 'Fraud',
+    'Altering Money Order': 'Fraud',
+    'Altering Veteran\'s Check': 'Fraud',
+    'Altering, passing bank note': 'Fraud',
+    'Arch.Res.Prot.Act': 'Property', # Archaeological Resources Protection Act deals with theft/damage
+    'Assault': 'Violent',
+    'Assault, escape from jail': 'Violent',
+    'Attempting to Mail Unmailable material': 'Fraud', # Covers various illicit mailings, often for fraudulent purposes
+    'BREAK.FREIGHT CAR, THEFT': 'Property',
+    'Bank Robbery': 'Violent', # Often involves threat or use of force
+    'Banking Laws': 'Fraud', # Given context of altering notes and embezzlement
+    'Bankruptcy Act': 'Fraud', # Often involves concealing assets
+    'Breaking in and Entering': 'Property',
+    'Breaking into a Post office': 'Property',
+    'Bribery': 'Fraud',
+    'Bribery/graft': 'Fraud',
+    'Brkng.seal of car, stlng.intst.frght.': 'Property',
+    'Burglary': 'Property',
+    'CONCEAL.UNPAID.LIQ.TAX': 'Tax', # Directly mentions tax
+    'Car Theft': 'Property',
+    'Claims false against US': 'Fraud',
+    'Code of D.C. 22-502': 'Fraud', # Generic code, defaulted to Fraud
+    'Code of Laws for D.C. 810': 'Fraud', # Generic code, defaulted to Fraud
+    'Collection of unlawful fees': 'Fraud',
+    'Concealing Assets during Bankruptcy': 'Fraud',
+    'Concealing Dutiable Goods': 'Fraud', # Avoiding duties/taxes through deception
+    'Concealment of Assets during Bankrupt': 'Fraud',
+    'Concealment of Assets in Bankrupt': 'Fraud',
+    'Cong Resolution 5/28/1934': 'Fraud', # Generic Resolution, defaulted to Fraud
+    'Conspiracy to steal from US': 'Property',
+    'Conspiracy to Damage Engine of Ship': 'Property',
+    'Conspiracy to Defraud US': 'Fraud',
+    'Conspiracy to Embezzle from Bank': 'Fraud',
+    'Conspiracy to Injure': 'Violent',
+    'Conspiracy to Violate Statutes of US': 'Fraud', # Generic conspiracy, defaulted to Fraud
+    'Conspiracy to defraud US': 'Fraud',
+    'Conspiracy to sell liquor': 'Alcohol',
+    'Contempt of Court': 'Fraud', # Often involves obstruction of justice or deception
+    'Correcting a 5/14/1878 warrant which said Wester i': 'Fraud', # Administrative entry, forced category
+    'Counterfeit': 'Fraud',
+    'Counterfeit Laws': 'Fraud',
+    'Counterfeit Laws IRS stamps': 'Fraud', # Counterfeiting is fraud, even if related to tax stamps
+    'Counterfeit Laws stamps': 'Fraud',
+    'Counterfeit Money': 'Fraud',
+    'Counterfeit Notes': 'Fraud',
+    'Court-Japan': 'Fraud', # Location/jurisdiction, forced category
+    'Couterfeiting, Conspiracy': 'Fraud',
+    'Crim. Code 148, 151': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 151': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 151 (18 U.S.C. 265)': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 151 -- already had sentence commuted': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 151, 332': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 169': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 19': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 191, 194': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 192, 190': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 197': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 215': 'Fraud', # Commonly Mail Fraud
+    'Crim. Code 225': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 279': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 32 (18 U.S.C. 76)': 'Fraud', # 18 U.S.C. 76 refers to impersonation (fraud)
+    'Crim. Code 37': 'Fraud', # Refers to conspiracy (18 U.S.C. 88), often involving fraud
+    'Crim. Code 37 (18 U.S.C. 88)': 'Fraud', # Refers to conspiracy (18 U.S.C. 88), often involving fraud
+    'Crim. Code 37 (18 U.S.C. 88); 26 U.S.C. 1162, 1184': 'Tax', # Conspiracy with explicit tax code references
+    'Crim. Code 37 -- deported unless pardoned': 'Fraud', # Refers to conspiracy, defaulted to Fraud
+    'Crim. Code 37, 163 -- deported unless pardoned --': 'Fraud', # Conspiracy with another generic code, defaulted to Fraud
+    'Crim. Code 37, 215': 'Fraud', # Conspiracy and Mail Fraud
+    'Crim. Code 39': 'Fraud', # Generic code, defaulted to Fraud
+    'Crim. Code 87; Revised Stat. Of U.S. 3082': 'Fraud', # Generic code, defaulted to Fraud
+}
+```

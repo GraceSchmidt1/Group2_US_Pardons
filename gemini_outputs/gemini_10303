@@ -1,0 +1,110 @@
+Here is the Python dictionary with each offense categorized according to your specifications. For vague offenses, I've made the most reasonable assignment based on common legal interpretations and the provided categories.
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'vio.act.rel.security passengers': 'violent',
+    'vio.act.rel.ventill.passeng.ships,no house over st': 'violent',
+    'vio.act.rel.ventillation appar.': 'violent',
+    'vio.alien contract laws': 'slavery',
+    'vio.article gov. for navy': 'violent',  # Assuming violation impacting order or safety.
+    'vio.bald eagle Act,pesticides': 'property',  # Harming wildlife as public property.
+    'vio.banking laws': 'fraud',
+    'vio.bankrupt law (R.S.sec 5132)': 'fraud',
+    'vio.bankrupt laws': 'fraud',
+    'vio.calling Nat.Forces Act': 'violent',  # Assuming unauthorized action potentially leading to force/disruption.
+    'vio.cigar manuf.laws': 'tax',  # Cigars are heavily taxed products.
+    'vio.coinage laws': 'fraud',  # Counterfeiting money involves deception.
+    'vio.election law': 'fraud',
+    'vio.election laws': 'fraud',
+    'vio.enforcement act': 'fraud',  # Vague, but often related to subverting legal processes.
+    'vio.esp.act': 'fraud',  # Espionage involves deception and betrayal.
+    'vio.esp.act,att.inj&destr.war materials': 'violent',
+    'vio.espionage act': 'fraud',
+    'vio.export / money-laundering laws': 'fraud',
+    'vio.fish/w.life laws': 'property',  # Harming wildlife/resources as public property.
+    'vio.gaming laws': 'fraud',  # Often involves illegal operations or rigging.
+    'vio.harr.act,narc.drugs imp/exp act': 'non-alcohol drugs',
+    'vio.harrison act': 'non-alcohol drugs',
+    'vio.harrison antinarc. act': 'non-alcohol drugs',
+    'vio.harrison antinarc.act': 'non-alcohol drugs',
+    'vio.harrison antinarcotic act': 'non-alcohol drugs',
+    'vio.immigra.and resid.of aliens act': 'fraud',  # Often related to false claims or documents.
+    'vio.immigration act': 'fraud',
+    'vio.inj.proh.vio.by striking rail shopmen': 'violent',
+    'vio.injunct.issued by US District Court': 'fraud',  # Vague, but often related to subverting legal processes.
+    'vio.int.commerce act': 'fraud',  # Often related to unfair practices or monopolies.
+    'vio.int.rev. laws': 'tax',
+    'vio.int.rev.law rel.sale tobacco': 'tax',
+    'vio.int.rev.law,resist.officer': 'violent',
+    'vio.int.rev.laws': 'tax',
+    'vio.int.rev.laws as Gauger': 'tax',
+    'vio.int.rev.laws rel.disill.spir': 'tax',
+    'vio.int.rev.laws rel.dist.liq.': 'tax',
+    'vio.int.rev.laws rel.dist.spir.': 'tax',
+    'vio.int.rev.laws rel.distill.spir.': 'tax',
+    'vio.int.rev.laws rel.spir.liq.': 'tax',
+    'vio.int.rev.laws rel.spirits': 'tax',
+    'vio.int.rev.laws rel.to spir.liq.': 'tax',
+    'vio.int.rev.laws relating to cigars': 'tax',
+    'vio.int.rev.laws selling whiskey': 'tax',
+    'vio.int.revenue laws': 'tax',
+    'vio.intenal revenue laws': 'tax',
+    'vio.inter.rev.laws': 'tax',
+    'vio.intercourse act': 'fraud',  # Historically related to trade violations.
+    'vio.intern.rev.laws': 'tax',
+    'vio.intern.rev.laws rel.to cigars': 'tax',
+    'vio.internal rev.laws': 'tax',
+    'vio.internal reven.law': 'tax',
+    'vio.internal reven.laws': 'tax',
+    'vio.internal revenue law': 'tax',
+    'vio.internal revenue laws': 'tax',
+    'vio.internal.revenue law,sold liq.w/out license': 'tax',
+    'vio.international revenue laws': 'tax',
+    'vio.interst.comm.act': 'fraud',
+    'vio.interstate commerce act': 'fraud',
+    'vio.irs liq man,sale,tax laws': 'tax',
+    'vio.law prevent.smoke': 'violent',  # Related to public safety/health.
+    'vio.law rel.spirit.liq.': 'alcohol',
+    'vio.law related to manuf.tobacco': 'tax',
+    'vio.law relating to distilled spirits': 'alcohol',
+    'vio.law relating to manuf.tobacco': 'tax',
+    'vio.laws of U.S.': 'fraud',  # Too general, treated as subversion of general legal framework.
+    'vio.laws of US rel.to counter.money': 'fraud',
+    'vio.laws of war,murder': 'violent',
+    'vio.laws passenger ships': 'violent',  # Related to passenger safety.
+    'vio.laws ptotecting seaman': 'violent',  # Protecting from harm or exploitation.
+    'vio.laws rel.distillers': 'alcohol',
+    'vio.laws rel.liquor in casks': 'alcohol',
+    'vio.laws rel.manuf,sale of cigars': 'tax',
+    'vio.laws rel.manuf,sale.spir.liq.': 'alcohol',
+    'vio.laws rel.sale of cigars': 'tax',
+    'vio.laws rel.to counterf.money': 'fraud',
+    'vio.laws rel.to int.revenue': 'tax',
+    'vio.laws rel.to intern.rev.': 'tax',
+    'vio.laws rel.to internal revenue': 'tax',
+    'vio.laws rel.to manuf,sale of liq.': 'alcohol',
+    'vio.laws rel.to spirit.liquors': 'alcohol',
+    'vio.laws relating to distill.spirits': 'alcohol',
+    'vio.laws relating to liquor dealing': 'alcohol',
+    'vio.laws relating to natl.banks': 'fraud',
+    'vio.laws slave trade': 'slavery',
+    'vio.laws w/respect to distillers': 'alcohol',
+    'vio.liq.law': 'alcohol',
+    'vio.motor vehicle act': 'violent',  # Assuming general safety/reckless operation.
+    'vio.motor vehicle theft act': 'property',
+    'vio.narcotic import/export act': 'non-alcohol drugs',
+    'vio.nat.banking law': 'fraud',
+    'vio.nat.banking laws': 'fraud',
+    'vio.nat.motor veh.theft act,consp.': 'property',
+    'vio.nat.motor vehicle theft act': 'property',
+    'vio.nat.proh.act': 'alcohol',
+    'vio.nat.proh.act,carry.bus.dist.w/o bond': 'alcohol',
+    'vio.nat.prohib.act': 'alcohol',
+    'vio.national bank laws': 'fraud',
+    'vio.national bank.laws': 'fraud',
+}
+```

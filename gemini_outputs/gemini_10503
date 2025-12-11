@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'vio.sec.5518, R.S. of US': 'Violent',  # Section 5518 R.S. relates to conspiracy to obstruct justice or prevent acceptance of office, often implying force or intimidation.
+    'vio.sec.6 of Enforcement Act (16 Statutes at Large': 'Fraud',  # Generic "Enforcement Act" violation, often implying non-compliance or evasion of regulations.
+    'vio.sec.6,USCC,and consp.vio.esp.act, vio.espionag': 'Violent',  # Espionage Act violations relate to national security and can have violent implications.
+    'vio.sec.6,USCC,consp.vio.esp.act': 'Violent',  # Espionage Act violations.
+    'vio.sec.8 of immigration act': 'Fraud',  # Immigration violations often involve false claims, documents, or illegal entry.
+    'vio.secs.3257,3281,3282 Int.Rev.Statutes': 'Tax',  # "Int.Rev.Statutes" refers to Internal Revenue Statutes.
+    'vio.sect 5440 of R.S. US': 'Fraud',  # Section 5440 R.S. often refers to conspiracy to defraud the U.S. government.
+    'vio.sect 5448 R.S. (imp.rev.off.)': 'Fraud',  # "imp.rev.off." likely means impersonating a revenue officer.
+    'vio.sect 55 Nat.Bank Act': 'Fraud',  # Violations of the National Bank Act often involve embezzlement, false entries, or misappropriation of funds.
+    'vio.sect. 125 and 37 crim.code': 'Violent',  # Section 37 (conspiracy) and 125 (rebellion/insurrection) of the Criminal Code are violent or national security related.
+    'vio.sect. Bankruptcy Act': 'Fraud',  # Violations of the Bankruptcy Act typically involve bankruptcy fraud.
+    'vio.sect.3,Title I esp.act': 'Violent',  # Espionage Act.
+    'vio.sect.3177 R.S.': 'Tax',  # Section 3177 R.S. relates to internal revenue.
+    'vio.sect.3296,5440 of R.S. US': 'Fraud',  # Section 5440 R.S. is related to fraud, and 3296 also relates to internal revenue.
+    'vio.sect.3318,3326 R.S. US': 'Tax',  # These sections relate to internal revenue.
+    'vio.sect.3324 R.S. fail cancel stamp on whisk.barr': 'Alcohol',  # "whisk.barr" refers to whiskey barrels, indicating alcohol-related tax or regulation.
+    'vio.sect.3394 rev.stat.US': 'Tax',  # Section 3394 R.S. relates to tobacco revenue.
+    'vio.sect.3891 rel.embezz.fr/mails': 'Fraud',  # "Embezzlement" is a type of fraud, especially when related to mail services.
+    'vio.sect.3985 of R.S.': 'Fraud',  # Section 3985 R.S. relates to mail services regulations, often implying misconduct or evasion of duty.
+    'vio.sect.5209.R.US.S.by will.misapp.funds nat.bank': 'Fraud',  # "Misappropriation of funds" from a national bank is fraud.
+    'vio.sect.5438 R.S.': 'Fraud',  # Section 5438 R.S. relates to false claims against the government.
+    'vio.sect.5440 rev.stat.US': 'Fraud',  # Conspiracy to defraud the U.S.
+    'vio.sect.5467 R.S.': 'Property',  # Section 5467 R.S. refers to mail robbery.
+    'vio.sect.5469,5478 R.S.': 'Property',  # These sections relate to mail theft and embezzlement.
+    'vio.sect.5474 R.S. rel.deilv.mails': 'Property',  # Section 5474 R.S. relates to embezzlement of letters.
+    'vio.sect.5480 R.S. US': 'Fraud',  # Section 5480 R.S. is the mail fraud statute.
+    'vio.sect.5492,U.S.Rev.Stat': 'Fraud',  # Section 5492 R.S. relates to bankers unlawfully receiving deposits after insolvency (banking fraud).
+    'vio.sect.revised statutes': 'Fraud',  # Generic violation of federal statutes, often implies regulatory non-compliance or deceit.
+    'vio.section 3 of espionage act': 'Violent',  # Espionage Act.
+    'vio.select.serv.train.act': 'Fraud',  # Selective Service (draft) evasion often involves false claims or misrepresentation.
+    'vio.shite slave traffic act': 'Sexual',  # Typo for "white slave traffic act" (Mann Act), related to trafficking for immoral purposes.
+    'vio.stat. req.regist. stills': 'Alcohol',  # "Stills" are used for producing alcohol, usually associated with illegal distillation.
+    'vio.tariff act of 1913': 'Tax',  # Tariffs are a form of tax.
+    'vio.temp.injunct.': 'Fraud',  # Violating an injunction is contempt of court, often related to preventing fraudulent activities or ensuring compliance.
+    'vio.trade with enemy act': 'Violent',  # Trading with the enemy during wartime is a national security concern.
+    'vio.vess.ventillator act': 'Fraud',  # Likely a regulatory/safety act for vessels, implying non-compliance or evasion.
+    'vio.vice reg. of select.serv.act': 'Fraud',  # Selective Service Act (draft evasion).
+    'vio.war statuts, 4 counts': 'Violent',  # Violations of war statutes are related to national security.
+    'vio.war-time legislation': 'Violent',
+    'vio.wartime leg.,4 counts': 'Violent',
+    'vio.white slae traffic act': 'Sexual',  # Typo for "white slave traffic act".
+    'vio.white slave traff.act': 'Sexual',
+    'vio.white slave traffic act': 'Sexual',
+    'vio.white slave trffc act': 'Sexual',
+    'vio.white slave trffc. act': 'Sexual',
+    'vio.white-slave traffic act': 'Sexual',
+    'vio.white-slave trffc act': 'Sexual',
+    'vio.wht.slave traff. act': 'Sexual',
+    'vio.wht.slave traffic act': 'Sexual',
+    'vioe sect 592, title USC': 'Fraud',  # 18 U.S.C. 592 relates to fraudulent voting.
+    'viol. of Harrison Antinarc.Act-3 indms.': 'Non-Alcohol Drugs',  # "Antinarc.Act" refers to anti-narcotic laws.
+    'viol.Harr.Antinarc and Jones-Miller acts': 'Non-Alcohol Drugs',
+    'viol.Harr.Antinarc.and Jones-Miller acts': 'Non-Alcohol Drugs',
+    'viol.Harrison Antinarc.Act': 'Non-Alcohol Drugs',
+    'viol.Harrison Antinarc.and Jones-Miller acts': 'Non-Alcohol Drugs',
+    'viol.Harrison Antinarcotic Act': 'Non-Alcohol Drugs',
+    'viol.Harrison Narcotic Act': 'Non-Alcohol Drugs',
+    'viol.Sherman Antitrust Act': 'Fraud',  # Antitrust violations often involve deceptive business practices or market manipulation.
+    'viol.US rev.statutes and nat.prohib.act': 'Alcohol',  # "nat.prohib.act" refers to national prohibition.
+    'viol.act prohi.manuf.sell.liq.in AK': 'Alcohol',  # "liq." refers to liquor.
+    'viol.crimin.syndical.act of CA': 'Violent',  # Criminal syndicalism involves advocating crime, sabotage, or violence to achieve political change.
+    'viol.espionage act': 'Violent',
+    'viol.espionage act of June 15,1917': 'Violent',
+    'viol.internal revenue laws': 'Tax',
+    'viol.migratory bird treaty act': 'Property',  # Unlawful taking or disturbance of protected natural resources.
+    'viol.motor vehicle theft act': 'Property',
+    'viol.nat.motor vehicle theft act': 'Property',
+    'viol.nat.prohib.act': 'Alcohol',
+    'viol.nat.prohib.act,consp.': 'Alcohol',
+    'viol.nat.prohib.actmanuf.liq.,poss.prop.manuf.liq.': 'Alcohol',
+    'viol.nat.prohib.law': 'Alcohol',
+    'viol.natnl.banking act': 'Fraud',  # National banking act violations often relate to fraud.
+    'viol.natnl.motor vehical theft act': 'Property',
+    'viol.natnl.motor vehicle theft act': 'Property',
+    'viol.natnl.prohib.act': 'Alcohol',
+    'viol.of postal laws': 'Fraud',  # Many federal postal laws relate to mail fraud.
+    'viol.revenue laws,conspiracy': 'Tax',
+    'viol.sec.22 immigration act of 1924': 'Fraud',  # Immigration violations (e.g., false entry, harboring).
+    'viol.tariff act of 1922': 'Tax',
+    'viol.white slave traffic act': 'Sexual',
+    'violaitng internal revenue laws': 'Tax',
+    'violant.assault,obstr.rev.off.': 'Violent',  # "Assault" is a violent crime.
+    'violated Section 504, World War Veterans Act of 19': 'Fraud',  # Veterans Act violations often concern fraudulent claims for benefits.
+    'violated the 58th article of war': 'Violent',  # Articles of War pertain to military discipline and conduct, often involving actions that undermine national security or military operations.
+    'violatinf internal revenue laws': 'Tax',
+    'violating Harrison Antinarc.Act': 'Non-Alcohol Drugs',
+    'violating Mann Act': 'Sexual',  # The Mann Act is also known as the White-Slave Traffic Act.
+    'violating Reed Amendment': 'Alcohol',  # The Reed Amendment restricted interstate shipment of alcohol.
+    'violating an injunction order': 'Fraud',  # Similar to 'vio.temp.injunct.', defying a court order often involves evasion or deceit.
+    'violating dry law': 'Alcohol',
+    'violating espionage act': 'Violent',
+    'violating interal revenue laws': 'Tax',
+    'violating internal revenue laws': 'Tax',
+    'violating nat. prohibition act': 'Alcohol',
+    'violating nat.proh.act': 'Alcohol',
+    'violating nat.prohib.act': 'Alcohol',
+    'violating national banking laws': 'Fraud',
+    'violating neutrality laws': 'Violent',  # Neutrality laws relate to national security and international relations during conflict.
+    'violating oleomargarine act': 'Tax',  # Oleomargarine laws often involved taxes or regulations to prevent fraud by mislabeling.
+    'violating oleomargarine laws': 'Tax'
+}
+```

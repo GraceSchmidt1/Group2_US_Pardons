@@ -1,0 +1,110 @@
+Here is the Python dictionary categorizing each offense as requested:
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    '26 U.S.C. 2810, 2833, 2803(a)(g), 2834; 18 U.S.C.': 'alcohol',
+    '26 U.S.C. 2810, 2833, 2834': 'alcohol',
+    '26 U.S.C. 2810, 2833, 2834, 2806': 'alcohol',
+    '26 U.S.C. 2810, 2834': 'alcohol',
+    '26 U.S.C. 2810, 2834, 2819': 'alcohol',
+    '26 U.S.C. 2810; 18 U.S.C. 88': 'alcohol',
+    '26 U.S.C. 2810a, 2833a, 2831, 2803a,g; 18 U.S.C. 2': 'alcohol',
+    '26 U.S.C. 2810a, 2834, 2806f': 'alcohol',
+    '26 U.S.C. 2819, 2833, 2834, 2803a,g': 'alcohol',
+    '26 U.S.C. 2819, 2834, 2803, 2833 -- deported unles': 'alcohol',
+    '26 U.S.C. 2833': 'alcohol',
+    '26 U.S.C. 2833 -- deported unless pardoned -- hard': 'alcohol',
+    '26 U.S.C. 2833, 2803': 'alcohol',
+    '26 U.S.C. 2833, 2834': 'alcohol',
+    '26 U.S.C. 2833, 3253, 2810, 2913, 3321, 2803, 2834': 'alcohol',
+    '26 U.S.C. 2833a, 2803a, 3321a': 'alcohol',
+    '26 U.S.C. 2833a, 2810a, 2834, 3321a': 'alcohol',
+    '26 U.S.C. 2834, 2810, 2833': 'alcohol',
+    '26 U.S.C. 2871, 2803': 'alcohol',
+    '26 U.S.C. 306': 'alcohol',
+    '26 U.S.C. 306 (1926 ed.)': 'alcohol',
+    '26 U.S.C. 306, 281, 282, 304, 307': 'alcohol',
+    '26 U.S.C. 307': 'alcohol',
+    '26 U.S.C. 3224, 2553, 2554': 'non-alcohol drugs', # Sections 2553, 2554 relate to Harrison Narcotics Tax Act
+    '26 U.S.C. 3253': 'alcohol',
+    '26 U.S.C. 3253, 3254': 'alcohol',
+    '26 U.S.C. 3253, 3254, 2803(a)(?)': 'alcohol',
+    '26 U.S.C. 3253, 3254, 3321': 'alcohol',
+    '26 U.S.C. 3253,3254': 'alcohol',
+    '26 U.S.C. 3281, 3282': 'alcohol',
+    '26 U.S.C. 3296': 'alcohol',
+    '26 U.S.C. 3321': 'alcohol',
+    '26 U.S.C. 3321(a)': 'alcohol',
+    '26 U.S.C. 3321, 2803': 'alcohol',
+    '26 U.S.C. 3554': 'tax', # General provision related to tax fraud/evasion
+    '26 U.S.C. 3616': 'tax', # General provision related to tax fraud/evasion
+    '26 U.S.C. 3793': 'fraud', # Tax fraud, but fundamentally fraud against the revenue
+    '26 U.S.C. 3793; 18 U.S.C. 72': 'fraud', # Both relate to fraud/false claims against the government
+    '26 U.S.C. 404': 'tax', # Tax on firearms
+    '26 U.S.C. 404, 307': 'alcohol', # Combined with alcohol tax section
+    '26 U.S.C. 4047': 'fraud', # Attempts to defraud the revenue
+    '26 U.S.C. 4047e; 18 U.S.C. 80, 207': 'fraud', # All related to fraud against the government
+    '26 U.S.C. 4704': 'non-alcohol drugs', # Harrison Narcotics Tax Act
+    '26 U.S.C. 4704(a) & 4705(a)': 'non-alcohol drugs',
+    '26 U.S.C. 4704,4705': 'non-alcohol drugs',
+    '26 U.S.C. 4705': 'non-alcohol drugs',
+    '26 U.S.C. 4705(a)': 'non-alcohol drugs',
+    '26 U.S.C. 4705(a) & 21 U.S.C. 174': 'non-alcohol drugs', # 21 USC 174 is illegal importation of narcotics
+    '26 U.S.C. 4742': 'non-alcohol drugs', # Marihuana Tax Act
+    '26 U.S.C. 4742(a) & 4744(a)': 'non-alcohol drugs',
+    '26 U.S.C. 4744': 'non-alcohol drugs',
+    '26 U.S.C. 4744(a)(2)': 'non-alcohol drugs',
+    '26 U.S.C. 64': 'alcohol', # Old section related to alcohol production taxes
+    '26 U.S.C. 692': 'non-alcohol drugs', # Harrison Narcotics Tax Act
+    '26 U.S.C. 692 & 696, 26 U.S.C.': 'non-alcohol drugs',
+    '26 U.S.C. 692 &696': 'non-alcohol drugs',
+    '26 U.S.C. 692 -- illegally selling morphine hydroc': 'non-alcohol drugs',
+    '26 U.S.C. 692, 696': 'non-alcohol drugs',
+    '26 U.S.C. 692, 696; 18 U.S.C. 88': 'non-alcohol drugs',
+    '26 U.S.C. 692, 696; 21 U.S.C. 174': 'non-alcohol drugs',
+    '26 U.S.C. 696': 'non-alcohol drugs',
+    '26 U.S.C. 718, 861, 737, 880, 719, 738': 'non-alcohol drugs', # Old sections related to opium/narcotics tax
+    '26 U.S.C. 870, 871': 'alcohol', # Old sections related to fermented liquor tax
+    '26 U.S.C. 923(3)': 'tax', # Tax on oleomargarine
+    '26 U.S.C. 923, 18 U.S.C. 265': 'fraud', # Oleomargarine tax + forgery/counterfeiting
+    '26 U.S.C.1162, 1185': 'tax', # Old sections related to tobacco tax
+    '26 U.SC. 1152(a)': 'tax', # Old section related to tobacco tax
+    '26 U.SC. 1152a, 1284, 1207': 'tax', # Old sections related to tobacco tax
+    '26 U.SC. 1162': 'tax', # Old section related to tobacco tax
+    '26 U.SC. 145 (b)': 'tax', # Income tax evasion
+    '26 U.SC. 306, 281, 261, 1181': 'alcohol', # Combination of alcohol and tobacco tax sections, leaning alcohol
+    '26 U.SC. 3793': 'fraud', # Tax fraud
+    '26 U.SC> 281,306,257': 'alcohol', # All old sections related to alcohol taxes
+    '26 U.SC> 3792': 'fraud', # Similar to 3793, fraud against the revenue
+    '26 US.C. 304, liquor tax act': 'alcohol',
+    '26 USC 145a': 'tax', # Income tax evasion
+    '26. U.S.C. 4554(g)': 'non-alcohol drugs', # Historical tax on opium
+    '27 U.S.C. 12': 'alcohol', # National Prohibition Act (Volstead Act)
+    '27 U.S.C. 12 & 18 U.S.C. 121': 'alcohol', # Primary offense is alcohol
+    '27 U.S.C. 17, 46': 'alcohol', # Volstead Act sections
+    '27 U.S.C. 18,33': 'alcohol', # Volstead Act sections
+    '27 U.S.C. 223': 'alcohol', # Volstead Act sections
+    '272, 276 Crim. Code': 'fraud', # Often related to mail fraud or offenses against the mails
+    '273 Crim. Code': 'fraud', # Often related to mail fraud
+    '28 U.S.C. 102 & 18 U.S.C. 1': 'fraud', # Contempt/obstruction, can involve deceit
+    '2834 IRS Code': 'alcohol', # Refers to alcohol tax sections (2800 series)
+    '29 U.S.C. 318': 'fraud', # Child labor violation (exploitation often involves fraud/misrepresentation)
+    '29th Sec. Act of July 1, 1898 and 215 Crim Code': 'fraud', # Bankruptcy fraud and mail fraud
+    '3 Stat. 765': 'tax', # Act of March 2, 1823, related to duties on imports and tonnage (customs tax)
+    '3 convictions liquor': 'alcohol',
+    '3 convictions!': 'alcohol', # Assuming context from surrounding entries
+    '3258 Revised Statutes': 'alcohol', # Illicit distilleries
+    '3258, 3282 Revised Statutes': 'alcohol',
+    '3266 Revised Statutes': 'alcohol',
+    '3268,3282 Revised Statutes': 'alcohol',
+    '3281, 3282 Revised Statutes': 'alcohol',
+    '3281, 3282, 3279 Revised Statutes of the US': 'alcohol',
+    '3281,3282 Revised Statues': 'alcohol',
+    '3296, 3452 Crim Code': 'alcohol', # Illicit spirits and removal of goods to defraud tax
+    '338a Title 18 USC': 'violent' # Mailing threatening communications
+}
+```

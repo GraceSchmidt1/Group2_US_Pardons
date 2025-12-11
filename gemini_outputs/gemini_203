@@ -1,0 +1,114 @@
+This is a challenging request because most of the offenses are listed as "18 U.S.C. [section number]" without descriptive text. These refer to sections of Title 18 of the United States Code. To accurately categorize them, one would typically need to look up the specific content of each section, often in its historical context, as some of these codes predate the 1948 recodification of Title 18.
+
+I have performed a manual assignment for each offense, using common historical interpretations of these U.S. Code sections where possible. For entries with multiple U.S.C. sections or additional descriptive text, I've prioritized the most specific or severe component for categorization.
+
+Here is the Python dictionary with the assigned categorizations:
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    '18 U.S.C. 320, 315, 100': 'Violent',  # 320: Destruction of aircraft/facilities (violence/property)
+    '18 U.S.C. 320, 317': 'Violent',      # 317: Robbery; 320: Destruction
+    '18 U.S.C. 321': 'Property',         # Historically related to larceny/theft
+    '18 U.S.C. 328': 'Property',         # Historically related to mail robbery
+    '18 U.S.C. 329': 'Property',         # Historically related to embezzlement of mail
+    '18 U.S.C. 330': 'Property',         # Historically related to stealing mail matter
+    '18 U.S.C. 333, 335': 'Sexual',       # 335: Mailing obscene matter; 333: Forgery (mix, prioritizing sexual for distinctness)
+    '18 U.S.C. 334': 'Sexual',           # Historically related to mailing obscene/crime-inciting matter
+    '18 U.S.C. 334, 396': 'Sexual',       # 334: Obscene mail; 396: Stolen property (mix, prioritizing sexual for distinctness)
+    '18 U.S.C. 335': 'Sexual',           # Historically related to mailing obscene matter
+    '18 U.S.C. 336': 'Violent',          # Historically related to using mail to defame/blackmail (extortion/threat)
+    '18 U.S.C. 337,334,338': 'Sexual',   # 334: Obscene mail; 337: Lotteries; 338: Mail fraud (mix, prioritizing sexual for distinctness)
+    '18 U.S.C. 338': 'Fraud',            # Historically related to mail fraud
+    '18 U.S.C. 338 -- deported unless pardoned': 'Fraud', # Mail fraud
+    '18 U.S.C. 338 and 155 U.S.C. 77q(a)(1)': 'Fraud', # Mail fraud & securities fraud
+    '18 U.S.C. 338(a)': 'Fraud',         # Mail fraud
+    '18 U.S.C. 338, 15 U.S.C. 77q (a)(1)': 'Fraud', # Mail fraud & securities fraud
+    '18 U.S.C. 338, 88': 'Fraud',        # Mail fraud & conspiracy
+    '18 U.S.C. 338; 15 U.S.C. 77q': 'Fraud', # Mail fraud & securities fraud
+    '18 U.S.C. 338; 15 U.S.C. 77q1, 77e': 'Fraud', # Mail fraud & securities fraud
+    '18 U.S.C. 338; Securities Act of 1933': 'Fraud', # Mail fraud & securities fraud
+    '18 U.S.C. 338; income tax laws': 'Tax',      # Explicitly income tax related
+    '18 U.S.C. 338a': 'Fraud',           # Historically related to interstate transportation of fraudulent securities
+    '18 U.S.C. 338a -- deported unless pardoned': 'Fraud', # Fraudulent securities
+    '18 U.S.C. 338a(a)': 'Fraud',        # Fraudulent securities
+    '18 U.S.C. 338c': 'Fraud',           # Historically related to frauds by wireless/wire
+    '18 U.S.C. 340': 'Property',         # Historically related to stealing post office property
+    '18 U.S.C. 347': 'Violent',          # Historically related to assaults on mail carriers
+    '18 U.S.C. 355': 'Fraud',            # Historically related to false entries/reports by postal employees
+    '18 U.S.C. 355, 177': 'Fraud',       # 355: False reports; 177: Embezzlement (fraud/property, prioritizing fraud for false reports)
+    '18 U.S.C. 355,99,100': 'Fraud',     # 355: False reports; 99: Bribery/Graft; 100: False claims (all fraud related)
+    '18 U.S.C. 358': 'Fraud',            # Historically related to false claims for postal pay
+    '18 U.S.C. 371': 'Fraud',            # General conspiracy statute (often used for fraud in this context)
+    '18 U.S.C. 371)': 'Fraud',           # General conspiracy statute
+    '18 U.S.C. 371- conspiring to commit a crime agains': 'Fraud', # General conspiracy statute
+    '18 U.S.C. 38': 'Fraud',             # Historically related to espionage/disclosure of classified info (deception aspect)
+    '18 U.S.C. 387': 'Alcohol',          # Historically related to liquor traffic violations (Interstate shipments)
+    '18 U.S.C. 395': 'Alcohol',          # Historically related to transporting/possessing liquor or property for violating liquor laws
+    '18 U.S.C. 396': 'Property',         # Historically related to transportation of stolen vehicles/property
+    '18 U.S.C. 398': 'Slavery',          # Historically the White Slave Traffic Act (Mann Act)
+    '18 U.S.C. 398 -- deported unless pardoned': 'Slavery', # Mann Act
+    '18 U.S.C. 398, 399': 'Slavery',     # Mann Act related sections
+    '18 U.S.C. 398, 88': 'Slavery',      # Mann Act & conspiracy
+    '18 U.S.C. 398, prohibition': 'Alcohol', # 398: Mann Act; "prohibition" likely refers to alcohol prohibition. Prioritizing alcohol given explicit term.
+    '18 U.S.C. 398,399': 'Slavery',      # Mann Act related sections
+    '18 U.S.C. 399': 'Slavery',          # Part of Mann Act
+    '18 U.S.C. 406': 'Property',         # Historically related to receiving stolen property (interstate)
+    '18 U.S.C. 406, 408a': 'Property',   # Stolen property (408a: aiding interstate transport of stolen motor vehicles)
+    '18 U.S.C. 406a': 'Property',        # Historically related to receiving stolen goods
+    '18 U.S.C. 408': 'Property',         # Historically the Dyer Act (interstate transportation of stolen motor vehicles)
+    '18 U.S.C. 408, 265': 'Property',    # 408: Stolen vehicles; 265: Forging postal money orders (mix, prioritizing 408)
+    '18 U.S.C. 408;': 'Property',        # Stolen vehicles
+    '18 U.S.C. 408; 12 U.S.C. 588b': 'Violent', # 588b: Bank robbery
+    '18 U.S.C. 408a': 'Property',        # Aiding and abetting Dyer Act
+    '18 U.S.C. 408d -- deported unless pardoned -- dars': 'Property', # Stolen property
+    '18 U.S.C. 408©': 'Property',        # Stolen property (typo for 408(c))
+    '18 U.S.C. 409': 'Property',         # Historically related to theft/embezzlement from interstate shipment
+    '18 U.S.C. 409 (26 U.S.C. 4704(a) & 4705(a))': 'Non-Alcohol Drugs', # 26 USC sections refer to narcotics taxes, indicating drug-related offense
+    '18 U.S.C. 409, 88': 'Property',     # Theft from interstate shipment & conspiracy
+    '18 U.S.C. 414': 'Property',         # Historically related to interstate transport of stolen aircraft
+    '18 U.S.C. 415': 'Fraud',            # Historically related to interstate transportation of property obtained by fraud/racketeering
+    '18 U.S.C. 415, 418(a)': 'Property', # 418(a): Sale/receipt of stolen vehicles/goods (more specific than general 415)
+    '18 U.S.C. 415, 418a': 'Property',   # Same as above
+    '18 U.S.C. 415, 88': 'Fraud',        # Property obtained by fraud & conspiracy
+    '18 U.S.C. 418a, 415': 'Property',   # Stolen goods/vehicles & fraud
+    '18 U.S.C. 420a(d)': 'Fraud',        # Historically related to interstate transportation of betting materials (fraudulent schemes)
+    '18 U.S.C. 451, 466': 'Violent',     # 451: Murder (on federal reservations); 466: Larceny (prioritizing murder)
+    '18 U.S.C. 453': 'Violent',          # Historically related to manslaughter
+    '18 U.S.C. 455': 'Violent',          # Historically related to assault with intent to commit felony
+    '18 U.S.C. 466': 'Property',         # Historically related to larceny
+    '18 U.S.C. 466, 468': 'Property',    # Larceny & receiving stolen property
+    '18 U.S.C. 469': 'Property',         # Historically related to embezzlement
+    '18 U.S.C. 471': 'Fraud',            # Historically related to counterfeiting U.S. obligations/securities
+    '18 U.S.C. 472': 'Fraud',            # Historically related to uttering/possessing counterfeited obligations/securities
+    '18 U.S.C. 48': 'Property',          # Historically related to mutilation of federal money/coins
+    '18 U.S.C. 483': 'Fraud',            # Historically related to forgery/counterfeiting coins
+    '18 U.S.C. 493': 'Fraud',            # Historically related to forgery/counterfeiting bonds/obligations
+    '18 U.S.C. 502': 'Property',         # Historically related to piracy/plundering (targets property)
+    '18 U.S.C. 51': 'Violent',           # Historically related to conspiracy to injure/intimidate civil rights (Klan Act)
+    '18 U.S.C. 51, 242': 'Violent',      # Civil rights violations (51: conspiracy, 242: deprivation under color of law)
+    '18 U.S.C. 512': 'Property',         # Historically related to piracy/plundering
+    '18 U.S.C. 545': 'Fraud',            # Historically related to smuggling goods into the U.S. (evading duties)
+    '18 U.S.C. 550; Tariff Act of 1930': 'Fraud', # Smuggling/tariff evasion
+    '18 U.S.C. 588b': 'Violent',         # Historically related to bank robbery
+    '18 U.S.C. 592': 'Fraud',            # Historically related to false entries by Federal Reserve officials
+    '18 U.S.C. 641': 'Property',         # Historically related to theft/embezzlement of public money/property/records
+    '18 U.S.C. 656': 'Property',         # Historically related to theft/embezzlement/misapplication by bank officer
+    '18 U.S.C. 657': 'Property',         # Historically related to embezzlement/false entries in credit unions
+    '18 U.S.C. 659': 'Property',         # Historically related to theft from interstate shipment
+    '18 U.S.C. 72': 'Fraud',             # Historically related to false personation of federal officer/employee
+    '18 U.S.C. 73': 'Fraud',             # Historically related to false personation to obtain money/property
+    '18 U.S.C. 73, 317': 'Violent',      # 73: False personation; 317: Robbery (prioritizing robbery)
+    '18 U.S.C. 73, 88': 'Fraud',         # False personation & conspiracy
+    '18 U.S.C. 746(a)': 'Violent',       # Historically related to mutiny by crew
+    '18 U.S.C. 753': 'Violent',          # Historically related to escape from federal custody (often involves force/threats)
+    '18 U.S.C. 76': 'Fraud',             # Historically related to false personation (e.g., Red Cross, US officer)
+    '18 U.S.C. 76, 88': 'Fraud',         # False personation & conspiracy
+    '18 U.S.C. 76; 10 U.S.C. 1393': 'Fraud', # False personation & unauthorized wearing of military decorations
+    '18 U.S.C. 793(e)': 'Fraud',         # Espionage Act (gathering/transmitting defense info - deception/illicit acquisition)
+    '18 U.S.C. 80': 'Fraud'              # Historically related to presenting false claims against the Government
+}
+```

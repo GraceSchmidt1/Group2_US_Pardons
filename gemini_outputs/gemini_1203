@@ -1,0 +1,110 @@
+Here is the Python dictionary with the assigned categories for each offense:
+
+```python
+{
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'Securities Act of 1933': 'fraud',
+    'Selective Service Act': 'fraud',
+    'Selective Training and Service Act of 1940': 'fraud',
+    'Selective training and service act': 'fraud',
+    'Selling Illegal Liquor': 'alcohol',
+    'Selling Insurance no License': 'fraud',
+    'Sending Obscene Matter through mail': 'sexual',
+    'Session Laws of Alaska, 1937 Chapter 78': 'fraud',  # Generic statute, assuming regulatory violation/evasion
+    'Set.1152a,Title 26,U.S.C.': 'tax',  # Title 26 is Internal Revenue Code
+    'Shipping Hookers': 'slavery',  # Implies human trafficking for sexual exploitation
+    'Shipping Liquor to Indians': 'alcohol',
+    'Smuggling Alien into US': 'fraud',  # Evasion of immigration laws, often for illicit gain
+    'Smuggling Alien into USs': 'fraud',
+    'Smuggling stolen goods': 'property',
+    'Stealing Shipping Goods': 'property',
+    'Stealing letter from Post Office': 'property',
+    'Stealing shipment': 'property',
+    'Stolen Interstate Commerce': 'property',
+    'Suppressing Voters': 'fraud',  # Interference with democratic process via deceit or intimidation
+    'Taking Bribes': 'fraud',
+    'Tariff Act': 'tax',
+    'Tariff Act of 1922 Sec. 3593a': 'tax',
+    'Tariff Act of 1922 Sec. 593a': 'tax',
+    'Tariff Act of 1930': 'tax',
+    'Tariff Act of 1930 (19 U.S.C. 1593)': 'tax',
+    'Tarrif Act 1930': 'tax',
+    'Tarrif Act of 1922': 'tax',
+    'Tax Evasion': 'tax',
+    'Theft': 'property',
+    'Title 1, Section 15, Public Law 2, 73rd Congress': 'fraud',  # Generic statute, assuming regulatory violation/evasion
+    'Title 2 of Act of Oct. 28, 1919 & 19 U.S.C. 1593': 'alcohol',  # Act of Oct 28, 1919 is Volstead (Prohibition) Act
+    'Title 22, Chapter 25 District of Columbia Code Sec': 'fraud',  # Generic statute, assuming regulatory violation/evasion
+    'Titles II & IV, World War Veterans Act, 1924': 'fraud',  # Generic statute, assuming regulatory violation/evasion
+    'Transp.stln.auto.interstate': 'property',
+    'Transporting Stolen Goods': 'property',
+    'Transporting Stolen Vehicle': 'property',
+    'Treason': 'violent',  # Crime against the state, often involving acts against its security/people
+    'Trespassing': 'property',
+    'U.S. treasury fraud': 'fraud',
+    'U.S.C. 195': 'fraud',  # Generic statute, assuming regulatory violation/evasion
+    'UNREADABLE': 'fraud',  # As a catch-all for unclassifiable entries where a category must be chosen
+    'US land office embezz.': 'fraud',
+    'USC Sections139 Title 18': 'fraud',  # Title 18, Section 139 is influencing/intimidating witnesses, often involving deceit
+    'Unauthorized loans': 'fraud',
+    'Underaged Possesion of Liquor': 'alcohol',
+    'Unlawful Money Orders': 'fraud',
+    'Unlawful procuring of alien': 'fraud',
+    'Unlawful sale of cigarettes': 'tax',  # Often involves evasion of excise taxes or licensing fraud
+    'Unpaid Whiskey Tax': 'tax',
+    'VIO IRS LAWS': 'tax',
+    'VIO Immigration act': 'fraud',
+    'VIO Nat proh act': 'alcohol',
+    'Vehicle Theft': 'property',
+    'Vehicular Manslaughter': 'violent',
+    'Violating Lottery Laws': 'fraud',  # Illegal gambling often involves fraud or operating without license
+    'Violating Postal Laws': 'fraud',  # Broad, but often includes mail fraud or general regulatory violations
+    'Violation of Section 3268, Revised Statutes of the': 'fraud',  # Generic statute, assuming regulatory violation/evasion
+    'Voided': 'fraud',  # As a catch-all for unclassifiable entries where a category must be chosen
+    'Volstead Act (2), sect 306,281,282,304,307,title 2': 'alcohol',
+    'War Veterans Act': 'fraud',  # Generic statute, assuming regulatory violation/evasion
+    'White Slave Act': 'slavery',
+    'White Slave Traffic Act': 'slavery',
+    'White Slave Traffic Act (18 U.S.C. 398) -- deporte': 'slavery',
+    'a misdemeanor': 'fraud',  # As a catch-all for unclassifiable entries where a category must be chosen
+    'ab,misap.funds nat.bank,reports': 'fraud',
+    'ab,misap.nat.bank funds,entires': 'fraud',
+    'ab.w/out leave, embezz,assault w/int.to harm,drunk': 'violent',  # Prioritizing the most severe offense
+    'ab.w/out leave,cond.prej.ord.disc.': 'fraud',  # Military/administrative, often involves evasion of duty
+    'abduction of own son': 'violent',
+    'abs,misap funds nat.bank,entries': 'fraud',
+    'abs.f/station aft.leave exp,scand.cond,abs.f/duty,': 'fraud',  # Military/administrative, often involves evasion of duty
+    'abs.funds nat.bank as': 'fraud',
+    'abs.moneys,funds,cred.nat.bank,f.entries': 'fraud',
+    'absence w/o leave, desertion': 'fraud',  # Military/administrative, evasion of duty
+    'absence w/out leave,desertion': 'fraud',
+    'absent from station': 'fraud',  # Military/administrative, evasion of duty
+    'absent without leave': 'fraud',  # Military/administrative, evasion of duty
+    'abst,embezz.funds nat.bank': 'fraud',
+    'abst,misap moneys,cred nat.bank': 'fraud',
+    'abst.,misapp.funds natl.bank,false ent.,': 'fraud',
+    'abst.destroyed boxes from PO': 'property',
+    'abst.funds nat.bank, entries': 'fraud',
+    'abst.funds nat.bank,entries': 'fraud',
+    'abst.moneys,funds,credits nat.bank': 'fraud',
+    'abstr,misap.funds,credits natl.bank': 'fraud',
+    'abstr,misapp nat.bank funds': 'fraud',
+    'abstr,misapp,iss ill draft,making f.entries,embezz': 'fraud',
+    'abstr,misapp.funds nat.bank,f.entries,': 'fraud',
+    'abstr. moneys fr/nat.bank assoc': 'fraud',
+    'abstr.PO pack.w/treas.notes': 'property',  # Theft of mail package with valuable contents
+    'abstr.fr/mail reg.lett,embezz money': 'fraud',  # Embezzlement is key here
+    'abstr.funds nat.bank, entries': 'fraud',
+    'abstr.funds nation bank assoc.': 'fraud',
+    'abstr.funds,f.entries books nat.bank': 'fraud',
+    'abstr.funds.Nat.Bank': 'fraud',
+    'abstr.funds.nat.bank': 'fraud',
+    'abstr.funds.nat.bank,f.entries': 'fraud',
+    'abstr.lett.f/mail,appr.money therein while a carri': 'fraud',  # Appropriation by a carrier implies breach of trust/embezzlement
+    'abstr.lett.f/mail,embez.contents': 'fraud',
+    'abstr.letters fr/post office': 'property'
+}
+```

@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    '18 U.S.C. 1001': 'Fraud',  # False statements or entries generally
+    '18 U.S.C. 1001 & 912': 'Fraud',  # False statements and impersonation
+    '18 U.S.C. 101': 'Violent',  # Historically related to assault/murder
+    '18 U.S.C. 1014': 'Fraud',  # False statements in loan/credit applications
+    '18 U.S.C. 1111': 'Violent',  # Murder
+    '18 U.S.C. 1201': 'Violent',  # Kidnapping
+    '18 U.S.C. 1208': 'Property',  # Historically related to sabotage/destruction of property
+    '18 U.S.C. 13': 'Property',  # Assimilative Crimes Act; common for minor property crimes on federal land
+    '18 U.S.C. 1341 & 371': 'Fraud',  # Mail fraud and conspiracy to defraud
+    '18 U.S.C. 136': 'Property',  # Historically related to destruction/larceny of government property
+    '18 U.S.C. 139; 22 U.S.C. 222 -- deported unless pa': 'Fraud',  # Likely financial misconduct in old codes
+    '18 U.S.C. 1407': 'Non-Alcohol Drugs',  # Travel of narcotics addicts/violators
+    '18 U.S.C. 141': 'Fraud',  # Historically related to financial misconduct
+    '18 U.S.C. 142': 'Fraud',  # Nationality/citizenship violations, false statements
+    '18 U.S.C. 1461-': 'Sexual',  # Mailing obscene matter
+    '18 U.S.C. 1708 & 1709': 'Property',  # Theft/receipt of stolen mail
+    '18 U.S.C. 1709': 'Property',  # Theft of mail matter by officer or employee
+    '18 U.S.C. 1709, 1703 & 1717©': 'Property',  # Theft, delay/destruction of mail; nonmailable matter (often fraud/obscenity, but property here for consistency)
+    '18 U.S.C. 1711 & 2073': 'Fraud',  # Misappropriation of postal funds & false entries
+    '18 U.S.C. 174': 'Non-Alcohol Drugs',  # Historically related to illegal importation of narcotics
+    '18 U.S.C. 18 & 338': 'Fraud',  # Historically, 338 was mail fraud
+    '18 U.S.C. 18, 338': 'Fraud',  # Historically, 338 was mail fraud
+    '18 U.S.C. 183': 'Fraud',  # Embezzlement by postmasters
+    '18 U.S.C. 189': 'Fraud',  # Historically related to false statements/financial crimes
+    '18 U.S.C. 189, 355': 'Fraud',  # Likely financial crimes
+    '18 U.S.C. 1951': 'Violent',  # Interference with commerce by threats or violence (Hobbs Act)
+    '18 U.S.C. 1??': 'Fraud',  # Placeholder, assuming a common fraud type for ambiguous old sections
+    '18 U.S.C. 202': 'Fraud',  # Bribery of public official (historical)
+    '18 U.S.C. 207': 'Fraud',  # Conflict of interest/ethics violations (financial impropriety)
+    '18 U.S.C. 207, 26 U.S.C. 1828a': 'Tax',  # Conflict of interest + Internal Revenue Code section (Tax)
+    '18 U.S.C. 208, 209': 'Fraud',  # Financial interest/salary violations for government officials
+    '18 U.S.C. 2113': 'Violent',  # Bank robbery and incidental crimes (often involves force)
+    '18 U.S.C. 2113(a)': 'Violent',  # Bank robbery or larceny
+    '18 U.S.C. 2113(a) & 2113(d)': 'Violent',  # Bank robbery with assault
+    '18 U.S.C. 215': 'Fraud',  # Receipt of commissions/gifts for procuring loans (bribery/kickbacks)
+    '18 U.S.C. 215,100, 347': 'Fraud',  # All likely financial misconduct/false statements
+    '18 U.S.C. 215- official issuing false crop reports': 'Fraud',  # Specific description points to fraud
+    '18 U.S.C. 231': 'Fraud',  # Historically, often related to false claims against the government
+    '18 U.S.C. 231 -- deported unless pardoned': 'Fraud',
+    '18 U.S.C. 231 -- deported unless pardoned veracity': 'Fraud',
+    '18 U.S.C. 231 and 8 U.S.C. 452/7': 'Fraud',  # False claims and immigration violations (often involves false statements)
+    '18 U.S.C. 231 deported unless pardoned --hardship': 'Fraud',
+    '18 U.S.C. 231, 11 U.S.C. 52(b)': 'Fraud',  # False claims and bankruptcy fraud
+    '18 U.S.C. 231, 214, 51 and Contempt of Court': 'Fraud',  # Multiple possible offenses; prioritizing 231/214 as fraud, 51 (conspiracy against rights) could be violent but fraud is more prevalent here.
+    '18 U.S.C. 231, 232': 'Fraud',  # Both related to false claims/financial misconduct
+    '18 U.S.C. 231, 398': 'Slavery',  # False claims and White-Slave Traffic Act (Mann Act) - prioritizing the distinct Slavery category
+    '18 U.S.C. 2312': 'Property',  # Transportation of stolen vehicles
+    '18 U.S.C. 231; 16 U.S.C. 703': 'Fraud',  # False claims and Migratory Bird Treaty Act (environmental, but 231 is primary here)
+    '18 U.S.C. 232': 'Fraud',  # Historically related to false claims/financial misconduct
+    '18 U.S.C. 234': 'Fraud',  # Historically related to misbranding/false statements
+    '18 U.S.C. 2401': 'Fraud',  # Unknown/high number, defaulting to common fraud type for old codes
+    '18 U.S.C. 241': 'Violent',  # Conspiracy Against Rights (often involves violence/threats)
+    '18 U.S.C. 241, 18': 'Violent',  # Conspiracy Against Rights (violent) with another assumed fraud/procedural
+    '18 U.S.C. 241, 88': 'Violent',  # Conspiracy Against Rights (violent) + general conspiracy
+    '18 U.S.C. 2421': 'Sexual',  # Transportation of prostitutes (Mann Act successor)
+    '18 U.S.C. 255': 'Fraud',  # Misapplication of funds by bank examiner
+    '18 U.S.C. 262': 'Fraud',  # False certification by bank officer
+    '18 U.S.C. 263': 'Fraud',  # Circulating obligations of expired corporations (financial scheme)
+    '18 U.S.C. 263, 265': 'Fraud',  # Financial fraud related to false instruments/pretenses
+    '18 U.S.C. 263, 265, 88': 'Fraud',  # Financial fraud and conspiracy
+    '18 U.S.C. 263, 365': 'Fraud',  # Financial fraud; 365 is probation, not a crime
+    '18 U.S.C. 263,265': 'Fraud',  # Financial fraud related to false instruments/pretenses
+    '18 U.S.C. 264': 'Fraud',  # Passing false obligations by federal reserve agent
+    '18 U.S.C. 264, 88': 'Fraud',  # Passing false obligations and conspiracy
+    '18 U.S.C. 265': 'Fraud',  # Historically related to false pretenses/financial fraud
+    '18 U.S.C. 265, 263': 'Fraud',  # Financial fraud related to false instruments/pretenses
+    '18 U.S.C. 265, 268, 88': 'Fraud',  # False pretenses, uttering counterfeit, and conspiracy
+    '18 U.S.C. 265, 355': 'Fraud',  # False pretenses and another financial/revenue related section
+    '18 U.S.C. 265,268': 'Fraud',  # False pretenses and uttering counterfeit
+    '18 U.S.C. 265; 26 U.S.C. 923': 'Tax',  # Financial fraud and Internal Revenue Code section (Tax)
+    '18 U.S.C. 268': 'Fraud',  # Uttering counterfeit obligations or securities
+    '18 U.S.C. 276': 'Fraud',  # Misapplication of funds by national bank personnel
+    '18 U.S.C. 277': 'Fraud',  # False entries by national bank personnel
+    '18 U.S.C. 277, 261, 283': 'Fraud',  # False entries, counterfeiting, false claims
+    '18 U.S.C. 277, 283': 'Fraud',  # False entries and false claims
+    '18 U.S.C. 278': 'Fraud',  # False certification by a national bank officer
+    '18 U.S.C. 280, 281, 282, 283': 'Fraud',  # All related to false claims against the government
+    '18 U.S.C. 281': 'Fraud',  # Embezzlement by officers of national banks
+    '18 U.S.C. 283': 'Fraud',  # False claims for military service
+    '18 U.S.C. 287': 'Fraud',  # False claims (against the United States)
+    '18 U.S.C. 312, 320': 'Violent',  # Historically, 312 related to robbery/assault of mail carriers
+    '18 U.S.C. 312,320': 'Violent',  # Historically, 312 related to robbery/assault of mail carriers
+    '18 U.S.C. 313': 'Fraud',  # Embezzlement of bank funds by bank employees
+    '18 U.S.C. 315': 'Fraud',  # False entry in books of national bank
+    '18 U.S.C. 315, 313': 'Fraud',  # False entry and embezzlement of bank funds
+    '18 U.S.C. 315, 313, 320': 'Fraud',  # False entry, embezzlement, and conspiracy (to defraud)
+    '18 U.S.C. 315, 347': 'Fraud',  # False entry and another financial fraud section
+    '18 U.S.C. 315, 82': 'Fraud',  # False entry and embezzlement/theft of public money; prioritizing fraud for deception aspect
+    '18 U.S.C. 317': 'Violent',  # Robbery and larceny from the mail (robbery implies violence/threat)
+    '18 U.S.C. 317 & 73': 'Violent',  # Robbery of mail + another assumed fraud/false entry; prioritizing violent
+    '18 U.S.C. 317 (Section 2(b), Public Law 299, 87th': 'Violent',  # Robbery of mail
+    '18 U.S.C. 317, 318': 'Violent',  # Robbery of mail + breaking and entering Post Office; prioritizing violent
+    '18 U.S.C. 317, 73, 78': 'Violent',  # Robbery of mail + other assumed fraud sections; prioritizing violent
+    '18 U.S.C. 317, 73, 88': 'Violent',  # Robbery of mail + other assumed fraud/conspiracy sections; prioritizing violent
+    '18 U.S.C. 317, 88': 'Violent',  # Robbery of mail and conspiracy
+    '18 U.S.C. 317,408': 'Violent',  # Robbery of mail + Federal Kidnapping Act (historically 408)
+    '18 U.S.C. 318': 'Property',  # Breaking and entering Post Office
+    '18 U.S.C. 319': 'Violent',  # Assaulting person having custody of mail or property
+    '18 U.S.C. 32': 'Violent',  # Destruction of aircraft or aircraft facilities (high danger to life)
+    '18 U.S.C. 320': 'Fraud',  # Conspiracy to commit offense or to defraud United States (often used for fraud)
+}
+```

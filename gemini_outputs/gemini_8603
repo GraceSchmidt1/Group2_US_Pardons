@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'sect.661,13,title 18 usc / ill driving - fishing i': 'property',
+    'sect.661,title 18 usc': 'property',
+    'sect.702,title 18 usc': 'fraud',  # Impersonation of Red Cross, false advertising
+    'sect.7201,7206(1),title 26 usc': 'tax',
+    'sect.7201,7206,title 26 usc': 'tax',
+    'sect.7201,title 26 usc': 'tax',
+    'sect.7201.7206(L),title 26 usc': 'tax',
+    'sect.7203,title 26 usc': 'tax',
+    'sect.7206(1),title 26 usc': 'tax',
+    'sect.73 title 18 usc': 'property',  # Theft/embezzlement of government property
+    'sect.73,317, title 18 usc, sect.371,1708,title 18': 'property', # Mix of theft, extortion, mail theft - Property is most consistent
+    'sect.73,title 18 usc': 'property',
+    'sect.73,title 18 usc, sect.1702,title 18 usc': 'property', # Theft/obstruction of mail
+    'sect.77e(a)(1),77x,title 15 usc': 'fraud',  # Securities Act violations
+    'sect.77q(a)(2),77c(a)(1),77e(a)(2),titile 15 usc': 'fraud',  # Securities Act violations
+    'sect.77q(a),77x,78j(b), 78ff, tite 15 usc, rule 10': 'fraud',  # Securities Act violations
+    'sect.77€(a)(2),title 15, sect.2.title 18 usc': 'fraud',  # Primarily Securities Act
+    'sect.794©,title 18 usc': 'violent',  # Espionage related to national defense
+    'sect.841(1)(1),title 21 usc': 'non-alcohol drugs', # Controlled substance manufacturing/distribution
+    'sect.841(a)(1),title 21 usc': 'non-alcohol drugs', # Controlled substance manufacturing/distribution
+    'sect.875©,title 18 usc': 'violent',  # Interstate communication of threats
+    'sect.88, title 18, sect.2810(a),2834,title 26 usc': 'tax', # Title 26 is tax
+    'sect.912.title 18 usc': 'fraud',  # Impersonation of a federal officer
+    'sect.922(1),title 18 usc': 'violent',  # Firearms offenses
+    'sect.922(a)(1),923,924(a),title18 usc': 'violent', # Firearms offenses
+    'sect.922(a)(1),924 (a)(2),title 18 usc': 'violent', # Firearms offenses
+    'sect.922(a)(1),924(a),title 18 usc': 'violent', # Firearms offenses
+    'sect.922(a)(5),924(a),title 18 usc': 'violent', # Firearms offenses
+    'sect.922(a)(6),924(a),title 18 usc': 'violent', # Firearms offenses
+    'sect.922(b)(3),922(m(,923,924(a) title 18, usc': 'violent', # Firearms offenses
+    'sect.922(b)(3),title 18 usc': 'violent', # Firearms offenses
+    'sect.922(b)(5),924(a) and 2, title 18 usc, sect.17': 'violent', # Firearms offenses
+    'sect.922,923,924,title 18 usc': 'violent', # Firearms offenses
+    'sect.922,924,title 18 usc': 'violent', # Firearms offenses
+    'sect.922©,923,924(a),title 18 usc': 'violent', # Firearms offenses
+    'sect.923(a)(3),924(a),title 18 usc': 'violent', # Firearms offenses
+    'sect.923,title 18 usc': 'violent', # Firearms offenses
+    'securing passport with false statement': 'fraud',
+    'securities act': 'fraud',
+    'securities fraud, record keeping violations, margi': 'fraud',
+    'sed.con.prev.enf.laws Army': 'violent', # Sedition/Conspiracy against the state
+    'sedit.consp.hinder war prog.;consp.retard,prev.con': 'violent', # Sedition/Conspiracy against the state
+    'sedition': 'violent',
+    'sedition, misd': 'violent',
+    'seditious consp.&vio.esp.act': 'violent', # Sedition/Espionage
+    'seditious consp;consp.vio.sel.serv.act;consp.vio.e': 'violent', # Sedition/Espionage/Selective Service Act evasion (in context of sedition)
+    'seditious conspiracy': 'violent',
+    'seditious utterances': 'violent',
+    'seduced into rebellion': 'violent',
+    'seduction': 'sexual',
+    'selective service act': 'violent', # Evasion of conscription, often tied to undermining state authority during war
+    'selective services act and espionage act': 'violent', # Espionage and selective service
+    'selective training and service act of 1940': 'violent', # Evasion of conscription
+    'sell oleo.marg.w/out pay.tax': 'tax',
+    'sell spir.liq.w/int.def.US tax': 'tax', # Intent to defraud US tax
+    'sell,deal,counterf.US tr.notes': 'fraud',
+    'sell,dispen,poss morph,cocaine': 'non-alcohol drugs',
+    'sell,dispen.morphine sulphate': 'non-alcohol drugs',
+    'sell,giv liq to uniform.soldiers': 'alcohol',
+    'sell,manuf.tobacco w/o lic.': 'tax', # Unlicensed sales often relate to tax/revenue evasion
+    'sell,off.sale unstamped cig.': 'tax',
+    'sell,off.sale unstanped cig.': 'tax',
+    'sell,pass,del counterf.notes': 'fraud',
+    'sell,poss.liq,poss.material manuf.liq': 'alcohol',
+    'sell. heroin': 'non-alcohol drugs',
+    'sell.&consp.sell heroin': 'non-alcohol drugs',
+    'sell.,aid.in sale of narcotics': 'non-alcohol drugs',
+    'sell.,aiding,abett. sale of narcotics': 'non-alcohol drugs',
+    'sell.,aiding,abetting in sale of cocaine': 'non-alcohol drugs',
+    'sell.,aiding,abetting sale narcotics': 'non-alcohol drugs',
+    'sell.,barter.,giv.away narcs.': 'non-alcohol drugs',
+    'sell.,consp.sell heroin': 'non-alcohol drugs',
+    'sell.,dealing in narcotics': 'non-alcohol drugs',
+    'sell.,having counterf.US notes': 'fraud',
+    'sell.,poss. morphine and cocaine': 'non-alcohol drugs',
+    'sell.,poss. narcotics': 'non-alcohol drugs',
+    'sell.,poss.,secret.counter.coin': 'fraud',
+    'sell.,poss.intox.liq.': 'alcohol',
+    'sell.,poss.liq.,maint.common nuisance': 'alcohol',
+    'sell.,poss.liq.,maint.nuisance': 'alcohol',
+    'sell.,poss.narcotics': 'non-alcohol drugs',
+    'sell.,purch.,poss.,conceal.narcotics': 'non-alcohol drugs',
+    'sell.,trans.intox.liq.': 'alcohol',
+    'sell.,transp.intox.liq.': 'alcohol',
+    'sell.,transp.liq.': 'alcohol',
+    'sell.beer in ind.terr.': 'alcohol',
+    'sell.beer w/o pay.spec.tax': 'tax',
+    'sell.cig.in ill.packages': 'tax', # Illegal packaging often implies tax evasion or regulatory fraud
+    'sell.cig.in unstamped pack.': 'tax',
+    'sell.cig.in unstamped packages': 'tax',
+    'sell.cigar in vio.Int.Rev.laws,poss.cigars not sta': 'tax',
+    'sell.cigars in vio.US Int Rev. laws': 'tax',
+    'sell.cigars not prop.boxed': 'tax', # Similar to illegal packaging, likely tax or revenue related
+    'sell.cigars not properly stamped': 'tax',
+    'sell.cigars unstamped': 'tax',
+    'sell.cocaine': 'non-alcohol drugs',
+    'sell.cocaine,aiding&abetting same': 'non-alcohol drugs',
+    'sell.counterf.US money': 'fraud',
+    'sell.counterf.mon.': 'fraud',
+    'sell.counterf.silv.cert.': 'fraud',
+}
+```

@@ -1,0 +1,108 @@
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'ill.registr.as voter,ill.voting': 'fraud',
+    'ill.registration as voter': 'fraud',
+    'ill.rem.dist.liq.fr/bond.warehouse': 'alcohol',
+    'ill.remov,conceal.spirits': 'alcohol',
+    'ill.remov,poss.unstamped tobacco': 'tax',  # Unstamped implies avoiding tax/duty
+    'ill.remov.dist.spirits': 'alcohol',
+    'ill.remov.distill.spir.': 'alcohol',
+    'ill.removal distill spirits': 'alcohol',
+    'ill.remove distill.spirits': 'alcohol',
+    'ill.removed distill.liq': 'alcohol',
+    'ill.retail.distill.liquor': 'alcohol',
+    'ill.retail.spir.liq.': 'alcohol',
+    'ill.return to US': 'fraud',  # Often involves false claims/documents
+    'ill.sale cocaine': 'non-alcohol drugs',
+    'ill.sale cocaine,morphine': 'non-alcohol drugs',
+    'ill.sale intox.liq to indians': 'alcohol',
+    'ill.sale morphine sulphate': 'non-alcohol drugs',
+    'ill.sale narc,concp.vio.Harr.Act': 'non-alcohol drugs',
+    'ill.sale,aid.sale narcotics': 'non-alcohol drugs',
+    'ill.sale,manuf.liq in terr.': 'alcohol',
+    'ill.sale,tranf marajuana': 'non-alcohol drugs',
+    'ill.sale.allegator hides': 'property',
+    'ill.sale.intox.liq': 'alcohol',
+    'ill.sale.intox.liq,vio.Nat.Proh.Act': 'alcohol',
+    'ill.sale.liq.indians': 'alcohol',
+    'ill.sale.liq.maintin nuisance': 'alcohol',
+    'ill.sale.poss.beer.alc': 'alcohol',
+    'ill.sale.poss.intox.liq.': 'alcohol',
+    'ill.sale.poss.narc,vio Harrison Act': 'non-alcohol drugs',
+    'ill.sale.whisk,vio.Nat.Proh.Act': 'alcohol',
+    'ill.sale.whisky.nat.ptoh.act': 'alcohol',
+    'ill.saole.liq.vio.Nat.Proh.Act': 'alcohol',  # Assuming 'saole' is a typo for 'sale'
+    'ill.sell,remov,conc.liquor': 'alcohol',
+    'ill.sell.cocaine,aid.abett.sale,con.': 'non-alcohol drugs',
+    'ill.sell.heroine': 'non-alcohol drugs',
+    'ill.sell.liquor': 'alcohol',
+    'ill.sell.narc.ell.conceal.': 'non-alcohol drugs',
+    'ill.sell.spir.liq.w/out license': 'alcohol',
+    'ill.selling cigars': 'property', # Illegal sale of goods
+    'ill.sent.news.pap.thru/mail w/out pay.post,refused': 'fraud', # Theft of services/fraudulent use of mail
+    'ill.ship gasoline': 'property',
+    'ill.ship.explosives,inter.comm.': 'violent', # Due to the nature of explosives
+    'ill.slae narc 2 counts': 'non-alcohol drugs', # Assuming 'slae' is a typo for 'sale'
+    'ill.stor.trand.hazz.waste': 'property', # Improper handling of dangerous materials (environmental property crime)
+    'ill.supp.salary by US employee': 'fraud', # Embezzlement/financial misconduct
+    'ill.took letter of value fr/PO': 'property', # Theft
+    'ill.tranf.firearm': 'violent',
+    'ill.trans whiskey': 'alcohol',
+    'ill.trans.Ford touring car': 'property',
+    'ill.trans.automobile': 'property',
+    'ill.trans.dyno,nitroglycerin': 'violent',
+    'ill.trans.dyno.nitroglyc': 'violent',
+    'ill.trans.firearm': 'violent',
+    'ill.trans.firearms,poss.untax,dist.spirits': 'violent', # Firearms take precedence due to inherent danger
+    'ill.trans.intox.liq': 'alcohol',
+    'ill.trans.iq,vio.Nat.Proh.Act': 'alcohol', # Assuming 'iq' is a typo for 'liq'
+    'ill.trans.liq': 'alcohol',
+    'ill.trans.liq in interst.comm.': 'alcohol',
+    'ill.trans.opium': 'non-alcohol drugs',
+    'ill.trans.woman': 'slavery', # Human trafficking
+    'ill.transactions': 'fraud', # Vague, but often implies financial fraud or illicit dealings
+    'ill.transportation of liquor': 'alcohol',
+    'ill.use access device': 'fraud',
+    'ill.use cert.cit.proc.b/fraud,false evid.': 'fraud',
+    'ill.use cert.cit.proc.by fraud,flse.evid': 'fraud',
+    'ill.use citz.cert.obt.w/fraud': 'fraud',
+    'ill.use false cert.citizenship': 'fraud',
+    'ill.use fraudulent.cert.of citz': 'fraud',
+    'ill.use fraudulent.cert.of citz.': 'fraud',
+    'ill.use fraudulent.cert.of nat.': 'fraud',
+    'ill.use funds': 'fraud', # Misuse of money/embezzlement
+    'illcit distill.': 'alcohol',
+    'illcit distilling': 'alcohol',
+    'illeg.immigr.into US,using fraudl.passp.': 'fraud',
+    'illeg.import.liq.,transp.liq.': 'alcohol',
+    'illeg.purch.dispens.morphine': 'non-alcohol drugs',
+    'illeg.retail.spirit.liq.': 'alcohol',
+    'illegal aliens': 'fraud', # Often involves false claims or documents for illegal presence
+    'illegal arms exportion': 'violent',
+    'illegal betting': 'fraud', # Illegal gambling often involves deception or defrauding the state/participants
+    'illegal births': 'fraud', # Often involves concealing identity or evading legal processes
+    'illegal corporate campaign contributions, wire fra': 'fraud',
+    'illegal dis of a seaman': 'fraud', # Assuming illegal discharge or disbursement involving fraudulent practices
+    'illegal disp.post.stamps': 'fraud', # Improper handling/sale of items like currency/stamps, often counterfeiting or illicit financial gain
+    'illegal dispen. opium compounds': 'non-alcohol drugs',
+    'illegal dispensing of controlled substance and Med': 'non-alcohol drugs',
+    'illegal distillation': 'alcohol',
+    'illegal distillery': 'alcohol',
+    'illegal distilling': 'alcohol',
+    'illegal dumping in NY harbor': 'property', # Environmental crime concerning property
+    'illegal entry US': 'fraud',
+    'illegal entry into US': 'fraud',
+    'illegal exportation (gun powder)': 'violent',
+    'illegal firearms sales': 'violent',
+    'illegal gamb.bus.': 'fraud',
+    'illegal gambling business': 'fraud',
+    'illegal gaming': 'fraud',
+    'illegal import': 'property', # General smuggling of goods
+    'illegal import (2 bags of coffee)': 'property',
+    'illegal import (watches)': 'property'
+}
+```

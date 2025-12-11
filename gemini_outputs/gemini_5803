@@ -1,0 +1,110 @@
+Here is the dictionary with the requested categorizations. For some offenses that are disciplinary or regulatory in nature and don't fit perfectly into the provided categories, I have made a pragmatic choice, often assigning them to 'Fraud' if there's an element of misrepresentation or breach of trust, or to 'Violent' if they imply neglect leading to potential harm. I've noted specific ambiguous cases where applicable.
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'larceny of money-order funds': 'Property',
+    'larceny of mules': 'Property',
+    'larceny of personal property': 'Property',
+    'larceny of property, f.statements to PO exch.stew': 'Fraud', # False statements indicate fraud
+    'larceny of saddle and horse': 'Property',
+    'larceny of sum of money': 'Property',
+    'larceny of two horses': 'Property',
+    'larceny og gov. property': 'Property',
+    'larceny on Indian reservation': 'Property',
+    'larceny on a reservation': 'Property',
+    'larceny on brig': 'Property',
+    'larceny on gov. reservation': 'Property',
+    'larceny on government reservation': 'Property',
+    'larceny on high seas': 'Property',
+    'larceny on indian reservation': 'Property',
+    'larceny on reservation': 'Property',
+    'larceny on ship': 'Property',
+    'larceny on the high seas': 'Property',
+    'larceny while intoxicated': 'Property',
+    'larceny(2)': 'Property',
+    'larceny(3)': 'Property',
+    'larceny, 93rd article of war': 'Property',
+    'larceny, assault': 'Violent', # Assault makes it violent
+    'larceny, assault and abttery': 'Violent', # Assault and battery makes it violent
+    'larceny, assualt and battery': 'Violent', # Assault and battery makes it violent
+    'larceny, embezz.gov.prop.': 'Fraud', # Embezzlement is a breach of trust, often categorized as fraud
+    'larceny, in violation of the 93rd article of war': 'Property',
+    'larceny, misd': 'Property',
+    'larceny, rec. stolen prop.': 'Property',
+    'larceny, receiv.stolen prop.': 'Property',
+    'larceny, receiv.stolen property': 'Property',
+    'larceny, receiving stolen property': 'Property',
+    'larceny,assault and battery': 'Violent',
+    'larceny,comm.on Indian reservation': 'Property',
+    'larceny,intro.liquor in Indian country': 'Alcohol', # Specific liquor offense
+    'larceny,introd.liq. Indian country': 'Alcohol', # Specific liquor offense
+    'larceny,receiv.stolen prop.': 'Property',
+    'larceny,receiving stolen property': 'Property',
+    'larceny-- 2 indictments': 'Property',
+    'larceny--2 cases': 'Property',
+    'larceny--2cases': 'Property',
+    'larceny--3 cases': 'Property',
+    'larency of horses': 'Property',
+    'leaving crew mem in Lond': 'Fraud', # Interpreted as breach of duty/contract, potentially defrauding the crew member or employer.
+    'leaving one of the crew': 'Fraud', # Similar interpretation as above.
+    'left command w/o authority': 'Fraud', # Desertion/AWOL can be seen as defrauding the service of one's presence/labor.
+    'lewd mail': 'Sexual',
+    'libel': 'Fraud', # False statements causing harm to reputation or financial interests.
+    'license violation-vessel': 'Fraud', # Operating without proper authorization can imply misrepresentation of legal status.
+    'licensing violation': 'Fraud', # Similar interpretation as above.
+    'lightening coins,passing': 'Fraud', # Counterfeiting/altering currency.
+    'liq.importation, Nat.Proh.Act': 'Alcohol',
+    'liq.law violation': 'Alcohol',
+    'liquor': 'Alcohol',
+    'liquor 3x': 'Alcohol',
+    'liquor and nuisance': 'Alcohol',
+    'liquor and theft': 'Property', # Theft is the primary specific crime here.
+    'liquor laws': 'Alcohol',
+    'liquor retail, no pay tax': 'Tax', # Explicit tax offense.
+    'liquor sales violation': 'Alcohol',
+    'liquor tax': 'Tax',
+    'liquor tax act': 'Tax',
+    'liquor tax violation': 'Tax',
+    'liquor tax, and Alien Registration Act': 'Tax', # Primary offense is tax.
+    'liquor taxes': 'Tax',
+    'liquor taxing act': 'Tax',
+    'liquor taxing act of 1934': 'Tax',
+    'liquor taxing act of 1934 (26 U.S.C. 1152a)': 'Tax',
+    'liquor taxing act of 1934 (26 U.S.C. 1152a); Revis': 'Tax',
+    'liquor taxing act of 1934; Revised Stat. Of U.S. 3': 'Tax',
+    'liquor taxing act; Section 37 Crim. Code; 18 U.S.C': 'Tax',
+    'liquor violations': 'Alcohol',
+    'liquor(dirty prohibition agent)': 'Alcohol',
+    'liquor(one gallon of mescal)': 'Alcohol',
+    'liquor(rs3258)': 'Alcohol',
+    'liquor+financial': 'Fraud', # "Financial" often implies fraud when not specified as tax or property theft.
+    'liquor, tax evasion, stolen goods': 'Tax', # Explicit mention of tax evasion.
+    'liquorr': 'Alcohol',
+    'lllicit distilling': 'Alcohol',
+    'lottery laws': 'Fraud', # Illegal gambling schemes often involve elements of deception or are designed for illicit financial gain.
+    'lotto': 'Fraud', # Similar to lottery laws.
+    'm e': 'Fraud', # This is an ambiguous entry. Arbitrarily assigned to 'Fraud' as a broad category for misdeeds/schemes in the absence of more information.
+    'made counterf.coin': 'Fraud',
+    'made counterf.coins,poss.molds': 'Fraud',
+    'made counterf.silv.dollars': 'Fraud',
+    'made counterf.silver cert.': 'Fraud',
+    'made counterfeit coin': 'Fraud',
+    'made dies,hubs,molds count.coins': 'Fraud',
+    'made f.aff.in homest.ent.(5)': 'Fraud', # False affidavit.
+    'made f.affid.in pension claim': 'Fraud', # False affidavit for financial gain.
+    'made f.affid.to procure pmnt.of false,fraudulent c': 'Fraud', # False affidavit for fraudulent claim.
+    'made f.affidvt.pens.cases,witheld ill.fees fr/pens': 'Fraud', # False affidavit and withholding illegal fees.
+    'made f.enteries nat.bank books': 'Fraud', # False entries.
+    'made f.entries nat.bank books': 'Fraud', # False entries.
+    'made false aff. in nat.proc.': 'Fraud', # False affidavit.
+    'made false certif.as Int.Rev.Gauger': 'Fraud', # False certification to defraud the government.
+    'made false claim for a bounty': 'Fraud',
+    'made false claims against the US': 'Fraud',
+    'made false demand for annuity': 'Fraud',
+    'made false natural.affidavit': 'Fraud'
+}
+```

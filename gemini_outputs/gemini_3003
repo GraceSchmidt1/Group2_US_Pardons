@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'consp.to viol.immigration laws': 'Fraud',
+    'consp.to viol.nat.prohib.act': 'Alcohol',
+    'consp.traff.counter.goods': 'Fraud',  # Counterfeit goods involve deception
+    'consp.tran.stolen vehicle': 'Property',
+    'consp.trans. explosives': 'Violent',
+    'consp.trans.aircraft': 'Fraud',  # Assuming illicit transportation/smuggling if not explicitly stolen
+    'consp.trans.explosives interst.': 'Violent',
+    'consp.trans.intox.liq': 'Alcohol',
+    'consp.trans.liq in indian terr.': 'Alcohol',
+    'consp.trans.liq.intst.': 'Alcohol',
+    'consp.trans.sell stolen goods': 'Property',
+    'consp.trans.stolen.prop.icc': 'Property',
+    'consp.transp.,poss.,sell alcohol': 'Alcohol',
+    'consp.transp.explosives interst.on vehic.used tran': 'Violent',
+    'consp.transp.whisky': 'Alcohol',
+    'consp.transport explosives interst.': 'Violent',
+    'consp.transport liq. into OK': 'Alcohol',
+    'consp.transport,have in poss.intox.liq.': 'Alcohol',
+    'consp.use f.name for conduct.unlaw.bus.': 'Fraud',
+    'consp.use mails for unlawful purposes': 'Fraud', # Often related to schemes to defraud
+    'consp.use mails i nscheme to defraud': 'Fraud',
+    'consp.use mails in scheme defraud': 'Fraud',
+    'consp.use mails in scheme to defraud': 'Fraud',
+    'consp.use mails scheme defraud': 'Fraud',
+    'consp.use mails to defraud': 'Fraud',
+    'consp.utter f.cert\'s citizenship': 'Fraud',
+    'consp.utter false natural.cert.': 'Fraud',
+    'consp.vio MannAct': 'Sexual', # Mann Act is White Slave Traffic Act, primarily for sexual exploitation
+    'consp.vio Tarrif Act,poss.trans.intox.liq.': 'Alcohol', # Primary violation is related to prohibited alcohol
+    'consp.vio. Harrison Act': 'Non-Alcohol Drugs',
+    'consp.vio. food,drugs act': 'Non-Alcohol Drugs',
+    'consp.vio.Bankruptcy laws': 'Fraud', # Bankruptcy violations often involve concealing assets or fraudulent claims
+    'consp.vio.Dyer Act': 'Property', # Dyer Act is National Motor Vehicle Theft Act
+    'consp.vio.Harrison Act,opium act': 'Non-Alcohol Drugs',
+    'consp.vio.Harrison Antinarcotic Act': 'Non-Alcohol Drugs',
+    'consp.vio.Harrison narcotics law': 'Non-Alcohol Drugs',
+    'consp.vio.IRS laws': 'Tax',
+    'consp.vio.IRS laws re liq': 'Tax', # IRS laws are primary, subject is liquor tax
+    'consp.vio.Lacey Act': 'Property', # Illegal wildlife trade involves illicit property
+    'consp.vio.Mann Act': 'Sexual',
+    'consp.vio.Motor Veh theft Act': 'Property',
+    'consp.vio.Nat.Bank Act': 'Fraud', # Banking law violations often involve fraud or embezzlement
+    'consp.vio.Nat.Bank Laws': 'Fraud',
+    'consp.vio.Nat.Banking laws': 'Fraud',
+    'consp.vio.Nat.Proh.Act': 'Alcohol',
+    'consp.vio.Nat.Proh.Act,Tariff Act': 'Alcohol', # Primary violation is related to prohibited alcohol
+    'consp.vio.Reed amendment': 'Alcohol',
+    'consp.vio.Sect 143 Crim Code': 'Fraud', # Section 143 often relates to mail fraud (or other forms of fraud/conspiracy)
+    'consp.vio.Volstead Act': 'Alcohol',
+    'consp.vio.White Slave Act': 'Slavery', # Explicitly refers to human trafficking
+    'consp.vio.White Slave traff Act': 'Slavery',
+    'consp.vio.act to reg.comm.': 'Fraud', # Regulation of commerce violations can involve anti-trust or deceptive practices
+    'consp.vio.bankrupt.act,perjury': 'Fraud',
+    'consp.vio.bankruptcy act (sec.29b)': 'Fraud',
+    'consp.vio.bankruptcy laws': 'Fraud',
+    'consp.vio.bnkrptcy.law by concealng assets of a b': 'Fraud',
+    'consp.vio.clean water act': 'Property', # Environmental damage/pollution often categorized under property damage or misuse of shared resources
+    'consp.vio.elect.laws': 'Fraud', # Election fraud (voter fraud, campaign finance)
+    'consp.vio.esp.act': 'Violent', # Espionage often involves threats to national security, sabotage, or intelligence gathering for potentially violent outcomes.
+    'consp.vio.esp.act.': 'Violent',
+    'consp.vio.food and drug act': 'Non-Alcohol Drugs',
+    'consp.vio.harrison act;sell.narcotics': 'Non-Alcohol Drugs',
+    'consp.vio.harrison antinarcotic act': 'Non-Alcohol Drugs',
+    'consp.vio.immigratino laws': 'Fraud',
+    'consp.vio.immigration act': 'Fraud',
+    'consp.vio.narc.laws': 'Non-Alcohol Drugs',
+    'consp.vio.nat.prohib.act': 'Alcohol',
+    'consp.vio.nat.prohib.act,tarrif act': 'Alcohol',
+    'consp.vio.natl prohib.act': 'Alcohol',
+    'consp.vio.natl.banking act': 'Fraud',
+    'consp.vio.natl.banking laws': 'Fraud',
+    'consp.vio.natl.motor vehicle theft act': 'Property',
+    'consp.vio.natl.proh.act': 'Alcohol',
+    'consp.vio.natl.prohib.act': 'Alcohol',
+    'consp.vio.natl.prohibition act': 'Alcohol',
+    'consp.vio.neutrality laws': 'Violent', # Violating neutrality laws often involves aiding combatants, potentially leading to violence or war
+    'consp.vio.prohib.act': 'Alcohol',
+    'consp.vio.sec. 215, Criminal Code U.S.': 'Fraud', # Section 215 is mail fraud
+    'consp.vio.sec.1 of Sherman Act': 'Fraud', # Anti-trust laws often relate to deceptive market practices or unfair competition (a form of fraud against consumers/market)
+    'consp.vio.sec.143,Crim.Code of US': 'Violent', # Conspiracy to injure/oppress citizens in exercise of rights; can involve violence or intimidation
+    'consp.vio.sel.serv.&esp.acts': 'Violent', # Espionage act part
+    'consp.vio.sel.serv.act': 'Fraud', # Selective Service evasion often involves fraudulent claims or deception
+    'consp.vio.sel.serv.act,esp.act': 'Violent', # Espionage act part
+    'consp.vio.select.serv.act': 'Fraud',
+    'consp.vio.war program,strike sabatoge': 'Violent',
+    'consp.vio.wartime prohib.act,natl.prohib.act,Reed': 'Alcohol',
+    'consp.vio.white slave traffic act': 'Slavery',
+    'consp.viol.bnkrptcy.act,': 'Fraud',
+    'consp.viol.nat.bnkrptcy.act': 'Fraud',
+    'consp.viol.nat.prohib.act': 'Alcohol',
+    'consp.viol.natnl.prohib.act': 'Alcohol',
+    'consp.viol.tariff act': 'Tax',
+    'consp.violate Reed Amendment': 'Alcohol',
+    'consp.violate food,drug act': 'Non-Alcohol Drugs',
+    'consp.violate food,drugs act': 'Non-Alcohol Drugs',
+    'consp.violate select.serv.act': 'Fraud',
+    'consp.w/counsel,aid,abet,comf,support John Wilkes': 'Violent', # Lincoln assassination conspiracy
+    'conspi.distrib.poss.': 'Property', # General illicit distribution/possession, often of contraband/stolen goods
+    'conspi.vio.Nat.Proh.Act': 'Alcohol',
+    'conspir,resulting in 2nd deg.murd.': 'Violent'
+}
+```

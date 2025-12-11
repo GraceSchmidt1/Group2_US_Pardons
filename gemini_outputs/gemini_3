@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    '"keeping a disorderly house"+assault': 'violent', # "assault" makes it violent
+    '"pardon whatever offenses may have been committed"': None, # This describes a pardon, not an offense itself
+    '"selling liquor to an Indian"': 'alcohol',
+    '"several sentences"': None, # Not an offense
+    '(18 U.S.C. 262)??': 'fraud', # 18 U.S.C. 262 relates to forgery of coins and securities
+    '(execution for debt)': None, # This is a consequence, not an offense
+    '(not stated)': None, # No offense information provided
+    '(piracy)': 'property', # Piracy involves theft of vessels/goods
+    '(receiving stolen goods)': 'property',
+    '(violation of Articles 121 & 123, Uniform Code of': 'property', # UCMJ Article 121 is Larceny; Article 123 is Forgery. Prioritize Property for Larceny.
+    '**': None, # No offense information
+    '-': None, # No offense information
+    '1 U.S.C. 15-': None, # Vague and incomplete legal code, no specific offense
+    '1)larceny(IL); 2)transport.stolen auto.interst.': 'property', # Larceny and stolen auto are property crimes
+    '1)leav.stat.before being reg.relieved.2)cond.prejg': None, # Military discipline (conduct prejudicial), not a specific offense category
+    '10 U.S.C. 1393': 'non-alcohol drugs', # Refers to the Harrison Narcotic Act
+    '10 U.S.C. 1393 violation of the Harrison Narcotic': 'non-alcohol drugs',
+    '10 U.S.C. 1393; 18 U.S.C. 76,a': 'non-alcohol drugs', # Prioritize drug offense over 18 U.S.C. 76 (impersonating, which is fraud)
+    '10 U.S.C. 1594': 'sexual', # Relates to prostitution/patronizing a prostitute
+    '10 U.S.C. 336; 15 U.S.C. 77(q)(a)(1)': 'fraud', # 15 U.S.C. 77(q)(a)(1) is securities fraud
+    '11 U.S.C. 52': 'fraud', # Bankruptcy fraud (concealment of assets, false oaths)
+    '11 U.S.C. 52(b)': 'fraud',
+    '11 U.S.C. 52(b)1': 'fraud',
+    '11 U.S.C. 52(b)93)': 'fraud',
+    '11 U.S.C. 52; 18 U.S.C. 88': 'fraud', # Bankruptcy fraud and conspiracy to defraud
+    '11 U.S.C. 52a': 'fraud',
+    '11 U.S.C. 52b': 'fraud',
+    '11 U.S.C. 52b(2)': 'fraud',
+    '11 U.S.C. 52b(3), 52b(6)': 'fraud',
+    '11 U.S.C. 52b(6); 18 U.S.C. 88': 'fraud',
+    '11 U.S.C. 52b, 18 U.S.C. 88': 'fraud',
+    '11 U.S.C. 52b, 6, 7': 'fraud',
+    '11 U.S.C. 52b; 15 U.S.C. 78b': 'fraud', # Bankruptcy fraud and Securities Exchange Act violation
+    '11 U.S.C. 52b; 18 U.S.C. 88': 'fraud',
+    '11 U.S.C. 52b; 18 U.S.C. 88, 550': 'fraud', # Bankruptcy fraud, conspiracy, and receiving stolen property in bankruptcy context
+    '11 U.S.C> 52(b) and 18 U.S.C. 550': 'fraud',
+    '1164, 1182, USC': None, # Vague legal codes, no specific offense
+    '12 U.S.C. 1467c': 'fraud', # Fraudulent transactions affecting financial institutions
+    '12 U.S.C. 1467©': 'fraud',
+    '12 U.S.C. 1731; 18 U.S.C. 88': 'fraud', # FHA false statements and conspiracy
+    '12 U.S.C. 1731b': 'fraud',
+    '12 U.S.C. 264, 592': 'fraud', # Bank embezzlement, false entries
+    '12 U.S.C. 27': None, # Vague legal code, no specific offense
+    '12 U.S.C. 588': 'violent', # Predecessor to federal bank robbery statute (18 U.S.C. 2113)
+    '12 U.S.C. 588(a)(b), 18 U.S.C. 408': 'violent', # Bank robbery + motor vehicle theft; prioritize violent
+    '12 U.S.C. 588(b)': 'violent',
+    '12 U.S.C. 588-b': 'violent',
+    '12 U.S.C. 588b': 'violent',
+    '12 U.S.C. 588b, 588c': 'violent', # Bank robbery + killing/kidnapping in connection
+    '12 U.S.C. 592': 'fraud', # Bank embezzlement, false entries
+    '12 U.S.C. 592, 18 U.S.C. 338': 'fraud', # Bank fraud + Mail fraud
+    '12 U.S.C. 592, 18 U.S.C. 550': 'fraud', # Bank fraud + receiving stolen property in bankruptcy context; prioritize fraud
+    '12 U.S.C. 592; 18 U.S.C. 88': 'fraud',
+    '12 U.S.C. 593': 'fraud', # False statements to affect bank loans
+    '12 U.S.C. 598-b': 'violent', # Likely a typo for 12 U.S.C. 588b (bank robbery)
+    '12 U.S.C. 80': 'fraud', # Banking regulation violation often involving illicit financial dealings
+    '12 U.S.C. 95': 'fraud', # Banking regulation violation
+    '12 U.S.C. 95(a)': 'fraud',
+    '12 U.S.C. 984': None, # Vague legal code, no specific offense
+    '12/17/14 Act of': None, # Vague and incomplete, no specific offense
+    '125 Crim. Code, 23 Sec. Of Act of  6/29/1906': 'fraud', # 125 Criminal Code refers to perjury
+    '145(b) of revenue act of 1928': 'tax', # Tax evasion
+    '145,151 Crim. Code': 'fraud', # 145 Crim. Code (embezzlement/misappropriation), 151 Crim. Code (obstruction/misprision)
+    '148, 150, 151 Crim. Code': 'fraud', # 148 Crim. Code (bribery), 150 Crim. Code (accepting bribe), 151 Crim. Code (obstruction/misprision)
+    '148, 151  Crim. Code': 'fraud',
+    '148, 151 Crim. Code': 'fraud',
+    '15 U.S.C. 17, 77; 18 U.S.C. 338, 88 -- deported un': 'fraud', # 15 U.S.C. 77 (securities act fraud), 18 U.S.C. 338 (mail fraud)
+    '15 U.S.C. 17a1': 'fraud', # Antitrust violations can involve fraud against consumers or unfair market practices
+    '15 U.S.C. 714': None, # Vague legal code, no specific offense
+    '15 U.S.C. 77(q)(a)(1)': 'fraud', # Securities fraud
+    '15 U.S.C. 77(q)(a)1, 77(e)(a)1, 7(e)(a)2; 18 U.S.C': 'fraud',
+    '15 U.S.C. 77a; 18 U.S.C. 338': 'fraud', # Securities Act + Mail fraud
+    '15 U.S.C. 77a; 18 U.S.C. 338, 18': 'fraud',
+    '15 U.S.C. 78': 'fraud', # Securities Exchange Act violations (e.g., insider trading, market manipulation)
+    '15 U.S.C. 78; 18 U.S.C. 88, 138': 'fraud', # Securities fraud + conspiracy; 18 U.S.C. 138 (military property trespass) is a minor offense, prioritize fraud
+    '15 U.S.C. 78ff': 'fraud', # Securities fraud penalties
+    '151 Crim. Code': 'fraud', # Misprision of felony, obstruction (often involves deception)
+    '16 U.S.C. 231 -- deported unless pardoned': 'property', # Wildlife protection/poaching involves taking or damaging natural resources (public property)
+    '16 U.S.C. 231 -- permanently excludible from U.S.': 'property',
+    '16 U.S.C. 334, 335': 'property', # Environmental fishing violations (taking resources illegally)
+    '16 U.S.C. 404,337': 'property', # National Park rules / wildlife trafficking (Lacey Act)
+    '163 Crim. Code': 'property', # Embezzlement, larceny
+    '17 U.S.C. 28': 'property', # Copyright infringement (intellectual property crime)
+    '17 U.S.C. 408': 'property', # National Motor Vehicle Theft Act (Dyer Act)
+    '1790 act violation': None, # Vague, no specific offense
+    '18  U.S.C .88': 'fraud', # Conspiracy to commit offense or defraud U.S. (often fraud-related)
+    '18  U.S.C. 73': 'property', # Embezzlement
+    '18 U.S. C. 261, 281 and 306': 'fraud', # Counterfeiting, embezzlement of public money, theft of public records; prioritize counterfeiting (fraud)
+    '18 U.S.C 328, 355': 'violent', # Assaulting federal officer + embezzlement; prioritize violent
+    '18 U.S.C 408 and 12 U.S.C. 588': 'violent', # Motor vehicle theft + bank robbery; prioritize violent
+    '18 U.S.C.  265': 'fraud', # Uttering counterfeit coins/obligations
+    '18 U.S.C.  317': 'violent', # Mail robbery, assault with intent to rob mail
+    '18 U.S.C.  418a': 'property', # National Motor Vehicle Theft Act
+    '18 U.S.C. (1934 edition) 502': 'property', # Receiving stolen property from government
+    '18 U.S.C. 1 and 28 U.S.C. 102': None, # Defines legal terms or civil procedures, not a specific offense
+    '18 U.S.C. 1 condituional on deportation': None, # Not an offense, but refers to conditions of deportation
+    '18 U.S.C. 100': 'fraud', # False claims against the government
+    '18 U.S.C. 100, 176, 177': 'fraud', # False claims, embezzlement, perjury; prioritize fraud
+    '18 U.S.C. 100, 88': 'fraud', # False claims, conspiracy to defraud
+    '18 U.S.C. 100,101': 'fraud', # False claims, accepting bribe
+}
+```

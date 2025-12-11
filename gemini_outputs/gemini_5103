@@ -1,0 +1,110 @@
+Here is the Python dictionary with the categorized offenses:
+
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'ill. seaman land, register vio': 'fraud',  # Assuming false registration or illegal entry via misrepresentation
+    'ill. transportation liquor': 'alcohol',
+    'ill. use PO money order funds': 'property',
+    'ill.avoid pay.postage': 'fraud',
+    'ill.buy,sell.large quan.sugar': 'alcohol',  # Likely for illegal alcohol production
+    'ill.cancell.stamps,opening letters': 'fraud',
+    'ill.cigar tobacco app': 'tax',
+    'ill.color.sell.oleomargarine': 'tax',
+    'ill.consp.oppress.cit.vote': 'violent',
+    'ill.cut and removing timber': 'property',
+    'ill.cut timber publc land': 'property',
+    'ill.cutt,remov.timb.fr/gov land': 'property',
+    'ill.cutt.gov.timber': 'property',
+    'ill.cutt.timber on public lands (2 off)': 'property',
+    'ill.cutting timber': 'property',
+    'ill.cutting timber pub.land': 'property',
+    'ill.deal.intox.liq.': 'alcohol',
+    'ill.dealing, selling narcotics': 'non-alcohol drugs',
+    'ill.del.expl.comm.carrier.i.c.t.': 'violent',
+    'ill.delay.letters as dep.postmaster': 'fraud',
+    'ill.deos.package in US mail': 'fraud',  # Assuming illegal contents or purpose for mail
+    'ill.depos.post.card in US mails': 'fraud',
+    'ill.detain.lett.as PO agent': 'fraud',
+    'ill.dis,unreg.still,work.ill dist': 'alcohol',
+    'ill.disp.haz.waste': 'property',  # Damage/misuse of land/resources
+    'ill.displ.sign of whol.liq.deal.': 'alcohol',
+    'ill.dist, failure to reg.': 'alcohol',
+    'ill.dist,retail.spir.liquors': 'alcohol',
+    'ill.dist,retail.w/out pay.tax': 'tax',
+    'ill.dist.bus w/out bond,ill.ferm.of mash': 'alcohol',
+    'ill.dist.retail w/out pay tax': 'tax',
+    'ill.distill.spirituous liquors': 'alcohol',
+    'ill.distillery': 'alcohol',
+    'ill.distilling spirituous liquors': 'alcohol',
+    'ill.engrav.obliga.US': 'fraud',
+    'ill.ent.distill.warehouse': 'alcohol',
+    'ill.ferm.mash for prod.alco': 'alcohol',
+    'ill.fermenting': 'alcohol',
+    'ill.furnish.intox.liq': 'alcohol',
+    'ill.gambing bus.': 'fraud',  # Often involves deceptive practices or evading licensing/taxes
+    'ill.import wildlife': 'property',
+    'ill.import,poss. opium': 'non-alcohol drugs',
+    'ill.import.intox.liq': 'alcohol',
+    'ill.import.lottery tickets': 'fraud',
+    'ill.import.morphine': 'non-alcohol drugs',
+    'ill.import.slaves': 'slavery',
+    'ill.introd.liq': 'alcohol',
+    'ill.leav.stat,sleep.on watch': 'property',  # Dereliction of duty potentially endangering vessel/cargo
+    'ill.mak,forg.certain coins': 'fraud',
+    'ill.manuf,poss.prop.f/manuf.liq': 'alcohol',
+    'ill.manuf,sale of alcoholic liq': 'alcohol',
+    'ill.manuf.intox.liq': 'alcohol',
+    'ill.manuf.intox.liquors': 'alcohol',
+    'ill.manuf.liq': 'alcohol',
+    'ill.manuf.liquor': 'alcohol',
+    'ill.manuf.unbonded opium, poss.': 'non-alcohol drugs',
+    'ill.manufact.intox.liquors': 'alcohol',
+    'ill.manufactoring tobacco': 'tax',
+    'ill.obstruct.pass.mail,Sherman Act': 'fraud',  # Obstruction for anti-competitive/deceptive reasons
+    'ill.obt. order forms, drugs': 'non-alcohol drugs',  # Fraudulent means to acquire drugs
+    'ill.op.lett.as assist.postmast.': 'fraud',
+    'ill.op.unreg.still': 'alcohol',
+    'ill.open.letter': 'fraud',
+    'ill.open.reg.lett.extract.money': 'property',
+    'ill.opening letters': 'fraud',
+    'ill.oper.hotel near proh.zone': 'alcohol',
+    'ill.operat.distillery': 'alcohol',
+    'ill.per.foreign.escape vessell': 'fraud',  # Aiding evasion of customs/immigration
+    'ill.placed name in elect.book': 'fraud',
+    'ill.poss,sale intox.liquors': 'alcohol',
+    'ill.poss.PO key': 'property',  # Illegal possession of government property for illicit use
+    'ill.poss.cig.and tob.': 'tax',
+    'ill.poss.firearm': 'property',
+    'ill.poss.gov.prop': 'property',
+    'ill.poss.ill.firearm': 'property',
+    'ill.poss.interst.freight': 'property',
+    'ill.poss.intox.liq': 'alcohol',
+    'ill.poss.intox.liq.': 'alcohol',
+    'ill.poss.letters': 'fraud',  # Possession for information theft or other deceptive purpose
+    'ill.poss.manuf.intox.liq': 'alcohol',
+    'ill.poss.purch.narc.drugs': 'non-alcohol drugs',
+    'ill.poss.sale.morph,vio.Harrison Act': 'non-alcohol drugs',
+    'ill.poss.still': 'alcohol',
+    'ill.possess.intox.liq': 'alcohol',
+    'ill.possess.sale morphine': 'non-alcohol drugs',
+    'ill.possessing guitars': 'property',  # Assuming stolen or illegally acquired/imported
+    'ill.possessing liq': 'alcohol',
+    'ill.possession cigars': 'tax',
+    'ill.possession of liquor': 'alcohol',
+    'ill.procur.f.rep.of phys.cond.': 'fraud',
+    'ill.proscribe morphine': 'non-alcohol drugs',  # Illegal prescribing
+    'ill.purch.and conceal.morphine': 'non-alcohol drugs',
+    'ill.purch.prop.US': 'property',
+    'ill.purch.unif.fr/soldiers': 'property',
+    'ill.purchased marine clothing': 'property',
+    'ill.put man in mil.serv. of US': 'fraud',  # Assuming fraudulent enlistment or misrepresentation
+    'ill.rec,retain.ill.f/pens.case serv.': 'fraud',
+    'ill.rec.conceal.certain merch': 'property',
+    'ill.receiv.pledge in sold.clothing': 'property',
+    'ill.reg.voters,receiv.votes': 'fraud'
+}
+```

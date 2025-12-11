@@ -1,0 +1,108 @@
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'Customs Laws': 'Fraud',  # Often involves evasion of duties or false declarations
+    'DUI': 'Alcohol',
+    'Debt due U.S.': 'Fraud',  # Assuming criminal intent like fraudulent non-payment or default
+    'Defacing Gold Coins': 'Property',
+    'Delaying mail': 'Property',  # Interfering with government property or services
+    'Depositing Articles for Transportation': 'Property',  # Misuse of postal service, sending prohibited items
+    'Depositing Obscene Matte at Post office': 'Sexual',
+    'Deprive Voters\' of Rights': 'Fraud',  # Voter fraud, deceptive practices to disenfranchise
+    'Detaining Mail': 'Property',
+    'Devereux\'s surety': 'Fraud',  # Assuming fraudulent default on a surety bond
+    'Dyer Act': 'Property',  # National Motor Vehicle Theft Act
+    'Embezzlement': 'Fraud',
+    'Embezzlement from bank': 'Fraud',
+    'Embezzlement of Bank Funds': 'Fraud',
+    'Embezzlement of Mail': 'Fraud',
+    'Embezzlement of Postal Funds': 'Fraud',
+    'Embezzling Mail Matter': 'Fraud',
+    'Embezzling funds from incompetent veteran': 'Fraud',
+    'Embezzling funds of natl bank': 'Fraud',
+    'Emergency Price Control Act': 'Fraud',  # Violations often involve price gouging, black market, or misrepresentation
+    'Emergency Price Control Act of 1942': 'Fraud',
+    'Emergency Price Control Act of 1942 ( 50 U.S.C. Ap': 'Fraud',
+    'Emergency Price Control Act; 18 U.S.C. 88': 'Fraud',
+    'Emergency Price Controls Act': 'Fraud',
+    'Emergency Relief Appropriation Act of June 30, 193': 'Fraud',  # Misuse or fraudulent acquisition of relief funds
+    'Extorion through Mail': 'Violent',  # Extortion implies threat or coercion
+    'Extortion': 'Violent',
+    'Failure to file income tax return': 'Tax',
+    'Fair Labor Standards Act of 1938': 'Fraud',  # Wage fraud, misrepresentation of labor practices, or failure to pay justly
+    'False Claims during Bankrupt': 'Fraud',
+    'False Claims, Conspiracy': 'Fraud',
+    'False Impersonation': 'Fraud',
+    'False Statements for Naturalization': 'Fraud',
+    'False claims, Conspiracy against US': 'Fraud',
+    'Falsifying Bank Records': 'Fraud',
+    'Falsifying Public Records': 'Fraud',
+    'Filing False Affadavit': 'Fraud',
+    'Filing False Wage Claims': 'Fraud',
+    'Food and Drug Act': 'Fraud',  # Mislabeling, selling unsafe products under false pretenses
+    'Forgery': 'Fraud',
+    'Forgery of Check': 'Fraud',
+    'Forgery of Note': 'Fraud',
+    'Fraud': 'Fraud',
+    'Fraud, Conspiracy': 'Fraud',
+    'Grand Larceny': 'Property',
+    'Haboring aliens': 'Fraud',  # Often involves deception, false documents, or facilitating illegal entry for gain
+    'Harboring Fugitive': 'Fraud',  # Deceiving authorities to aid evasion of justice
+    'Harris Narcotics Act': 'Non-Alcohol Drugs',
+    'Harris.Narcotics Act': 'Non-Alcohol Drugs',
+    'Harrison Anti-narcotics act': 'Non-Alcohol Drugs',
+    'Harrison Narcotics Act': 'Non-Alcohol Drugs',
+    'Heroin': 'Non-Alcohol Drugs',
+    'Hiding Stolen Property': 'Property',
+    'Housebreaking, Assualt': 'Violent',  # Assault takes precedence
+    'Housebreaking, larceny': 'Property',
+    'Housing Act': 'Fraud',  # False claims or misrepresentation in housing programs/benefits
+    'IRS': 'Tax',
+    'IRS Act 1934': 'Tax',
+    'IRS Laws': 'Tax',
+    'IRS Liquor Laws': 'Alcohol',  # Specific to the regulation and taxation of liquor
+    'IRS Statutes': 'Tax',
+    'IRS VIOlATIon **': 'Tax',
+    'IRS Violations': 'Tax',
+    'IRS agent accepting bribe': 'Fraud',  # Corruption, breach of public trust
+    'IRS laws': 'Tax',
+    'IRS, liquor': 'Alcohol',
+    'Il.prod.liq.': 'Alcohol',  # Illegal production of liquor
+    'Ilegal Fees for Procuring loans': 'Fraud',
+    'Illegal gaming': 'Fraud',  # Operating an illegal scheme, often involving deception or illicit financial operations
+    'Illegal sale of liquor': 'Alcohol',
+    'Immigration Act': 'Fraud',  # Violations often involve false documents or schemes to circumvent laws
+    'Immigration Act of February 5, 1917 Section 4': 'Fraud',
+    'Immigration Act of February 6, 1917': 'Fraud',
+    'Immigration Laws': 'Fraud',
+    'Impersonating Officer': 'Fraud',
+    'Impersonating US Officer': 'Fraud',
+    'Impersonating a US Officer/Prohibition': 'Fraud',  # Impersonation is the core deceptive act
+    'Impersonating officer': 'Fraud',
+    'Income Tax Fraud': 'Tax',
+    'Income Tax Laws': 'Tax',
+    'Injure persons in exercise of civil rights': 'Violent',
+    'Internal Revenue Act of May 28, 1928': 'Tax',
+    'Internal Revenue Code 2553(a), 2554': 'Non-Alcohol Drugs',  # These sections relate to narcotics regulation (Harrison Narcotics Act)
+    'Internal Revenue Code 2554 -- deported unless pard': 'Non-Alcohol Drugs',
+    'Internal Revenue Code 2554, 2554a': 'Non-Alcohol Drugs',
+    'Internal Revenue Code Sec. 2553, 2554 (21 U.S.C. 1': 'Non-Alcohol Drugs',
+    'Internal Revenue Code Sec. 3030a2,b1, 3793': 'Alcohol',  # Sec 3030 specifically refers to stamp taxes on liquor
+    'Internal Revenue Code; Emergency Price Control Act': 'Fraud',  # The EPC Act context typically points to fraud violations
+    'Internal Revenue Laws': 'Tax',
+    'Internal Revenue Laws relating to distilled spirit': 'Alcohol',
+    'Internal Revenue Statutes; Second War Powers Act': 'Fraud',  # Second War Powers Act involved wartime controls often violated through fraud (e.g., black markets)
+    'Internal Revenue laws': 'Tax',
+    'Internal Revenue statutes': 'Tax',
+    'Internal revenue code (26 U.S.C. 1152a)': 'Tax',
+    'Involuntary Manslaughter': 'Violent',
+    'Iran Contra': 'Fraud',  # Involves illegal dealings, deception, and circumvention of laws
+    'Issuing Fradulant Money Orders': 'Fraud',
+    'Joint Resolution of Congress dated May 28, 1934 an': 'Fraud',  # Vague, but generally refers to violations of economic or regulatory acts, often implying fraud
+    'Joint Resolution to Prohibit the Sale of Arms and': 'Fraud',  # Evading embargoes, illegal transactions (often deceptive)
+    'July 1838 act violation': 'Fraud'  # Vague, but a generic "Act violation" often implies some form of evasion or deception
+}
+```

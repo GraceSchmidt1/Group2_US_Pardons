@@ -1,0 +1,108 @@
+```python
+offense_categories = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'vio.PO laws (in rec,conc.stln.stamps)': 'property',  # "stln.stamps" implies theft
+    'vio.Registration laws': 'fraud',  # Often involves misrepresentation or evasion
+    'vio.Rev.Laws rel.to distill.spirits': 'alcohol',  # "distill.spirits"
+    'vio.Rev.laws rel.to dist.spir.': 'alcohol',  # "dist.spir." is shorthand for distilled spirits
+    'vio.Sec. 5478 of R.S. of US': 'property',  # Historically related to embezzling letters from mail
+    'vio.Sec.2461 US revised statutes': 'fraud',  # Historically related to carrying excess passengers, often involved misrepresentation of capacity or unauthorized operation
+    'vio.Sec.3242 (rel.to tobacco)': 'tax',  # Tobacco is often subject to excise tax
+    'vio.Sec.3242,R.S. of US': 'tax',
+    'vio.Sec.3279 US revised statutes': 'alcohol',  # Historically related to illicit distilleries
+    'vio.Sec.3406': 'tax',  # Historically related to stamping/branding tobacco/alcohol, indicating tax evasion
+    'vio.Sec.3891 US revised statutes': 'sexual',  # Historically related to mailing obscene matter
+    'vio.Sec.4046 of Rev.Stat.': 'fraud',  # Historically related to embezzling money order funds
+    'vio.Sec.4746 R.S. (pension laws)': 'fraud',  # Violations often involve false claims for pensions
+    'vio.Sec.5209 of Rev.Stat.': 'fraud',  # Historically related to misapplication of funds by bank officers, false entries
+    'vio.Sec.5209, R.S. of US': 'fraud',
+    'vio.Sec.5392 of US Rev.Stat.': 'fraud',  # Historically related to perjury
+    'vio.Sec.5421 R.S.': 'fraud',  # Historically related to counterfeiting currency/notes
+    'vio.Sec.5438 R.S.': 'fraud',  # Historically related to forging/counterfeiting government bonds, stamps, etc.
+    'vio.Sec.5457, R.S. of US': 'property',  # Historically related to robbing the mail
+    'vio.Sec.5467 US revised statutes': 'property',  # Historically related to embezzling letters/mail theft
+    'vio.Sec.5469 US revised statutes': 'property',  # Historically related to larceny of letters/mail theft
+    'vio.Sec.5478 US revised statutes': 'property',  # Historically related to postal offenses, specifically embezzling letters
+    'vio.Sec.5501': 'fraud',  # Historically related to conspiring to intimidate citizens from voting, impacting election integrity
+    'vio.Secs.5346,5347 US revised statutes': 'violent',  # Historically related to murder and manslaughter
+    'vio.Secs.5418,5421,5438 US revised stats.': 'fraud',  # All relate to forging/counterfeiting
+    'vio.Secs.5457,3513,5431,5413 US, revised stat': 'fraud',  # Mail robbery (property) and coining/counterfeiting (fraud); fraud is more dominant
+    'vio.Sect. 3390 of R.S. of US': 'tax',  # Historically related to penalties for cigar/tobacco manufacturing
+    'vio.Sect. 3397 of R.S. of US': 'tax',  # Historically related to penalties for liquor/tobacco sales without stamps
+    'vio.Sect. 5480 R.S.': 'fraud',  # Historically related to mail fraud
+    'vio.Sect.3392 of R.S. of US': 'tax',  # Historically related to penalties for tobacco/cigar manufacturing
+    'vio.Sect.3804, R.S.': 'fraud',  # Historically related to carrying mail without authority, often for fraudulent purposes
+    'vio.Sect.5209 rev.statutes': 'fraud',  # Same as 5209 above
+    'vio.Sect.5209, R.S. of US': 'fraud',  # Same as 5209 above
+    'vio.Sect.5395': 'fraud',  # Historically related to bribery of judicial officers
+    'vio.Sect.5469, R.S.': 'property',  # Same as 5469 above
+    'vio.Sect.5485 US R.S.': 'fraud',  # Historically related to fraudulent use of the mail
+    'vio.Sect.5535 of R.S. of US': 'fraud',  # Historically related to counterfeiting trademarks/labels
+    'vio.Select Serv.Act': 'fraud',  # Draft evasion often involves misrepresentation or false claims
+    'vio.Select.Serv.Act': 'fraud',
+    'vio.Sherman Antitrust Act': 'fraud',  # Antitrust violations involve market manipulation and unfair practices
+    'vio.Steam Boat Insp.laws-- (2)': 'fraud',  # Regulatory non-compliance, often involves misrepresenting safety or compliance
+    'vio.Tariff Act': 'tax',  # Tariffs are a form of tax
+    'vio.Tariff/Nat.Proh.Act': 'alcohol',  # National Prohibition Act is explicitly alcohol-related
+    'vio.U.S. Postal laws': 'fraud',  # General postal violations are frequently mail fraud
+    'vio.U.S. pension laws': 'fraud',
+    'vio.US Int.Rev.laws': 'tax',  # Internal Revenue laws
+    'vio.US banking laws': 'fraud',  # Violations often involve fraud, embezzlement, or false statements
+    'vio.US banking laws (4)': 'fraud',
+    'vio.US election laws': 'fraud',  # Often related to voter fraud, ballot manipulation, etc.
+    'vio.US internal revenue laws': 'tax',
+    'vio.US law rel.dist.spir.liq.': 'alcohol',  # "dist.spir.liq." refers to distilled spirits/liquor
+    'vio.US opstal laws': 'fraud',  # Assuming "opstal" is a typo for "postal"
+    'vio.US pension laws': 'fraud',
+    'vio.US pension laws (37 indictments)': 'fraud',
+    'vio.US post laws': 'fraud',
+    'vio.US post.laws under Act of 7/1/64': 'fraud',
+    'vio.US postal codes': 'fraud',
+    'vio.US postal law': 'fraud',
+    'vio.US postal laws': 'fraud',
+    'vio.US postal laws (2 ind)': 'fraud',
+    'vio.US postal laws (4 ind)': 'fraud',
+    'vio.US postal laws as carrier': 'fraud',  # Breach of trust by a carrier, often involves misdelivery or theft (which could be property, but fraud for breach of duty)
+    'vio.US postal laws--3 cases': 'fraud',
+    'vio.US rev.laws': 'tax',  # Revenue laws
+    'vio.US revenue laws': 'tax',
+    'vio.US.stat.5467 (embezz.lett)': 'property',  # Embezzlement of letters
+    'vio.Volstead Act': 'alcohol',  # The National Prohibition Act
+    'vio.Volstead Act,and sec.3258,Rev.Stat.': 'alcohol',  # Volstead Act and section related to distillers
+    'vio.White Slave Act': 'slavery',  # Historically referred to human trafficking or forced prostitution
+    'vio.act auth.app.ship.comm.': 'fraud',  # Administrative violations often involve misrepresentation or unauthorized actions
+    'vio.act concern.safety of passengers': 'fraud',  # Regulatory non-compliance, implies misrepresenting safety or operating unsafely for profit
+    'vio.act f/protect.pass.steam.vess.': 'fraud',  # Similar to above, safety regulations for vessels
+    'vio.act of congress': 'fraud',  # Too general; assigned as a catch-all for regulatory/legal breaches that may involve deceit
+    'vio.act prev.corrupt cong.elect.': 'fraud',  # "corrupt cong.elect." directly implies fraud
+    'vio.act prev.wear.knives b/seamen': 'violent',  # Regulation against weapons, implies potential for violence
+    'vio.act protect passengers': 'fraud',  # Similar to safety regulations above
+    'vio.act protect,seamen': 'fraud',  # Similar to safety/regulatory acts above
+    'vio.act re/ventilla.pass.ships': 'fraud',  # Ventilation regulations, related to safety/compliance
+    'vio.act reg.steam.ship passeng.': 'fraud',  # Regulating steamship passengers, often involves capacity/safety compliance
+    'vio.act rel.numb.passengers': 'fraud',  # Related to passenger capacity
+    'vio.act rel.trade,commerce w/Indians ??': 'fraud',  # Violations of trade laws with Native Americans often involved illicit trade or misrepresentation
+    'vio.act relating to hrs.of service': 'fraud',  # Labor law violations, often involves false reporting or exploitation
+    'vio.act,carnal know.female <16': 'sexual',  # Carnal knowledge of a minor
+    'vio.act.carry.pass.in merch.ships': 'fraud',  # Regulatory compliance for carrying passengers
+    'vio.act.f/recov.vio.tax on distill.': 'tax',  # Explicitly about recovering violation tax
+    'vio.act.passeng.merch.ships': 'fraud',  # Similar to carrying passengers above
+    'vio.act.protect passengers': 'fraud',  # Similar to safety regulations above
+    'vio.act.rel.brigs': 'fraud',  # "Brigs" can refer to ships or prisons; if regulatory, often involves compliance
+    'vio.act.rel.carry.passengers': 'fraud',  # Similar to carrying passengers above
+    'vio.act.rel.excess passengers': 'fraud',  # Similar to excess passengers above
+    'vio.act.rel.excess passengers,insuff.length,vio.ac': 'fraud',  # Combo of regulatory violations
+    'vio.act.rel.excess.passenger': 'fraud',  # Similar to excess passengers above
+    'vio.act.rel.excess.passengers': 'fraud',  # Similar to excess passengers above
+    'vio.act.rel.excess.passengers,ventill.pass.ships,u': 'fraud',  # Combo of regulatory violations
+    'vio.act.rel.excesss.passengers': 'fraud',  # Similar to excess passengers above
+    'vio.act.rel.internal.revenue': 'tax',  # Internal revenue
+    'vio.act.rel.numb.passengers': 'fraud',  # Similar to passenger numbers above
+    'vio.act.rel.passengers': 'fraud',  # General passenger regulations
+    'vio.act.rel.preserv.lives passengers': 'fraud',  # Safety regulations for passengers
+    'vio.act.rel.preserv.public timber': 'property'  # Preservation of public timber implies theft or damage to public property
+}
+```

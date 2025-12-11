@@ -1,0 +1,145 @@
+```python
+offense_categorizations = {
+    # Examples provided in the prompt
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+
+    # Categorization of the provided list based on common interpretations of U.S. Code sections
+    # and keywords. When multiple codes are present, the most severe or specific crime (e.g., Drugs, Violent, Alcohol)
+    # is prioritized over general fraud or conspiracy.
+    
+    # 18 U.S.C. 80 (now 18 U.S.C. 1001, 287, 371) generally relates to false claims/statements/fraud against the U.S.
+    '18 U.S.C. 80 (18 U.S.C. 1709)': 'Fraud', # 80: False claims; 1709: Theft of mail (Property). Prioritizing the core offense of 80.
+    '18 U.S.C. 80, 338; 38 U.S.C. 556a': 'Fraud', # 80: False claims; 338: Mail fraud.
+    '18 U.S.C. 80, 38 U.S.C. 715': 'Fraud', # 80: False claims.
+    '18 U.S.C. 80, 88': 'Fraud', # 80: False claims; 88: Conspiracy to defraud.
+    '18 U.S.C. 80, 88, 91': 'Fraud', # 80: False claims; 88: Conspiracy; 91: False personation.
+    '18 U.S.C. 80,335': 'Fraud', # 80: False claims; 335: Mail fraud.
+
+    # 18 U.S.C. 81 (Arson)
+    '18 U.S.C. 81': 'Property', # Arson of federal property.
+
+    # 18 U.S.C. 82 (now 18 U.S.C. 1002) relates to false papers to defraud.
+    '18 U.S.C. 82': 'Fraud', # False papers to defraud.
+    '18 U.S.C. 82, 100': 'Fraud', # 82: False papers; 100: False statements.
+    '18 U.S.C. 82, 100, 183': 'Fraud', # 82: False papers; 100: False statements; 183: False entries (fraud).
+    '18 U.S.C. 82, 315, 313, 317': 'Property', # 82: False papers (fraud); 315: Theft by postal employee; 313: Theft of mail; 317: Obstruction of correspondence. The mail theft/obstruction leans towards Property.
+    '18 U.S.C. 82, 87, 100': 'Fraud', # 82: False papers; 87: Forgery; 100: False statements.
+
+    # 18 U.S.C. 824 (now 18 U.S.C. 111) relates to assaulting federal officers.
+    '18 U.S.C. 824': 'Violent', # Assaulting a federal officer.
+
+    # 18 U.S.C. 83 (now 18 U.S.C. 1003) relates to false pretenses.
+    '18 U.S.C. 83': 'Fraud', # False pretenses on high seas (obtaining property by false pretenses).
+
+    # 18 U.S.C. 834 (now 18 U.S.C. 1071) relates to harboring/concealing persons.
+    '18 U.S.C. 834': 'Fraud', # Harboring or concealing persons (often to defraud justice/authorities).
+
+    # 18 U.S.C. 86 & 87 (now 18 U.S.C. 493/494) relates to forgery of postal money orders.
+    '18 U.S.C. 86': 'Fraud', # Forgery of postal money orders.
+    '18 U.S.C. 87': 'Fraud', # Forgery of postal money orders.
+
+    # 18 U.S.C. 876 (Mailing threatening communications)
+    '18 U.S.C. 876': 'Violent', # Mailing threatening communications.
+
+    # 18 U.S.C. 88 (now 18 U.S.C. 371) generally relates to conspiracy to commit offense or defraud the U.S.
+    '18 U.S.C. 88': 'Fraud', # General conspiracy to defraud U.S.
+    '18 U.S.C. 88 & 338': 'Fraud', # 88: Conspiracy; 338: Mail fraud.
+    '18 U.S.C. 88 & 415': 'Fraud', # 88: Conspiracy; 415: Frauds against banks.
+    '18 U.S.C. 88 -- deported unless pardoned -- hardsh': 'Fraud', # General 88 context.
+    '18 U.S.C. 88 -- excludes graver convictions and se': 'Fraud', # General 88 context.
+    '18 U.S.C. 88 False Data for claim of training allo': 'Fraud', # Explicitly fraud.
+    '18 U.S.C. 88 and 18 U.S.C. 3258': 'Fraud', # 88: Conspiracy; 3258: (related to official misconduct/fraud).
+    '18 U.S.C. 88, 203': 'Fraud', # 88: Conspiracy; 203: Conflicts of interest/unlawful compensation.
+    '18 U.S.C. 88, 215': 'Fraud', # 88: Conspiracy; 215: Acceptance of gifts by bank examiners.
+    '18 U.S.C. 88, 231; 21 U.S.C. 174; 26 U.S.C. 692': 'Non-Alcohol Drugs', # 231: Concealment of records (Property/Fraud); 174: Narcotics (Non-Alcohol Drugs); 692: Tax. Drug offense takes precedence.
+    '18 U.S.C. 88, 241': 'Violent', # 88: Conspiracy; 241: Conspiracy against rights of citizens (often involves violence or intimidation).
+    '18 U.S.C. 88, 251, 551': 'Property', # 251: Embezzlement by postal employee; 551: Mutilation of public records. Both are property-related.
+    '18 U.S.C. 88, 254; liquor taxing act of 1934': 'Alcohol', # 254: Embezzlement by officer (Fraud); 'liquor taxing act' makes it Alcohol.
+    '18 U.S.C. 88, 262': 'Fraud', # 262: Counterfeiting.
+    '18 U.S.C. 88, 263, 265': 'Fraud', # 263, 265: Counterfeiting.
+    '18 U.S.C. 88, 264': 'Fraud', # 264: Counterfeiting.
+    '18 U.S.C. 88, 264, 265': 'Fraud', # Counterfeiting.
+    '18 U.S.C. 88, 265': 'Fraud', # Counterfeiting.
+    '18 U.S.C. 88, 268': 'Fraud', # 268: Embezzlement of money orders.
+    '18 U.S.C. 88, 317, 314': 'Property', # 317: Obstruction of correspondence; 314: Destruction of mail boxes. Both are property offenses.
+    '18 U.S.C. 88, 320': 'Property', # 320: (Often related to mail offenses/theft).
+    '18 U.S.C. 88, 336': 'Fraud', # 336: Mail fraud.
+    '18 U.S.C. 88, 338': 'Fraud', # 338: Mail fraud.
+    '18 U.S.C. 88, 338, 415': 'Fraud', # 338: Mail fraud; 415: Frauds against banks.
+    '18 U.S.C. 88, 338; 12 U.S.C. 592': 'Fraud', # 338: Mail fraud; 592: Bank fraud.
+    '18 U.S.C. 88, 338; 15 U.S.C. 77q(a), e(1)': 'Fraud', # 338: Mail fraud; 77q: Securities fraud.
+    '18 U.S.C. 88, 347': 'Fraud', # 347: Impersonating federal officer.
+    '18 U.S.C. 88, 387': 'Fraud', # 387: Lottery offenses.
+    '18 U.S.C. 88, 398, 399': 'Slavery', # 398, 399: White Slave Traffic Act (Mann Act).
+    '18 U.S.C. 88, 408': 'Violent', # 408: Kidnapping.
+    '18 U.S.C. 88, 409': 'Property', # 409: Theft from interstate shipments.
+    '18 U.S.C. 88, 550; 12 U.S.C. 592': 'Fraud', # 550: Embezzlement of public funds; 592: Bank fraud.
+    '18 U.S.C. 88, 80': 'Fraud', # 80: False claims.
+    '18 U.S.C. 88, 83, 80': 'Fraud', # 83: False pretenses; 80: False claims.
+    '18 U.S.C. 88, 87, 99, 100': 'Fraud', # 87: Forgery; 99: False claims; 100: False statements.
+    '18 U.S.C. 88,262,264,265': 'Fraud', # Counterfeiting.
+    '18 U.S.C. 88; 1 U.S.C. 15': 'Fraud', # (1 U.S.C. 15 is not an offense; default to 88's fraud).
+    '18 U.S.C. 88; 11 U.S.C. 52(b)': 'Fraud', # 52(b): Bankruptcy fraud.
+    '18 U.S.C. 88; 12 U.S.C. 1731': 'Fraud', # 1731: Housing loan fraud.
+    '18 U.S.C. 88; 12 U.S.C. 592': 'Fraud', # 592: Bank fraud.
+    '18 U.S.C. 88; 19 U.S.C. 1591, 1593a, 1601; 21 U.S.': 'Non-Alcohol Drugs', # 19 U.S.C. are customs (fraud); 21 U.S. (truncated) indicates drug offenses. Drugs take precedence.
+    '18 U.S.C. 88; 19 U.S.C. 1593': 'Fraud', # 1593: Customs fraud/smuggling.
+    '18 U.S.C. 88; 19 U.S.C. 1593a,b': 'Fraud', # Customs fraud/smuggling.
+    '18 U.S.C. 88; 21 U.S.C. 173, 174 -- deported unles': 'Non-Alcohol Drugs', # 173, 174: Narcotics offenses.
+    '18 U.S.C. 88; 26 U.S.C. 1152, 1322; 27 U.S.C. 153': 'Alcohol', # 26 U.S.C. sections are tax-related; 27 U.S.C. 153 relates to Federal Alcohol Administration Act. Explicit alcohol laws.
+    '18 U.S.C. 88; 26 U.S.C. 1162a': 'Tax', # 1162a: Income tax related.
+    '18 U.S.C. 88; 26 U.S.C. 1184': 'Tax', # 1184: Excise tax related.
+    '18 U.S.C. 88; 26 U.S.C. 1184, 1287, 1441': 'Tax', # Various tax offenses.
+    '18 U.S.C. 88; 26 U.S.C. 281, 306, 307': 'Alcohol', # Old liquor tax/control statutes.
+    '18 U.S.C. 88; 26 U.S.C. 281, 306, 307; prohibition': 'Alcohol', # Old liquor tax/control statutes, explicitly "prohibition".
+    '18 U.S.C. 88; 26 U.S.C. 281, 307': 'Alcohol', # Old liquor tax/control statutes.
+    '18 U.S.C. 88; 26 U.S.C. 2857': 'Alcohol', # Old liquor tax (wine/spirit).
+    '18 U.S.C. 88; 26 U.S.C. 3116, 2833, 2810': 'Alcohol', # Old liquor/distilling offenses.
+    '18 U.S.C. 88; 49 U.S.C. 121': 'Fraud', # 49 U.S.C. 121: Interstate Commerce Act (often related to deceptive practices or illegal transport for gain).
+    '18 U.S.C. 88; 8 U.S.C. 144': 'Fraud', # 8 U.S.C. 144: Naturalization/nationality fraud.
+    '18 U.S.C. 88; 8 U.S.C. 414': 'Fraud', # 8 U.S.C. 414: Immigration fraud.
+    '18 U.S.C. 88; Radio Act of February 23, 1927': 'Fraud', # Radio Act violations (unlicensed operation, often linked to deceptive practices).
+    '18 U.S.C. 88; liquor tax laws': 'Alcohol', # Explicitly liquor tax laws.
+
+    # 18 U.S.C. 89 (now 18 U.S.C. 1026) relates to fraudulent claims.
+    '18 U.S.C. 89': 'Fraud', # Fraudulent claims to U.S.
+
+    # 18 U.S.C. 91 (now 18 U.S.C. 288) relates to false personation of citizen.
+    '18 U.S.C. 91': 'Fraud', # False personation of citizen.
+    '18 U.S.C. 91, 88': 'Fraud', # 91: False personation; 88: Conspiracy.
+
+    # 18 U.S.C. 96 (now 18 U.S.C. 1381) relates to enticing desertion.
+    '18 U.S.C. 96': 'Fraud', # Enticing desertion (crime against the government/military, often involving deception).
+
+    # 18 U.S.C. 99 (now 18 U.S.C. 291) relates to conspiracy to obtain money by false claims.
+    '18 U.S.C. 99': 'Fraud', # Conspiracy to obtain money by false claims.
+    '18 U.S.C. 99, 320, 313, 88': 'Property', # 99: False claims (fraud); 320: Mail offenses; 313: Mail theft; 88: Conspiracy. Mail theft components make it Property.
+
+    # Generic/Typo interpretations
+    '18 U.S.C. ??': 'Fraud', # Unknown, defaulting to a common federal offense type.
+    '18 U.S.C.408': 'Violent', # Kidnapping (actual 18 U.S.C. 408 was kidnapping).
+    '18 U.S.C> 68, 338': 'Property', # 68: Embezzlement/theft of public property; 338: Mail fraud. Prioritizing the direct theft aspect.
+    '18 U.SC. 231': 'Property', # Concealment/mutilation of records.
+    '18 U.SC. 265': 'Fraud', # Counterfeiting.
+    '18 U.SC. 318': 'Property', # Delay or destruction of mail.
+    '18 U.SC. 371': 'Fraud', # Conspiracy to defraud US.
+    '18 U.SC. 408': 'Violent', # Kidnapping.
+    '18 U.SC. 80': 'Fraud', # False claims.
+    '18 U.s.C. 355': 'Fraud', # (Ambiguous, 355 is modern sentencing; assuming a related fraud statute like 335 Mail Fraud, or general fraud context).
+
+    # D.C. Code
+    '1801,2301 T 22 DC Code': 'Violent', # 22 D.C. Code 1801: Assault (Violent); 2301: Unlawful entry (Property). Assault is the more serious and explicit violent crime.
+
+    # 19 U.S.C. (Customs)
+    '19 U.S.C 1593': 'Fraud', # Customs fraud/smuggling.
+    '19 U.S.C. 1431- customs & 21 U.S.C.176(a)- smuggli': 'Non-Alcohol Drugs', # 19 U.S.C. 1431: Customs; 21 U.S.C. 176a: Drug smuggling. Drug offense takes precedence.
+    '19 U.S.C. 1539a & 1539b, 18 U.S.C. 68': 'Fraud', # 1539a/b: Customs fraud; 68: Embezzlement/theft. Customs fraud.
+    '19 U.S.C. 1590': 'Fraud', # Customs violations (smuggling).
+    '19 U.S.C. 1593': 'Fraud', # Customs fraud/smuggling.
+    '19 U.S.C. 1593 (a)(b)m 21 U.S.C. 173': 'Non-Alcohol Drugs', # 1593: Customs fraud; 21 U.S.C. 173: Drug offenses. Drug offense takes precedence.
+    '19 U.S.C. 1593 and 26 U.S.C. 2593': 'Non-Alcohol Drugs', # 1593: Customs fraud; 26 U.S.C. 2593: Narcotic tax. Drug offense takes precedence.
+}
+```

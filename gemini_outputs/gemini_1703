@@ -1,0 +1,109 @@
+Here is the Python dictionary with each offense from your dataset categorized according to your specified categories:
+
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'att.to commit bestiality': 'Sexual',
+    'att.to obt.allow.one or more mil.pens.': 'Fraud',
+    'att.to vote under another name': 'Fraud',
+    'attacked superior attempted sed': 'Violent',
+    'attemp.break in PO to larcen': 'Property',
+    'attempt and conspiracy': 'Non-Alcohol Drugs', # Inferred from the immediate context of following entries specifying narcotics
+    'attempt and conspiracy-crack cocaine, narcotics': 'Non-Alcohol Drugs',
+    'attempt and conspiracy-narcotics': 'Non-Alcohol Drugs',
+    'attempt and conspiracy-narcotics, 841(a)(1)': 'Non-Alcohol Drugs',
+    'attempt defraud US': 'Fraud',
+    'attempt evade income tax': 'Tax',
+    'attempt to bribe US officer': 'Fraud',
+    'attempt to evade or defeat tax': 'Tax',
+    'attempt to evade or defeat tax and 7206(1)': 'Tax',
+    'attempt to pass counterfeit coin': 'Fraud',
+    'attempt to poison': 'Violent',
+    'attempt to rob US mail': 'Violent', # Robbery implies use of force or threat
+    'attempt. defraud US liq tax': 'Tax',
+    'attempt. intro. liq indian res.': 'Alcohol',
+    'attempt. pass counterf.note': 'Fraud',
+    'attempt. rob PO': 'Violent',
+    'attempt. rob mails': 'Violent',
+    'attempt.break in PO': 'Property',
+    'attempt.break in/post office': 'Property',
+    'attempt.bribe U.S. official,consp.': 'Fraud',
+    'attempt.bribe a rev.officer': 'Fraud',
+    'attempt.cause insub.in military': 'Violent', # Undermining military authority, leading to potential conflict or breakdown of order
+    'attempt.count.US obligations': 'Fraud', # Counterfeiting government obligations (e.g., money)
+    'attempt.entice sold.desert.': 'Violent', # Undermining military strength, similar to insubordination
+    'attempt.fraud.obtain bounty money': 'Fraud',
+    'attempt.hold up US mail truck': 'Violent',
+    'attempt.pass counterf.US money': 'Fraud',
+    'attempt.pass counterf.coin': 'Fraud',
+    'attempt.pass counterf.money': 'Fraud',
+    'attempt.pass couterf.money': 'Fraud', # Assuming 'couterf.' is a typo for 'counterfeit'
+    'attempt.pass, passing counterf.money': 'Fraud',
+    'attempt.pass.forged money order': 'Fraud',
+    'attempt.purloin a package f/PO': 'Property',
+    'attempt.rob post office': 'Violent',
+    'attempt.smugg.merch.into US': 'Fraud', # Smuggling typically involves evading duties or regulations
+    'attempt.to bring,bring.written commun.into US in v': 'Fraud', # Assumed to be related to illegal import/export or evasion of controls
+    'attempted bark revolt': 'Violent',
+    'attempted brig revolt': 'Violent',
+    'attempted escape from federal custody and assault': 'Violent',
+    'attempted high seas revolt': 'Violent',
+    'attempted homicide': 'Violent',
+    'attempted housebreaking': 'Property',
+    'attempted income tax evasion': 'Tax',
+    'attempted mail theft': 'Property',
+    'attempted mutiny': 'Violent',
+    'attempted rape': 'Sexual',
+    'attempted revolt': 'Violent',
+    'attempted revolt on bark': 'Violent',
+    'attempted revolt on high seas': 'Violent',
+    'attempted ship revolt': 'Violent',
+    'attempting pass counterfeit money': 'Fraud',
+    'attempting to bribe a juror': 'Fraud',
+    'attempts at housebreaking--2 cases': 'Property',
+    'atttempt to poison': 'Violent',
+    'auto theft': 'Property',
+    'auto.libeled for intro.liq': 'Alcohol',
+    'b&e into postoffice to steal': 'Property',
+    'bRIBERY': 'Fraud',
+    'bail forfeiture': 'Fraud', # Categorized as Fraud as a financial consequence of non-compliance/deception against the legal system.
+    'bank and wire fraud': 'Fraud',
+    'bank conspiracy': 'Fraud',
+    'bank embezz': 'Fraud',
+    'bank embezz.f.entries books': 'Fraud',
+    'bank embezzlement': 'Fraud',
+    'bank fraud': 'Fraud',
+    'bank fraud, embezzlement': 'Fraud',
+    'bank fraud, false statements': 'Fraud',
+    'bank robbery': 'Violent',
+    'bankembezzlement': 'Fraud',
+    'banking laws': 'Fraud', # Violations of banking laws are typically forms of financial misconduct or fraud.
+    'bankruptcy': 'Fraud', # Assumed to refer to bankruptcy fraud in a criminal context.
+    'bankruptcy (11 U.S.C. (1934 Ed.) 652b)': 'Fraud', # Specific code usually refers to bankruptcy fraud.
+    'bearing arms against the gov.': 'Violent', # Act of rebellion/treason.
+    'beat,wound.one of crew w/o cause': 'Violent',
+    'beating crew members, ass.w/danger.weap.': 'Violent',
+    'beating,wounding seaman': 'Violent',
+    'being concerned in slave trade': 'Slavery',
+    'being drunk and disorderly': 'Alcohol',
+    'being drunk in a public place': 'Alcohol',
+    'being drunk in public place': 'Alcohol',
+    'betting on horse races': 'Fraud', # Illegal gambling is a form of illicit financial activity/regulatory evasion.
+    'bibery med.exam.select.serv.': 'Fraud',
+    'bid rigging': 'Fraud',
+    'big,polyg,unlawful cohabitation': 'Sexual', # Offenses against marriage/family integrity.
+    'big,polyg,unlawfull cohabitation': 'Sexual',
+    'big,polyg.unlawfull cohabitation': 'Sexual',
+    'bigam/polyg.prior to Act Cong': 'Sexual',
+    'bigamy': 'Sexual',
+    'bigamy or polygamy': 'Sexual',
+    'bigamy, adultery': 'Sexual',
+    'blackmail': 'Violent', # Involves coercion and threats, often implied violence or severe harm.
+    'blackmail,vio.Harrison Antinarc.Act': 'Non-Alcohol Drugs', # Prioritizing the specific drug violation when two types of offenses are mentioned.
+    'bond forf. for consul act viola.': 'Fraud', # Categorized as Fraud, assuming the violation involves illicit activity or evasion.
+    'bond penalty': 'Fraud', # Categorized as Fraud as a financial consequence, broadly related to illicit financial/regulatory non-compliance.
+}
+```

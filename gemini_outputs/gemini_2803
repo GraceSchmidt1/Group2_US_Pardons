@@ -1,0 +1,110 @@
+Here are the manual categorizations for each offense, assigned to one of your specified categories:
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'consp.defraud US of liq.tax': 'Tax',
+    'consp.defraud US of pub.lands': 'Fraud',
+    'consp.defraud US public lands,att.obstr.admin.just': 'Fraud',
+    'consp.defraud US--2 cases': 'Fraud',
+    'consp.defraud US.and vio.nat.prohib.act': 'Fraud', # "defraud" is the primary action
+    'consp.defraud gov. public land': 'Fraud',
+    'consp.defraud government': 'Fraud',
+    'consp.defraud govt': 'Fraud',
+    'consp.defraud govt.': 'Fraud',
+    'consp.defraud.Gov.land': 'Fraud',
+    'consp.defruad US public lands': 'Fraud',
+    'consp.der.US': 'Fraud', # Assuming 'der.' means defraud based on context
+    'consp.dist.cocaine': 'Non-Alcohol Drugs',
+    'consp.dist.cocaine base': 'Non-Alcohol Drugs',
+    'consp.dist.crack cocaine': 'Non-Alcohol Drugs',
+    'consp.distr.marajuana': 'Non-Alcohol Drugs',
+    'consp.distr.meth': 'Non-Alcohol Drugs',
+    'consp.distrb.cocaine.base.': 'Non-Alcohol Drugs',
+    'consp.distrb.poss.meth': 'Non-Alcohol Drugs',
+    'consp.distrib.': 'Non-Alcohol Drugs', # Assuming distribution of drugs based on context
+    'consp.distrib.cocaine base': 'Non-Alcohol Drugs',
+    'consp.distrib.cont.substance': 'Non-Alcohol Drugs',
+    'consp.distrib.crack': 'Non-Alcohol Drugs',
+    'consp.distrib.marijuana': 'Non-Alcohol Drugs',
+    'consp.distrib.meth': 'Non-Alcohol Drugs',
+    'consp.distrib.poss..cocaine base': 'Non-Alcohol Drugs',
+    'consp.distrib.poss.cocaine': 'Non-Alcohol Drugs',
+    'consp.distrib.poss.cocaine base': 'Non-Alcohol Drugs',
+    'consp.distrib.poss.marijuana': 'Non-Alcohol Drugs',
+    'consp.distriub.cocaine base': 'Non-Alcohol Drugs',
+    'consp.enter good <weight': 'Fraud', # Implies misrepresentation for customs/tax
+    'consp.enter goods <true weight': 'Fraud',
+    'consp.evade mil.serv.exam.': 'Fraud', # Evading duty through deception
+    'consp.export arms to Mexico': 'Property', # Illegal trade of goods (arms)
+    'consp.export cocaine': 'Non-Alcohol Drugs',
+    'consp.export wheat': 'Property', # Illegal trade of goods (wheat)
+    'consp.extort money and accept bribes': 'Violent', # Extortion is typically violent or involves threats
+    'consp.f.tax returns': 'Tax', # Assuming 'f.tax' means false tax
+    'consp.forge a govt. security': 'Fraud',
+    'consp.forge money order': 'Fraud',
+    'consp.forge&pass US securities': 'Fraud',
+    'consp.fraudulently import opium': 'Fraud', # "Fraudulently" is key
+    'consp.furnish whisky to Indiana': 'Alcohol',
+    'consp.har,trans.ill.aliens': 'Fraud', # Involves deception or circumvention of immigration laws
+    'consp.hinder war prog.,retard,preventconscription,': 'Violent', # Interference with national defense
+    'consp.hinder,delay,prevent by force exec.laws crea': 'Violent',
+    'consp.ill.disp[ose.denatured alchohol': 'Alcohol',
+    'consp.ill.intro.liquor': 'Alcohol',
+    'consp.illegally ship liquor': 'Alcohol',
+    'consp.impersonate US officer': 'Fraud',
+    'consp.impo.merch': 'Property', # Illegal import of merchandise
+    'consp.impo.pot': 'Non-Alcohol Drugs',
+    'consp.import aliens in/US,vio.nat.prohibition act': 'Alcohol', # Explicit prohibition act violation
+    'consp.import aliens into US': 'Fraud', # Involves deception or circumvention of immigration laws
+    'consp.import cocaine': 'Non-Alcohol Drugs',
+    'consp.import liq.': 'Alcohol',
+    'consp.import liquors': 'Alcohol',
+    'consp.import marajuana': 'Non-Alcohol Drugs',
+    'consp.import marijuana': 'Non-Alcohol Drugs',
+    'consp.import.intox.liq': 'Alcohol',
+    'consp.in restraint of trade': 'Fraud', # Economic manipulation
+    'consp.in vio.Sherm.anti-trust': 'Fraud', # Economic manipulation
+    'consp.indce.vio.sel.serv.act, consp.vio.espionage': 'Violent', # Espionage is a severe crime against the state
+    'consp.influence jurors': 'Fraud', # Influencing implies deception or improper persuasion
+    'consp.inj.int.exer.civ.rights in pursuance thereof': 'Violent', # Interfering with rights, often by force/threat
+    'consp.injure US bailiff': 'Violent',
+    'consp.injure,opress,threaten,intimidate govt.off': 'Violent',
+    'consp.injure,resist rev.off.': 'Violent',
+    'consp.int.distribu,cocaine base': 'Non-Alcohol Drugs',
+    'consp.intent.distrib.meth.': 'Non-Alcohol Drugs',
+    'consp.interfere w/US dep.marsh,consp.release pris.': 'Violent', # Direct action against law enforcement and justice
+    'consp.interfere w/US dep.marsh.': 'Violent',
+    'consp.intim,injure US official': 'Violent',
+    'consp.intim.witness': 'Violent',
+    'consp.intimidate a fed.officer': 'Violent',
+    'consp.intimidate voter': 'Violent',
+    'consp.intimidate witness': 'Violent',
+    'consp.intr.liq in indian country': 'Alcohol',
+    'consp.intro.liq.w/false labels': 'Fraud', # "False labels" is key
+    'consp.land chinese unlawfully': 'Fraud', # Involves circumvention of immigration laws (smuggling)
+    'consp.leave US w/out valid pass.': 'Fraud', # Evading legal process through deception or circumvention
+    'consp.make,utt.count.silv.cert.': 'Fraud', # Counterfeiting
+    'consp.manuf intox liq': 'Alcohol',
+    'consp.manuf.beer': 'Alcohol',
+    'consp.manuf.distrib.meth': 'Non-Alcohol Drugs',
+    'consp.mil.exp.against India': 'Violent',
+    'consp.mil.exped.vs.India': 'Violent',
+    'consp.mil.exped.vs.frndly.power': 'Violent',
+    'consp.ob.due adm.just.b/conc.prop.bnkrpt': 'Fraud', # Obstruction related to financial/bankruptcy matters
+    'consp.obstr,retard pass.US mails': 'Violent', # Interference with essential government services, can involve force
+    'consp.obstr.&retard passage of US mail': 'Violent',
+    'consp.obstr.US recr,enlist.serv.': 'Violent', # Interference with national defense
+    'consp.obstr.USwar prog. by call.strikes,advoc.sabo': 'Violent', # Sabotage is a violent act
+    'consp.obstr.recruiting,enlist.US serv.': 'Violent',
+    'consp.obstr.war program': 'Violent',
+    'consp.obstrct&retard pass.mail': 'Violent',
+    'consp.obstruct interstate comm.': 'Fraud', # Obstruction of commerce can be economic manipulation
+    'consp.obstruct prosecution of the war': 'Violent', # Interference with national defense
+    'consp.obstruct,retard mails': 'Violent',
+    'consp.oerthrow the government': 'Violent'
+}
+```

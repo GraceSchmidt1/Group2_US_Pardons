@@ -1,0 +1,110 @@
+Here is the categorization of the offenses into the specified categories:
+
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'conceal.distill.spirits': 'alcohol',
+    'conceal.freight stolen f/ interst.ship.': 'property',
+    'conceal.info.SS benefits': 'fraud',
+    'conceal.liq.w/out tax paid': 'alcohol',
+    'conceal.mail matter': 'property',
+    'conceal.money merch from trustee': 'fraud',
+    'conceal.on person deadly weapon': 'violent',
+    'conceal.prop.f/trustee bankruptcy': 'fraud',
+    'conceal.prop.while a bankrupt': 'fraud',
+    'conceal.stolen mail matter': 'property',
+    'conceal.stolen.auto,trans': 'property',
+    'conceal.tobacco upon which tax imposed': 'tax',
+    'conceal.untaxed distill.spir.': 'alcohol',
+    'concealed assets from bank trust': 'fraud',
+    'concealed bankrupt estate assets': 'fraud',
+    'concealed weapon': 'violent',
+    'concealing alien': 'fraud',
+    'concealing assets during bankrupt': 'fraud',
+    'concealing assets from trustee': 'fraud',
+    'concealing assets in bamkruptcy': 'fraud',
+    'concealing assets in bankruptcy': 'fraud',
+    'concealing felony': 'fraud',
+    'concealing narcotics': 'non-alcohol drugs',
+    'concealing opium after importation': 'non-alcohol drugs',
+    'concealing smuggled goods': 'tax',  # Often related to evading customs duties
+    'concealing writings': 'property',
+    'concealiquorng assets in bamkruptcy': 'fraud', # Assumed typo for 'concealing assets'
+    'concealment of assets, bribery, false claims': 'fraud',
+    'concerned in slave trade': 'slavery',
+    'concerned in the slave trade': 'slavery',
+    'cond remission, restoration': 'fraud', # Speculative, assuming fraudulent claims for remission/restoration
+    'cond.dir.illeg.gambling': 'fraud',
+    'cond.house ill-fame by mil.camp': 'sexual',
+    'cond.ill-fame house near mil.': 'sexual',
+    'cond.prej. good order and disc.': 'violent', # General misconduct impacting order, often involving disruption/potential for violence
+    'cond.prej.of gd ordr.&disc.': 'violent',
+    'cond.prej.ord,disc': 'violent',
+    'cond.prej.order of mil.': 'violent',
+    'cond.prej.to good order and mil.disc,cond.unbec.of': 'violent',
+    'cond.unbec.off.and gent.scand.cond.tend.destroy mo': 'violent',
+    'conduct prej. order and disc.': 'violent',
+    'conduct prej.good order,disc.,scand.cond.destr.goo': 'violent',
+    'conduct.illeg. retail of liq.': 'alcohol',
+    'conducting an illegal gambling business': 'fraud',
+    'conducting house of ill fame': 'sexual',
+    'conducting unlicensed bar': 'alcohol',
+    'conf.post master': 'violent', # Assumed "confronting/assaulting" post master
+    'confinement & attempted homicide': 'violent',
+    'connected w/rebels': 'violent',
+    'conps. violate criminal code': 'fraud', # General conspiracy often involves deception or illicit financial gain
+    'cons,break.PO,larc.stamps,funds': 'property',
+    'cons. to viol. nat.prohib.act': 'alcohol',
+    'cons.,acceptance of bribes': 'fraud',
+    'cons.aid.abett. landing chinese': 'fraud',
+    'cons.bribe,offer,giv.bribes proh.offcs.': 'fraud',
+    'cons.buy,buying stolen mail matter': 'property',
+    'cons.cast away vessel he was master of': 'property',
+    'cons.conc,conceal.assets fr/trust.bnkrtcy,suborn.p': 'fraud',
+    'cons.conceal assets fr/bankr.trust': 'fraud',
+    'cons.conceal assets fr/trustee bnkrptcy': 'fraud',
+    'cons.def.US, smuggling fraud': 'fraud',
+    'cons.def.US,pub.lands,sub.perj.': 'fraud',
+    'cons.dispose of alcohol': 'alcohol',
+    'cons.emb.abst.misapp.nat.bank funds': 'fraud',
+    'cons.rescue prisoner fr/US Marshal': 'violent', # Often involves force or threat
+    'cons.rob mail,assault.mail clerk': 'violent',
+    'cons.start expedition against Mexico': 'violent',
+    'cons.steal intst.commerce': 'property',
+    'cons.steal liqs.belonging to US': 'property',
+    'cons.steal merch.fr/intst.commerce': 'property',
+    'cons.vio.esp,sel.serv.acts,forcible resist.other U': 'violent',
+    'cons.vio.int.rev.laws in redistill.liq.perjury in': 'tax', # Internal Revenue Laws (tax) is explicit, liquor is the object
+    'cons.vio.intst.freight theft act': 'property',
+    'cons.vio.motor vehicle theft act': 'property',
+    'cons.vio.nat.bank.laws,def.Nat.Bank': 'fraud',
+    'cons.vio.nat.motor vehicle theft act': 'property',
+    'cons.vio.nat.proh.act': 'alcohol',
+    'cons.vio.nat.prohib.act': 'alcohol',
+    'cons.vio.nat.prohib.act,import.liq.': 'alcohol',
+    'cons.vio.nat.prohib.and tariff acts': 'alcohol', # Prohibition takes precedence over general tax
+    'cons.viol Volstead Act': 'alcohol',
+    'cons.viol.bnkrptcy act': 'fraud',
+    'cons.viol.nat.proh.act and tariff act': 'alcohol', # Prohibition takes precedence over general tax
+    'cons.viol.nat.prohib.act': 'alcohol',
+    'cons.viol.natnl.prohib.act': 'alcohol',
+    'cons.viol.prohib.act': 'alcohol',
+    'cons.viol.tariff and nat.prohib.acts': 'alcohol', # Prohibition takes precedence over general tax
+    'consotrans.stolen.auto': 'property', # Assumed typo for 'cons. trans. stolen auto'
+    'consp': 'fraud', # General conspiracy, default to fraud
+    'consp and pretnding to be govt agent': 'fraud',
+    'consp for liquor': 'alcohol',
+    'consp vio Nat. Bank Act': 'fraud',
+    'consp, breaking into PO': 'property',
+    'consp, receiving draft stolen f/US': 'property',
+    'consp, result=death US marshall': 'violent',
+    'consp, sugin mails to defraud': 'fraud', # Assumed typo for 'using mails to defraud'
+    'consp, suing mails to defraud': 'fraud', # Assumed typo for 'using mails to defraud'
+    'consp, using maild to defraud': 'fraud', # Assumed typo for 'using mails to defraud'
+    'consp, using mails to defraud': 'fraud',
+    'consp,abs-misapp funds nat.bank': 'fraud'
+}
+```

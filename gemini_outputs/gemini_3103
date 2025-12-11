@@ -1,0 +1,110 @@
+Here is the Python dictionary with the assigned categorizations for each offense:
+
+```python
+offense_categories = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'conspir. to sell narc. illegally': 'Non-Alcohol Drugs',
+    'conspir.defraud US': 'Fraud',
+    'conspir.defraud govt.': 'Fraud',
+    'conspiracy': 'Fraud',  # General conspiracy, often involves fraud or obstruction
+    'conspiracy , perjury': 'Fraud',
+    'conspiracy against US': 'Fraud',
+    'conspiracy against the United States': 'Fraud',
+    'conspiracy against the United States and 29 USC 18': 'Fraud',
+    'conspiracy against the United States, 1005,1014,13': 'Fraud',
+    'conspiracy against the United States, 1503,2, 1952': 'Fraud',
+    'conspiracy against the United States, 2313': 'Fraud',
+    'conspiracy against the United States, 2314, 2': 'Fraud',
+    'conspiracy against the United States, and fraud, m': 'Fraud',
+    'conspiracy against the United States, filing a fla': 'Fraud',  # Implies false filing
+    'conspiracy against the United States, influencing': 'Fraud',  # Implies undue influence/bribery
+    'conspiracy and making false statements in bank loa': 'Fraud',
+    'conspiracy and making false statements; fraud': 'Fraud',
+    'conspiracy and murder': 'Violent',
+    'conspiracy and perjury': 'Fraud',
+    'conspiracy and treason': 'Violent',
+    'conspiracy and wire fraud': 'Fraud',
+    'conspiracy defraud US': 'Fraud',
+    'conspiracy espionage,murder': 'Violent',
+    'conspiracy in restraint of interstate commerce': 'Fraud',  # Economic/antitrust crime
+    'conspiracy in restraint of trade': 'Fraud',
+    'conspiracy injure person and prop.': 'Violent',  # Prioritizing injury to person
+    'conspiracy obstruct draft': 'Fraud',  # Obstruction of government process
+    'conspiracy restraint of foreign commerce': 'Fraud',
+    'conspiracy to ask/accept bribes': 'Fraud',
+    'conspiracy to commit mail fraud and illegal remune': 'Fraud',
+    'conspiracy to commit racketeering and mail fraud': 'Fraud',
+    'conspiracy to commit securities fraud': 'Fraud',
+    'conspiracy to commit theft from an interstate ship': 'Property',
+    'conspiracy to commit treason': 'Violent',
+    'conspiracy to conduct an illegal gambling business': 'Fraud',  # Operating illegal enterprise
+    'conspiracy to defraud': 'Fraud',
+    'conspiracy to defraud US': 'Fraud',
+    'conspiracy to defraud US on duties': 'Fraud',  # Customs duties fraud
+    'conspiracy to defraud a federally insured finsncia': 'Fraud',
+    'conspiracy to defraud a federally insured savings': 'Fraud',
+    'conspiracy to defraud government': 'Fraud',
+    'conspiracy to defraud the Internal revenue service': 'Tax',
+    'conspiracy to defraud the US, embezzlement, mail f': 'Fraud',
+    'conspiracy to defraud the US, false claims, forger': 'Fraud',
+    'conspiracy to defraud the US, wire fraud, mail fra': 'Fraud',
+    'conspiracy to defraud the government': 'Fraud',
+    'conspiracy to defraud the united states, wire frau': 'Fraud',
+    'conspiracy to deraud US': 'Fraud',  # Typo for defraud
+    'conspiracy to distribute and distribution of 50 or': 'Non-Alcohol Drugs',  # Implies drugs
+    'conspiracy to distribute cocaine': 'Non-Alcohol Drugs',
+    'conspiracy to effectuate the escape of a federal p': 'Fraud',  # Obstruction/facilitation
+    'conspiracy to engage in horizontal price fixing': 'Fraud',
+    'conspiracy to fix prices in restraint of interstat': 'Fraud',
+    'conspiracy to give illegal gratuities': 'Fraud',
+    'conspiracy to harm judge': 'Violent',
+    'conspiracy to illegally obtain USDA subsidy paymen': 'Fraud',
+    'conspiracy to impede justice': 'Fraud',
+    'conspiracy to import cocaine': 'Non-Alcohol Drugs',
+    'conspiracy to import, possess, and distribute mari': 'Non-Alcohol Drugs', # Marijuana
+    'conspiracy to intimidate voters': 'Violent',
+    'conspiracy to introduce contraband into a federal': 'Property', # Introducing illegal items
+    'conspiracy to kidnap': 'Violent',
+    'conspiracy to make false statements to a bank': 'Fraud',
+    'conspiracy to make false statements to the INS': 'Fraud',
+    'conspiracy to manufacture PCP': 'Non-Alcohol Drugs',
+    'conspiracy to manufacture and distribute methamphe': 'Non-Alcohol Drugs', # Methamphetamine
+    'conspiracy to manufacture, distribute, and posess': 'Non-Alcohol Drugs', # Implies drugs
+    'conspiracy to manufacture, receive, possess and se': 'Non-Alcohol Drugs', # Implies drugs
+    'conspiracy to maufacture counterfeit federal reser': 'Fraud', # Counterfeit currency
+    'conspiracy to misapply bank funds': 'Fraud',
+    'conspiracy to murder': 'Violent',
+    'conspiracy to obstruct commerce by extortion': 'Violent',
+    'conspiracy to possess cocaine with intent to distr': 'Non-Alcohol Drugs',
+    'conspiracy to possess counterfeit federal reserve': 'Fraud', # Counterfeit currency
+    'conspiracy to possess heroin with intent to distri': 'Non-Alcohol Drugs',
+    'conspiracy to possess with intent to distribute &': 'Non-Alcohol Drugs', # Implies drugs
+    'conspiracy to possess with intent to distribute co': 'Non-Alcohol Drugs', # Implies cocaine
+    'conspiracy to smuggle opium': 'Non-Alcohol Drugs',
+    'conspiracy to steal': 'Property',
+    'conspiracy to steal gov\'t property': 'Property',
+    'conspiracy to supply false documents to the INS': 'Fraud',
+    'conspiracy to transport in foreign commerce securi': 'Property', # Transporting stolen/illegal securities
+    'conspiracy to violate commodity Credit Corporation': 'Fraud', # Violation implies fraud/misuse of funds
+    'conspiracy to violate laws': 'Fraud', # General, default to fraud for unspecified
+    'conspiracy, bank and wire fraud, false statements': 'Fraud',
+    'conspiracy, bank fraud, bamk bribery, money launde': 'Fraud',
+    'conspiracy, importing opium': 'Non-Alcohol Drugs',
+    'conspiracy, intimidation': 'Violent',
+    'conspiracy, possession with intent to distribute m': 'Non-Alcohol Drugs', # Implies marijuana
+    'conspiracy, possession, intent to distribute and u': 'Non-Alcohol Drugs', # Implies drugs
+    'conspiracy, stealing fr/interst.shipm,poss and con': 'Property',
+    'conspiracy, tax evasion, and mail fraud': 'Tax', # Tax evasion is explicit
+    'conspiracy, violation of labor laws': 'Fraud', # Economic/misconduct
+    'conspiring': 'Fraud', # General, default to fraud
+    'conspiring to harbor alien': 'Fraud', # Involves deceit/facilitation of illegal activity
+    'constructive larceny': 'Property',
+    'consul act violation': 'Fraud', # General administrative/official misconduct
+    'consuls act violation': 'Fraud', # General administrative/official misconduct
+    'contempt': 'Fraud',  # Obstruction of justice/disobedience
+    'contempt (disob.of court injunct)': 'Fraud'
+}
+```

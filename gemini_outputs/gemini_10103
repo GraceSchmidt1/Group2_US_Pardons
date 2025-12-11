@@ -1,0 +1,110 @@
+Here is the Python dictionary categorizing each offense based on the provided categories:
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'vio. Harrison narcotics law': 'Non-Alcohol Drugs',
+    'vio. IRS code.alcho': 'Tax',
+    'vio. Mann Act': 'Sexual',
+    'vio. Narcotics laws': 'Non-Alcohol Drugs',
+    'vio. Nat.Prohib.Act': 'Alcohol',
+    'vio. Passenger Act': 'Fraud',  # Often related to misrepresentation or illicit gain in transport.
+    'vio. Rev. Act': 'Tax',
+    'vio. Sect 96, Title 18, e.o.7747': 'Violent', # 18 U.S. Code § 96 relates to carrying explosives or dangerous weapons on vessels.
+    'vio. US pension laws': 'Fraud',
+    'vio. US postal laws': 'Fraud',
+    'vio. customs laws (for immunity)': 'Tax',
+    'vio. espionage act': 'Violent',
+    'vio. fugitive slave law': 'Slavery',
+    'vio. harrison antinarcotic act': 'Non-Alcohol Drugs',
+    'vio. immigration laws': 'Fraud',
+    'vio. inter.rev. laws': 'Tax',
+    'vio. internal revenue laws': 'Tax',
+    'vio. meat inspection act': 'Fraud', # Related to misrepresentation of product quality/safety.
+    'vio. national banking laws': 'Fraud',
+    'vio. natl.prohib act': 'Alcohol',
+    'vio. natl.prohib.act': 'Alcohol',
+    'vio. naturalization laws': 'Fraud',
+    'vio. of amended espionage act': 'Violent',
+    'vio. oleomargarine laws': 'Tax', # Historically related to taxation and fraud in selling oleomargarine. Prioritizing Tax.
+    'vio. pension laws': 'Fraud',
+    'vio. postal laws': 'Fraud',
+    'vio. revised statutes, consp.': 'Fraud', # "Conspiracy" without further context often implies a scheme for illicit gain.
+    'vio. sec.5392, R.S. of US': 'Fraud', # This section relates to embezzlement by officers of the United States.
+    'vio. war rules and wages': 'Violent', # "War rules" implies military conduct violations.
+    'vio. white slave act': 'Slavery',
+    'vio. white slave trade traffic': 'Slavery',
+    'vio. white slave traffic act': 'Slavery',
+    'vio.20th,62nd articles of war': 'Violent',
+    'vio.Act f/call,enroll.nat.forces': 'Violent', # Desertion or evasion of military service can be considered a severe act against the state.
+    'vio.Act.prot.cit.civ,legal rights': 'Violent', # Civil rights violations often involve violence or severe deprivation.
+    'vio.Arch.Resourc.Prot.Act': 'Property',
+    'vio.Chinese excl/rest.laws': 'Fraud', # Often involved false claims or documents for entry/residency.
+    'vio.Dyer Act and the Mann Act': 'Sexual', # Dyer Act (motor vehicle theft) is property, Mann Act (sex trafficking) is sexual. Prioritizing the more severe 'Sexual'.
+    'vio.Enforcement Act': 'Fraud', # As a general regulatory act, violation often implies illicit gain or misrepresentation.
+    'vio.Fed.Elect.Act': 'Fraud',
+    'vio.Harr.Narc Act,customs Act': 'Non-Alcohol Drugs', # Harrison Narcotics Act is drugs, Customs Act is tax. Prioritizing 'Non-Alcohol Drugs'.
+    'vio.Harrison Act': 'Non-Alcohol Drugs',
+    'vio.Harrison Anti-Narcotics Act': 'Non-Alcohol Drugs',
+    'vio.Harrison Antinarc. Act': 'Non-Alcohol Drugs',
+    'vio.Harrison Antinarc.Act': 'Non-Alcohol Drugs',
+    'vio.Harrison Antinarc.Act (2 counts)': 'Non-Alcohol Drugs',
+    'vio.Harrison Antinarcotic Act': 'Non-Alcohol Drugs',
+    'vio.Harrison Antinarcotics Act': 'Non-Alcohol Drugs',
+    'vio.Harrison Narcotics Act': 'Non-Alcohol Drugs',
+    'vio.Harrison antinarcotic act': 'Non-Alcohol Drugs',
+    'vio.IRS / liquor laws': 'Tax',
+    'vio.IRS laws re intox liq': 'Tax',
+    'vio.IRS laws re liq': 'Tax',
+    'vio.IRS laws re liq.': 'Tax',
+    'vio.IRS liq laws': 'Tax',
+    'vio.IRS liq.laws': 'Tax',
+    'vio.IRS rev.liq.laws / prob.revoked / sect.5632,ti': 'Tax',
+    'vio.IRS. liq.laws': 'Tax',
+    'vio.Immigration Act': 'Fraud',
+    'vio.In.Rev.Law rel.sale manuf.tob,liq.': 'Tax',
+    'vio.Int.Emerg.Econ.Powers Act': 'Fraud', # Often related to evading sanctions or financial regulations.
+    'vio.Int.Rev. law': 'Tax',
+    'vio.Int.Rev. laws': 'Tax',
+    'vio.Int.Rev. laws rel.to spirits': 'Tax',
+    'vio.Int.Rev.Law rel.to distill.spir.': 'Tax',
+    'vio.Int.Rev.Law rel.to manuf.tobacco': 'Tax',
+    'vio.Int.Rev.Laws rel.distill.spirits': 'Tax',
+    'vio.Int.Rev.Laws rel.sale liq,cigars': 'Tax',
+    'vio.Int.Rev.Laws rel.to dist.liq.': 'Tax',
+    'vio.Int.Rev.Laws rel.to dist.spir.': 'Tax',
+    'vio.Int.Rev.Laws rel.to distill.spir.': 'Tax',
+    'vio.Int.Rev.Laws rel.to liq.': 'Tax',
+    'vio.Int.Rev.Laws rel.to liquors': 'Tax',
+    'vio.Int.Rev.law': 'Tax',
+    'vio.Int.Rev.laws': 'Tax',
+    'vio.Int.Rev.laws rel.distilling liq.': 'Tax',
+    'vio.Int.Rev.laws rel.manuf.spirits': 'Tax',
+    'vio.Int.Rev.laws rel.spirits': 'Tax',
+    'vio.Int.Rev.laws rel.to spirits': 'Tax',
+    'vio.Int.Rev.laws rel.to sprirts': 'Tax',
+    'vio.Int.Rev.laws relating to spirits': 'Tax',
+    'vio.Int.Rev.laws- 2 indictments': 'Tax',
+    'vio.Int.Rev.laws--2 cases': 'Tax',
+    'vio.Internal Revenue Laws': 'Tax',
+    'vio.Internal Revenue laws': 'Tax',
+    'vio.Liq.tax law': 'Tax',
+    'vio.Mann Act': 'Sexual',
+    'vio.Mann act': 'Sexual',
+    'vio.Nat.Bank Act': 'Fraud',
+    'vio.Nat.Banking Laws': 'Fraud',
+    'vio.Nat.Banking law': 'Fraud',
+    'vio.Nat.Motor Veh.theft Act': 'Property',
+    'vio.Nat.Motor.Veh. Act': 'Property',
+    'vio.Nat.Motor.Vrh.Theft Act': 'Property',
+    'vio.Nat.Proh.Act': 'Alcohol',
+    'vio.Nat.Proh.Act 4 counts': 'Alcohol',
+    'vio.Nat.Prohib.Act': 'Alcohol',
+    'vio.Nat.Prohib.law': 'Alcohol',
+    'vio.Nat.proh.Act': 'Alcohol',
+    'vio.Natl.Bank Law': 'Fraud'
+}
+```

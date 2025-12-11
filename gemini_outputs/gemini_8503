@@ -1,0 +1,125 @@
+Here's the Python dictionary with the assigned categories for each offense, based on the provided categories and analysis of the US Code sections where available:
+
+```python
+offense_categories = {
+    # Examples provided:
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+
+    # Assigned categories:
+    'sect.371,1341,title 18,usc': 'Fraud',  # 1341: Mail Fraud
+    'sect.371,1343,title 18 usc': 'Fraud',  # 1343: Wire Fraud
+    'sect.371,152,title 18 usc': 'Fraud',  # 152: Bankruptcy Fraud
+    'sect.371,1708,title 18 usc': 'Property',  # 1708: Theft of mail
+    'sect.371,1952,title 18 usc': 'Fraud',  # 1952: Interstate racketeering (often involves financial schemes, bribery, etc.)
+    'sect.371,201,title 18 usc': 'Fraud',  # 201: Bribery of public officials
+    'sect.371,2314,title 18 usc': 'Property',  # 2314: Transportation of stolen goods
+    'sect.371,2421,title 18 usc': 'Slavery',  # 2421: Mann Act (White Slave Traffic Act)
+    'sect.371,2511,title 18 usc,sect.1801(b),title 22 D': 'Fraud',  # 2511: Wiretapping (often used for illicit gain/fraud)
+    'sect.371,472,title 18 usc': 'Fraud',  # 472: Uttering counterfeit obligations
+    'sect.371,495,title 18 usc': 'Fraud',  # 495: Forgery
+    'sect.371,659,title 18 usc': 'Property',  # 659: Theft from interstate shipment
+    'sect.371,841,1001,title 18 usc': 'Non-Alcohol Drugs',  # 841: Likely Title 21 USC 841 (drug offenses)
+    'sect.371,titiel 18,sect.173,174,title 21,sect.2553': 'Non-Alcohol Drugs',  # 173, 174, 2553 (Title 21): Older drug statutes
+    'sect.371,title 18 usc': 'Fraud',  # General conspiracy to defraud the US (common interpretation of 371)
+    'sect.371,title 18, sect.5008(b)(1),title 26 usc': 'Alcohol',  # 5008(b)(1) (Title 26): Alcohol tax
+    'sect.371,title 18,sect.174.title 21,sect.2553,2557': 'Non-Alcohol Drugs',  # 174, 2553, 2557 (Title 21): Older drug statutes
+    'sect.371,title18 usc, sect.371,title 18 usc': 'Fraud',  # Redundant 371 -> Fraud
+
+    'sect.4,title 18 usc': 'Fraud',  # Misprision of felony (concealing a crime, often related to deceit)
+    'sect.407,411, title 33 usc': 'Property',  # Refuse Act (pollution, damage to public waterways/property)
+    'sect.408, title 18 usc': 'Property',  # Dyer Act (interstate transport of stolen vehicles)
+    'sect.408,2312,title 18 usc': 'Property',  # 2312: Interstate transport of stolen vehicles
+    'sect.408,title 18 usc': 'Property',
+    'sect.408,title 18 usc / sect.321,title 18 usc': 'Property',  # 321: Receiving stolen property of the US
+    'sect.409,title 18 usc': 'Property',  # Similar to 408, related to theft/stolen property
+    'sect.418a,title 18 usc': 'Slavery',  # Mann Act (White Slave Traffic Act)
+    'sect.4411,4412,7203,7266,title 26 usc': 'Tax',  # Wagering taxes
+    'sect.453,title 50 usc': 'Fraud',  # Selective Service Act (draft evasion - deception/evasion of duty)
+    'sect.462,title 50, app. Usc': 'Fraud',  # Selective Service Act (draft evasion)
+
+    'sect.4704(a),title 26 usc': 'Non-Alcohol Drugs',  # Narcotics Tax Act
+    'sect.4704,title 26 usc': 'Non-Alcohol Drugs',
+    'sect.4705(a),title 26 usc': 'Non-Alcohol Drugs',
+    'sect.4705(a_,title 26,sect.2,title 18usc': 'Non-Alcohol Drugs', # Typo, but context is clear
+    'sect.471,472,500,title 18 usc,vio.prob.,sect.1708,': 'Fraud',  # 471, 472: Counterfeiting; 500: Money orders (prioritizing fraud)
+    'sect.471,472,title 18 usc': 'Fraud',  # Counterfeiting
+    'sect.472, title 18 usc': 'Fraud',
+    'sect.472,473,title 18 usc': 'Fraud',
+    'sect.472,tiel 18 usc': 'Fraud', # Typo
+    'sect.472,tite 18 usc': 'Fraud', # Typo
+    'sect.472,title 18 usc': 'Fraud',
+    'sect.472,title 18,usc': 'Fraud',
+    'sect.473, title 18 usc': 'Fraud',  # Counterfeiting
+    'sect.473,title 18 usc': 'Fraud',
+    'sect.474,title 18 usc': 'Fraud',  # Counterfeiting
+
+    'sect.4741(a),title 26 usc': 'Non-Alcohol Drugs',  # Marihuana Tax Act
+    'sect.4744(a)(1),title 26 usc': 'Non-Alcohol Drugs',
+    'sect.4744(a)(2),title 26 usc': 'Non-Alcohol Drugs',
+    'sect.4744(a),7237(a),title 26 usc': 'Non-Alcohol Drugs',
+    'sect.4755(a)(1),title 26 usc': 'Tax',  # Wagering taxes
+    'sect.4755(a),title 26 usc': 'Tax',
+    'sect.4757,laws of AK': 'Tax',  # Wagering taxes (assuming Title 26 context)
+
+    'sect.485,487,title 18 usc': 'Fraud',  # Counterfeiting coins
+    'sect.495,1702,title 18 usc': 'Fraud',  # 495: Forgery; 1702: Obstruction of mail (prioritizing forgery)
+    'sect.495,title 18 usc': 'Fraud',
+
+    'sect.5008(b)(1),5642,title 26 usc': 'Alcohol',  # Alcohol tax
+    'sect.501,502,title 22 dc code': 'Sexual',  # Crimes against children (DC code)
+    'sect.501©,title 29 usc': 'Fraud',  # Misappropriation of union funds
+
+    'sect.51,title  41,sect.2,title 18 usc': 'Violent',  # 51: Conspiracy against rights of citizens (often involves intimidation/violence)
+    'sect.51,title 18 usc': 'Violent',
+
+    'sect.5111,5691,5114,5621,5116,5681,title 26 usc': 'Alcohol',  # Alcohol tax/regulations
+    'sect.5121,5691,title26': 'Alcohol',
+    'sect.5124(a)5687,5205(a)(1),5604(a)(1),title 26,se': 'Alcohol',
+    'sect.5173,title 26 usc': 'Alcohol',
+    'sect.5174,5216,5601,7206.7212,title 26 usc': 'Alcohol', # 7206/7212 (tax evasion) in context of alcohol statutes
+    'sect.5179(a),5601(a),5173,5602,5180,5681©,5205(a)(': 'Alcohol',
+    'sect.5205(a)(2),5604(a)(1),5604(a)(2),title 26 usc': 'Alcohol',
+    'sect.5205(a)(2),5604(a)(1),7206(4),title 26 usc': 'Alcohol',
+    'sect.5205(a)(2),5604(a)(1),title 26 usc': 'Alcohol',
+
+    'sect.545,title 18 usc': 'Fraud',  # Smuggling (evading duties, often with false declarations)
+
+    'sect.5601(a)(1),(a)(2),(a)(6),(a)(12),5602,5686,ti': 'Alcohol',  # Unregistered distillery/alcohol production
+    'sect.5601(a)(1),5601(a)(4),5601(a)(7),5604(a)1),ti': 'Alcohol',
+    'sect.5601(a)(1),5601(a)(4),5602,5681(a)(7),5601(a)': 'Alcohol',
+    'sect.5601(a)(1),601(a)(4),5602,5681©,5686(b),5601(': 'Alcohol',
+    'sect.5601(a),5601(a)(7),5604(a),5604(a)(1),title 2': 'Alcohol',
+    'sect.5601,title 26 usc': 'Alcohol',
+    'sect.5601,title 26 usc, sect 5861(d),5871,title 26': 'Alcohol',  # Prioritizing 5601 (alcohol) over 5861 (firearms) as first mentioned specific.
+    'sect.5602,title 26 usc': 'Alcohol',
+    'sect.5604(a)(1),title 26': 'Alcohol',
+    'sect.5604(a)(1),title 26 usc': 'Alcohol',
+    'sect.5604(a)(1),title 26,sect.2.ttile 18 usc': 'Alcohol',
+    'sect.5604,title 26 usc': 'Alcohol',
+
+    'sect.5841,5851,5852,title 26 usc': 'Property',  # National Firearms Act (illegal possession of items)
+    'sect.5861(d),5871,title 26 usc': 'Property',
+    'sect.5861(d),title 26 usc': 'Property',
+    'sect.5861(j)(d),5871, title 26 usc': 'Property',
+    'sect.5861,5871,title 26 usc': 'Property',
+
+    'sect.588(a)(b),title 12 usc': 'Violent',  # Bank Robbery
+    'sect.601,593-B Tariff Act 1922': 'Fraud',  # Customs fraud/smuggling
+
+    'sect.641,643,649,title 18 usc': 'Property',  # Theft of public money/property
+    'sect.641,title 18 usc': 'Property',
+    'sect.641,title 18 ysc': 'Property', # Typo
+    'sect.643,title 18,sect 7214(a)(2),title 26 usc': 'Property',  # 643: Theft of public money (prioritizing property)
+    'sect.653,title 18 usc': 'Fraud',  # Failure to account for public money (misappropriation)
+    'sect.656,1005,title 18 usc': 'Fraud',  # 656: Embezzlement by bank officer; 1005: Bank fraud
+    'sect.656,title 18 usc': 'Fraud',
+    'sect.656,title18 usc': 'Fraud',
+    'sect.657,title 18 usc': 'Fraud',  # Embezzlement by lending institution employees
+    'sect.659 title 18 usc,sect.2,1955,title 18 usc': 'Property',  # 659: Theft from interstate shipment; 1955: Illegal gambling (prioritizing theft)
+    'sect.659,title 18 usc': 'Property',
+    'sect.661, title 18 usc': 'Property',  # Theft within special maritime/territorial jurisdiction
+}
+```

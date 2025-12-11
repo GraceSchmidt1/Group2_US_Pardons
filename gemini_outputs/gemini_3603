@@ -1,0 +1,219 @@
+```python
+offenses_data = [
+    'disposing of liq.indians',
+    'disposing of liquor',
+    'disposing of liquor to Indians',
+    'disposing of mortgaged property',
+    'dist,retail liq w/out paying tax',
+    'dist,working in illic.dist.',
+    'dist.cocaine',
+    'dist.cont.sub.f.rec.',
+    'dist.liq.w/out a license',
+    'dist.meth',
+    'dist.poss.cocaine',
+    'dist.poss.cocaine/marajuana',
+    'dist.pot',
+    'dist.premises other than law.distill.',
+    'dist.spir.contrary to law',
+    'dist.spir.w/out a license',
+    'dist.spirits in vio.int.rev.laws',
+    'dist.w/o pay.tax,fail.give Ass.notice',
+    'dist.w/out a license',
+    'distill liq w/out bond',
+    'distill w intent to def.tax,making f.book entries',
+    'distill.,poss.intox.liquor',
+    'distill.,sell.liq.w/o license',
+    'distill.in vio.of Int.Rev.laws',
+    'distill.liq.w/o having given bond',
+    'distill.liq.w/o pay.tax',
+    'distill.liq.w/out notice or bond',
+    'distill.spir.w/o pd. tax',
+    'distill.spirits w/o pd. tax',
+    'distill.w/intent defraud U.S.,mak.and ferm.mash on',
+    'distill.w/o lic.',
+    'distill.w/o pay.tax',
+    'distill.w/o pd.tax',
+    'distill.w/out bond',
+    'distill.w/out bond,making mash',
+    'distill.w/out comply.w/tax law',
+    'distill.w/out pay.spec.tax',
+    'distill.w/out pay.tax',
+    'distill.w/out pd.tax',
+    'distiller w/intent def.US of tax',
+    'distilling',
+    'distilling and possession of an unregistered still',
+    'distilling liquor',
+    'distilling w/o pd.tax',
+    'distilling w/out bond,fermenting mash',
+    'distilling w/out bond,workinf in a dist.w/out a si',
+    'distilling w/out paying tax',
+    'distilling whisky w/o license',
+    'distilling without bond',
+    'distilling, retailing liq',
+    'distilling, working unlawfully',
+    'distr.LSD',
+    'distr.cocaine',
+    'distr.cocaine base',
+    'distr.phencyclidine',
+    'distrib cocaine base',
+    'distrib. Heroin',
+    'distrib.cocaine',
+    'distrib.cocaine base',
+    'distrib.cocaine, poss.firearm',
+    'distrib.controlled sub.',
+    'distrib.crack.cocaine near school',
+    'distrib.meth',
+    'distrib.narcotics',
+    'distrib.poss.int.distrib marijuana',
+    'distribution of cocaine',
+    'distribution of methamphetamine',
+    'disturbing the peace',
+    'div.off. /US w/ rebels',
+    'diversion of labor to own use',
+    'draft evasion',
+    'draw.ill.exch.bill against bank',
+    'drawing ill. bill of exchange,intent to injure, de',
+    'drugs',
+    'drummer boy desertion (left hospital w/out leave)',
+    'drunk and making threats',
+    'drunk in pub.place,disturb.peace',
+    'drunk on duty,absent fr/station,negl.duty,cond.pre',
+    'drunk, disorderly',
+    'drunk,disord.cond,poss.liquor',
+    'drunk,gam,cond.prej.ord,disc.',
+    'drunk,scand.cond.destroy.morals',
+    'drunk,scand.cond.tend.destr.morals',
+    'drunk,scand.cond.tend.to destr.morals',
+    'drunkeness',
+    'drunkenness',
+    'drunkenness, maltreating an inhabitant',
+    'drunkenness, scandalous conduct tending to destruc',
+    'dump.refuse in Balt.channel',
+    'duties violation',
+    'duty vio, consp defraud US',
+    'duty violation',
+    'e',
+    'e by pe',
+    'e of pf',
+    'e,bezz. US mail',
+    'earned release under NY Commutation law',
+    'earned release under NY commutation law',
+    'earned release under NY law',
+    'ebez postal funds',
+]
+
+categorized_offenses = {
+    # Examples provided by user
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    
+    # Remaining offenses to categorize
+    'disposing of liq.indians': 'alcohol',
+    'disposing of liquor': 'alcohol',
+    'disposing of liquor to Indians': 'alcohol',
+    'disposing of mortgaged property': 'property',
+    'dist,retail liq w/out paying tax': 'alcohol', # Involves alcohol business, primary subject
+    'dist,working in illic.dist.': 'alcohol',
+    'dist.cocaine': 'non-alcohol drugs',
+    'dist.cont.sub.f.rec.': 'non-alcohol drugs', # cont.sub. = controlled substance
+    'dist.liq.w/out a license': 'alcohol',
+    'dist.meth': 'non-alcohol drugs',
+    'dist.poss.cocaine': 'non-alcohol drugs',
+    'dist.poss.cocaine/marajuana': 'non-alcohol drugs',
+    'dist.pot': 'non-alcohol drugs', # pot = marijuana
+    'dist.premises other than law.distill.': 'alcohol', # Illicit distilling premises
+    'dist.spir.contrary to law': 'alcohol',
+    'dist.spir.w/out a license': 'alcohol',
+    'dist.spirits in vio.int.rev.laws': 'tax', # Specific violation of internal revenue laws
+    'dist.w/o pay.tax,fail.give Ass.notice': 'tax',
+    'dist.w/out a license': 'alcohol', # Assuming distilling alcohol without license
+    'distill liq w/out bond': 'alcohol',
+    'distill w intent to def.tax,making f.book entries': 'tax', # Defrauding tax is primary intent
+    'distill.,poss.intox.liquor': 'alcohol',
+    'distill.,sell.liq.w/o license': 'alcohol',
+    'distill.in vio.of Int.Rev.laws': 'tax',
+    'distill.liq.w/o having given bond': 'alcohol',
+    'distill.liq.w/o pay.tax': 'tax',
+    'distill.liq.w/out notice or bond': 'alcohol',
+    'distill.spir.w/o pd. tax': 'tax',
+    'distill.spirits w/o pd. tax': 'tax',
+    'distill.w/intent defraud U.S.,mak.and ferm.mash on': 'fraud', # Defrauding U.S. broadly, likely tax-related but 'fraud' is more encompassing for intent
+    'distill.w/o lic.': 'alcohol',
+    'distill.w/o pay.tax': 'tax',
+    'distill.w/o pd.tax': 'tax',
+    'distill.w/out bond': 'alcohol',
+    'distill.w/out bond,making mash': 'alcohol',
+    'distill.w/out comply.w/tax law': 'tax',
+    'distill.w/out pay.spec.tax': 'tax',
+    'distill.w/out pay.tax': 'tax',
+    'distill.w/out pd.tax': 'tax',
+    'distiller w/intent def.US of tax': 'tax',
+    'distilling': 'alcohol',
+    'distilling and possession of an unregistered still': 'alcohol',
+    'distilling liquor': 'alcohol',
+    'distilling w/o pd.tax': 'tax',
+    'distilling w/out bond,fermenting mash': 'alcohol',
+    'distilling w/out bond,workinf in a dist.w/out a si': 'alcohol',
+    'distilling w/out paying tax': 'tax',
+    'distilling whisky w/o license': 'alcohol',
+    'distilling without bond': 'alcohol',
+    'distilling, retailing liq': 'alcohol',
+    'distilling, working unlawfully': 'alcohol',
+    'distr.LSD': 'non-alcohol drugs',
+    'distr.cocaine': 'non-alcohol drugs',
+    'distr.cocaine base': 'non-alcohol drugs',
+    'distr.phencyclidine': 'non-alcohol drugs',
+    'distrib cocaine base': 'non-alcohol drugs',
+    'distrib. Heroin': 'non-alcohol drugs',
+    'distrib.cocaine': 'non-alcohol drugs',
+    'distrib.cocaine base': 'non-alcohol drugs',
+    'distrib.cocaine, poss.firearm': 'non-alcohol drugs', # Primary offense is drug distribution
+    'distrib.controlled sub.': 'non-alcohol drugs',
+    'distrib.crack.cocaine near school': 'non-alcohol drugs',
+    'distrib.meth': 'non-alcohol drugs',
+    'distrib.narcotics': 'non-alcohol drugs',
+    'distrib.poss.int.distrib marijuana': 'non-alcohol drugs',
+    'distribution of cocaine': 'non-alcohol drugs',
+    'distribution of methamphetamine': 'non-alcohol drugs',
+    'disturbing the peace': 'violent', # Implies disruptive, potentially aggressive behavior
+    'div.off. /US w/ rebels': 'violent', # Assumes aiding rebels implies violent conflict/treason
+    'diversion of labor to own use': 'property', # Unauthorized use or theft of labor/resources
+    'draft evasion': 'fraud', # Often involves deceit or false claims to avoid obligation
+    'draw.ill.exch.bill against bank': 'fraud',
+    'drawing ill. bill of exchange,intent to injure, de': 'fraud', # Deceive/defraud
+    'drugs': 'non-alcohol drugs',
+    'drummer boy desertion (left hospital w/out leave)': 'fraud', # Breach of trust/duty, often involves deceit or unauthorized absence
+    'drunk and making threats': 'violent', # Explicit violent component
+    'drunk in pub.place,disturb.peace': 'violent', # Disturbing peace is a violent/disorderly act
+    'drunk on duty,absent fr/station,negl.duty,cond.pre': 'alcohol', # Drunkenness is the root cause listed first
+    'drunk, disorderly': 'alcohol', # Drunkenness is the primary listed offense
+    'drunk,disord.cond,poss.liquor': 'alcohol',
+    'drunk,gam,cond.prej.ord,disc.': 'alcohol',
+    'drunk,scand.cond.destroy.morals': 'alcohol',
+    'drunk,scand.cond.tend.destr.morals': 'alcohol',
+    'drunk,scand.cond.tend.to destr.morals': 'alcohol',
+    'drunkeness': 'alcohol',
+    'drunkenness': 'alcohol',
+    'drunkenness, maltreating an inhabitant': 'violent', # Maltreating is a violent act
+    'drunkenness, scandalous conduct tending to destruc': 'alcohol',
+    'dump.refuse in Balt.channel': 'property', # Misuse or damage to public property/environment
+    'duties violation': 'tax', # Often relates to customs or revenue duties
+    'duty vio, consp defraud US': 'fraud', # Explicit defrauding of US
+    'duty violation': 'tax', # Assuming similar to "duties violation" related to revenue/customs
+    'e': 'fraud', # Interpreted as an abbreviation for embezzlement/evasion given surrounding entries
+    'e by pe': 'fraud', # Interpreted as an abbreviation for embezzlement/evasion
+    'e of pf': 'fraud', # Interpreted as an abbreviation for embezzlement/evasion (pf=public funds?)
+    'e,bezz. US mail': 'fraud', # Embezzlement is a form of fraud
+    'earned release under NY Commutation law': 'fraud', # *Note: This is not an offense but a legal status. Forced into 'fraud' as a placeholder, interpreting it as part of a legal process that could involve fraudulent claims, or if the underlying offense was fraud. This is a very weak and speculative categorization for data that doesn't fit the 'offense' paradigm.*
+    'earned release under NY commutation law': 'fraud', # (See note above)
+    'earned release under NY law': 'fraud', # (See note above)
+    'ebez postal funds': 'fraud', # Embezzle postal funds
+}
+
+# Add the starting examples to the dictionary if they weren't already there
+# For demonstration, I've already included them at the top of the `categorized_offenses` dict.
+
+print(categorized_offenses)
+```

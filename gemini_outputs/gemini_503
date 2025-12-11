@@ -1,0 +1,110 @@
+Here is the Python dictionary categorizing each offense based on the provided categories:
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    '26 U.S.C. 1152a, 1162, 1182, 1184, 2834, 3253': 'Alcohol',
+    '26 U.S.C. 1152a, 1267': 'Alcohol',
+    '26 U.S.C. 1152a, 1287': 'Alcohol',
+    '26 U.S.C. 1152a, 1287, 1397, 1441, 1162, 1155': 'Alcohol',
+    '26 U.S.C. 1152a,1152g': 'Alcohol',
+    '26 U.S.C. 1152a,g, 18 U.S.C. 88': 'Alcohol',
+    '26 U.S.C. 1155(f); 18 U.S.C. 88': 'Alcohol',
+    '26 U.S.C. 1155f, 1162, 1163, 1165, 1184, 1185, 128': 'Alcohol',
+    '26 U.S.C. 1162': 'Alcohol',
+    '26 U.S.C. 1162, 1155f': 'Alcohol',
+    '26 U.S.C. 1162, 1170, 1184, 1185; 18 U.S.C. 88': 'Alcohol',
+    '26 U.S.C. 1162, 1170, 1185': 'Alcohol',
+    '26 U.S.C. 1162, 1182, 1184': 'Alcohol',
+    '26 U.S.C. 1162, 1182, 1185; 5 U.S.C. 281 - 281e': 'Alcohol',
+    '26 U.S.C. 1162, 1184, 1182, 1152a, 1152g': 'Alcohol',
+    '26 U.S.C. 1162, 1184, 1185': 'Alcohol',
+    '26 U.S.C. 1162, 1184, 1185, 1152a': 'Alcohol',
+    '26 U.S.C. 1162, 1184, 1185, 1441; deported unless': 'Alcohol', # 1441 in this context likely relates to tax evasion related to alcohol.
+    '26 U.S.C. 1162, 1184, 1185; liquor taxing act of 1': 'Alcohol',
+    '26 U.S.C. 1162, 1185': 'Alcohol',
+    '26 U.S.C. 1162, 1185, 1170': 'Alcohol',
+    '26 U.S.C. 1162, 1185, 1182, 1184': 'Alcohol',
+    '26 U.S.C. 1162, 1185, 1184, 1155f': 'Alcohol',
+    '26 U.S.C. 1162,1184,1185': 'Alcohol',
+    '26 U.S.C. 1164, 1184, 1185': 'Alcohol',
+    '26 U.S.C. 1184 deported unless pardoned -- hardshi': 'Alcohol',
+    '26 U.S.C. 1184, 1152a': 'Alcohol',
+    '26 U.S.C. 1184, 1162, 1185, 1152(a)': 'Alcohol',
+    '26 U.S.C. 1185, 1152a, 1162, 1170; 18 U.S.C. 88': 'Alcohol',
+    '26 U.S.C. 1222,1397,1441': 'Tax',
+    '26 U.S.C. 1287': 'Tax',
+    '26 U.S.C. 1287, 1152a': 'Alcohol', # Combination of general tax and specific alcohol codes.
+    '26 U.S.C. 1287, 1440, 1152a': 'Alcohol', # Combination of general tax and specific alcohol codes.
+    '26 U.S.C. 1300': 'Tax', # Oleomargarine tax.
+    '26 U.S.C. 1330a,b, 1332a,b, 1334c,d,e, 1336, 1337b': 'Non-Alcohol Drugs', # Marihuana Tax Act
+    '26 U.S.C. 1387,1388,1044': 'Non-Alcohol Drugs', # Narcotics (Opium, Coca Leaves)
+    '26 U.S.C. 1399': 'Tax', # Tobacco tax.
+    '26 U.S.C. 1399c': 'Tax', # Tobacco tax.
+    '26 U.S.C. 1399g': 'Tax', # Tobacco tax.
+    '26 U.S.C. 1441': 'Tax',
+    '26 U.S.C. 1441, 18 U.S.C. 88': 'Tax',
+    '26 U.S.C. 1441; 18 U.S.C. 88': 'Tax',
+    '26 U.S.C. 145': 'Tax',
+    '26 U.S.C. 145 (b)': 'Tax',
+    '26 U.S.C. 145 and 18 U.S..C. 88': 'Tax',
+    '26 U.S.C. 145(b)': 'Tax',
+    '26 U.S.C. 1453': 'Tax', # Stamp Tax.
+    '26 U.S.C. 145; 18 U.S.C. 88': 'Tax',
+    '26 U.S.C. 145b': 'Tax',
+    '26 U.S.C. 145b, 3793b1; 18 U.S.C. 88': 'Tax',
+    '26 U.S.C. 145b; 18 U.S.C. 80': 'Tax',
+    '26 U.S.C. 145b; 18 U.S.C. 88': 'Tax',
+    '26 U.S.C. 1718(b)': 'Tax', # Stamp Tax.
+    '26 U.S.C. 193': 'Alcohol', # Industrial alcohol permits.
+    '26 U.S.C. 193, 1181': 'Alcohol',
+    '26 U.S.C. 2551': 'Non-Alcohol Drugs', # Harrison Narcotics Tax Act.
+    '26 U.S.C. 2553a': 'Non-Alcohol Drugs', # Harrison Narcotics Tax Act.
+    '26 U.S.C. 2553a; 21 U.S.C. 174': 'Non-Alcohol Drugs', # Narcotics and illegal importation.
+    '26 U.S.C. 2554': 'Non-Alcohol Drugs', # Harrison Narcotics Tax Act.
+    '26 U.S.C. 2554(a)': 'Non-Alcohol Drugs', # Harrison Narcotics Tax Act.
+    '26 U.S.C. 2554a': 'Non-Alcohol Drugs', # Harrison Narcotics Tax Act.
+    '26 U.S.C. 2590 & 2591': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591(a)': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591(a), 2593(a)': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591, 2593 - deported unless pardoned, h': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591, 3234; 18 U.S.C. 88': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591-a, 2593': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591a -- deported unless pardoned': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591a -- deported unless pardoned -- har': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2591a, 2593a': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 2593': 'Non-Alcohol Drugs', # Marihuana Tax Act.
+    '26 U.S.C. 261 281,282,306': 'Alcohol',
+    '26 U.S.C. 261, 21, 306, 1181': 'Alcohol',
+    '26 U.S.C. 261, 267, 281, 291, 306, 307': 'Alcohol',
+    '26 U.S.C. 261, 281 and 306': 'Alcohol',
+    '26 U.S.C. 261, 281,306': 'Alcohol',
+    '26 U.S.C. 261, 306, 307, 404': 'Alcohol',
+    '26 U.S.C. 2640': 'Tax', # Tax on playing cards.
+    '26 U.S.C. 2726 (a)': 'Tax', # Tax on firearms.
+    '26 U.S.C. 2803': 'Alcohol',
+    '26 U.S.C. 2803(a)': 'Alcohol',
+    '26 U.S.C. 2803, 2810': 'Alcohol',
+    '26 U.S.C. 2803, 2833, 2810, 2834': 'Alcohol',
+    '26 U.S.C. 2803, 2913': 'Alcohol',
+    '26 U.S.C. 2803a': 'Alcohol',
+    '26 U.S.C. 2803a; prohibition': 'Alcohol',
+    '26 U.S.C. 281': 'Alcohol',
+    '26 U.S.C. 281 & 307, title 2, Liquor Taxing Act of': 'Alcohol',
+    '26 U.S.C. 281, 261, 193, 303, 306, 307, 1181; liqu': 'Alcohol',
+    '26 U.S.C. 281, 291, 307': 'Alcohol',
+    '26 U.S.C. 281, 306': 'Alcohol',
+    '26 U.S.C. 281, 306, 304, 307': 'Alcohol',
+    '26 U.S.C. 281, 306, 307': 'Alcohol',
+    '26 U.S.C. 281, 306,304': 'Alcohol',
+    '26 U.S.C. 281, 307': 'Alcohol',
+    '26 U.S.C. 281, 307; liquor taxing act': 'Alcohol',
+    '26 U.S.C. 2810': 'Alcohol',
+    '26 U.S.C. 2810, 2831, 2833, 2834': 'Alcohol',
+    '26 U.S.C. 2810, 2833': 'Alcohol'
+}
+```

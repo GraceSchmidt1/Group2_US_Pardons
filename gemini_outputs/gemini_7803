@@ -1,0 +1,109 @@
+Here is the Python dictionary with the assigned categories for each offense:
+
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'receiv.smuggled skins': 'Tax',
+    'receiv.stolen PO stamps': 'Property',
+    'receiv.stolen US prop.': 'Property',
+    'receiv.stolen prop': 'Property',
+    'receiv.stolen prop.': 'Property',
+    'receiv.stolen property': 'Property',
+    'receiv.stolen. PO stamps': 'Property',
+    'receiving a stolen interstate shipment': 'Property',
+    'receiving a stolen motor vehicle as a part of inte': 'Property',
+    'receiving and selling a stolen motor vehicle and a': 'Property',
+    'receiving bribe as Rev.Officer': 'Fraud',
+    'receiving goods stolen f/ interst.ship.': 'Property',
+    'receiving govt.prop. in pawn': 'Property',
+    'receiving stolen PO stamps': 'Property',
+    'receiving stolen goods': 'Property',
+    'receiving stolen goods (8)': 'Property',
+    'receiving stolen money': 'Property',
+    'receiving stolen postage stamps': 'Property',
+    'receiving stolen property': 'Property',
+    'receiving/concealing stolen property, transportati': 'Property',
+    'recognizance forfeiture': 'Property',  # Represents financial forfeiture related to a legal process
+    'recognizance violation': 'Property',  # Represents violation of conditions often tied to a bond
+    'reduce.persons.peonahe': 'Slavery',
+    'reentering US after deportation': 'Fraud',  # Evading immigration process
+    'ref.obey orders, disrespectful': 'Fraud',  # Evading lawful authority/process
+    'ref.rec.leg.vote as elect.judge': 'Fraud',
+    'refister.falsely w/intent vote in precinct he did': 'Fraud',
+    'refused del.cert.inspect f/schooner': 'Fraud',  # Likely to hide illegal activity or avoid regulation
+    'refused to stop when ordered,forcibly resiting cus': 'Violent',
+    'refusing to aid constable': 'Fraud',  # Evading legal duty/process
+    'refusing to register': 'Fraud',  # Evading official requirements
+    'refusing to transport seamen': 'Fraud',  # Breach of obligation, potentially defrauding seamen of service
+    'relanding alcohol intended for export': 'Tax',
+    'rem,conc untaxed liq': 'Tax',
+    'rem,conc. untaxed spirits': 'Tax',
+    'rem,conc.untaxed dist.spirits': 'Tax',
+    'rem.dist.sp.to place other than wharehouse w/out p': 'Tax',
+    'rem.dist.spir.f/dist.w/o inspect.': 'Tax',
+    'rem.liq.to place unbounded warehouse': 'Tax',
+    'rem.tob.f/manuf.w/o pay.tax,book entry': 'Tax',
+    'rembezz.lett.fr/PO': 'Fraud',
+    'remission, discharge': 'Property',  # Represents a legal relief, often from financial penalty or forfeiture
+    'remission, discharge after cond pardon of 10/25': 'Property', # Same as above
+    'remov f/dist.spir.on which tax not pd.': 'Tax',
+    'remov,conc,untaxed dist.spirits': 'Tax',
+    'remov,conc. untaxed spirits': 'Tax',
+    'remov,conc.dist.,untaxed liq.': 'Tax',
+    'remov,conc.untaxed dist.spir.': 'Tax',
+    'remov,conc.untaxed dist.spirits': 'Tax',
+    'remov,conc.untaxed liq,retail.liq w/out pay.tax': 'Tax',
+    'remov,conceal,aid.abett.remov.conceal.intox.liq.': 'Tax',
+    'remov,conceal.spir,omitt.to keep books': 'Tax',
+    'remov,conceal.un-taxed spirits': 'Tax',
+    'remov,concealing untaxed liq': 'Tax',
+    'remov,concelaing untazed liq': 'Tax',
+    'remov,sell.mort.prop.': 'Fraud',
+    'remov,sell.unstamped cigars': 'Tax',
+    'remov.,conce.,depos.untax-paid whiskey': 'Tax',
+    'remov.,conceal.,aid.abett.removal andconcealmnt.un': 'Tax', # Assuming "untaxed spirits/liquor"
+    'remov.,conceal.distill.spirits': 'Tax',
+    'remov.,conceal.distill.spirits on which tax had no': 'Tax',
+    'remov.,conceal.untax-paid spirits': 'Tax',
+    'remov.conceal.distill. Spirits': 'Tax',
+    'remov.conceal.distill.spirits': 'Tax',
+    'remov.conceal.illicit spirits': 'Tax',
+    'remov.conceal.pint whiskey': 'Tax',
+    'remov.conceal.tax.liq': 'Tax',
+    'remov.depo.conceal.3 gal whisk': 'Tax',
+    'remov.dist.spir.f/dist.unbonded wareh.': 'Tax',
+    'remov.dist.spir.to place other than whareh,sel.liq': 'Tax',
+    'remov.distill.spirits fr/wrhouse,con.': 'Tax',
+    'remov.fr/dist.untaxed spirits': 'Tax',
+    'remov.liq.fr/bonded whouse,enter.,cons.': 'Tax',
+    'remov.liq.w/out pay.tax': 'Tax',
+    'remov.manuf.cig.in unbranded boxes': 'Tax',
+    'remov.marks fr/stamps w/int.to use': 'Fraud',
+    'remov.mortgaged prop.': 'Fraud',
+    'remov.sell.unstamped cigars': 'Tax',
+    'remov.spir,retail.liq.w/out pay tax': 'Tax',
+    'remov.spirits on which tax not pd.': 'Tax',
+    'remov.unstamped cigars': 'Tax',
+    'remov.untax.dist.spirits': 'Tax',
+    'remov.untaxed dist. spirits': 'Tax',
+    'remov.untaxed dist.spirits': 'Tax',
+    'remov.untaxed distill.spirits': 'Tax',
+    'remov.untaxed distilled spir.': 'Tax',
+    'removal of distilled spirits': 'Tax', # Implies illegal handling to evade tax/regulation
+    'removal untaxed liquor': 'Tax',
+    'removal,sale of cigars not properly boxed and sta': 'Tax',
+    'remove distill spirits from warehouse': 'Tax', # Implies illegal handling to evade tax/regulation
+    'remove.check.fr.mail,forgery': 'Fraud',
+    'removed distilled spirits': 'Tax', # Implies illegal handling to evade tax/regulation
+    'removed label fr/box of cigars': 'Tax', # Likely for tax evasion or misrepresentation related to tax
+    'removed spirits bonded warehouse': 'Tax',
+    'removed untaxed cigars': 'Tax',
+    'removed untaxed liq': 'Tax',
+    'removing cigars in vio. of law': 'Tax', # Most common violations for cigars relate to tax
+    'removing contents of letter': 'Property',
+    'removing dead bodies for gain': 'Property',
+}
+```

@@ -1,0 +1,42 @@
+Here are the categorizations for your offenses:
+
+```python
+{
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'willful transmission of defense information, unaut': 'fraud', # Interpreted as unauthorized use/disclosure, a form of deception/breach of trust against the state
+    'willfull.misapp.,embezz.natl.bank funds': 'fraud',
+    'wire fraud': 'fraud',
+    'wire fraud, comood.exch': 'fraud',
+    'wire fraud,mail fraud,trade screts,int.trans.stole': 'fraud', # Prioritizing explicit fraud over property aspect of trade secrets/stolen goods
+    'wire,mail fraud': 'fraud',
+    'with.beer fr/keg w/out destr.stamp': 'alcohol',
+    'withhold food, nourish.fr/crew': 'violent', # Interpreted as severe neglect leading to harm
+    'witholding gov.funds': 'fraud',
+    'work.ill.distill': 'alcohol',
+    'work.illicit distillery': 'alcohol',
+    'worked in,about unlicensed dist.': 'alcohol',
+    'working an illict distillery': 'alcohol',
+    'working illic.dist,ill.remov.liq': 'alcohol',
+    'working illicit distillery': 'alcohol',
+    'working in an illicit distillery': 'alcohol',
+    'working in an unregistered distillery': 'alcohol',
+    'working in illic.dist.': 'alcohol',
+    'working in illicit distillery': 'alcohol',
+    'working in unlicen.distill,retail.distill.spirits': 'alcohol',
+    'working in unregistered distillery': 'alcohol',
+    'working in unsigned distillery': 'alcohol',
+    'working unregistered distillery': 'alcohol',
+    'working unregistered still': 'alcohol',
+    'world war veterans act': 'fraud', # Assuming violations related to false claims or benefits fraud
+    'wounding a freedman': 'violent',
+    'wounding w/gunshot': 'violent',
+    'writ for debt': 'property', # Relates to financial obligations and assets
+    'writ of capias ad satisfaciendum': 'property', # Legal process for debt collection impacting assets
+    'writ of execution ($2,080.21)': 'property', # Legal process for seizing property to satisfy a debt
+    'wrongfully dispos.of pub.prop.': 'property',
+    'wrongfully obtained pension': 'fraud'
+}
+```

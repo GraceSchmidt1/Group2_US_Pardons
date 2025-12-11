@@ -1,0 +1,110 @@
+Here is the Python dictionary with the assigned categories for each offense:
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'harboring runaway Negroes': 'Slavery',
+    'harboring slaves': 'Slavery',
+    'harboring,conc, Mex.aliens': 'Fraud',  # Assumed to involve deception of immigration authorities or human smuggling.
+    'harrison': 'Non-Alcohol Drugs',  # Assumed short for Harrison Narcotics Act
+    'harrison Narcotics Act': 'Non-Alcohol Drugs',
+    'harrison narcotics act': 'Non-Alcohol Drugs',
+    'hav,pass.counterf.money': 'Fraud',
+    'hav,poss.counterf.money': 'Fraud',
+    'hav.counterfeit rev.stamps in viol.of the act of M': 'Fraud',
+    'hav.goods stol.f/int.ship.': 'Property',
+    'having counterfeit plates': 'Fraud',
+    'having ditill,carry.bus.dist.w/out bond, int.defr.': 'Alcohol',
+    'having in poss. cocaine': 'Non-Alcohol Drugs',
+    'having in possession intox. liquor': 'Alcohol',
+    'having in possession morphine': 'Non-Alcohol Drugs',
+    'having liq on reservation': 'Alcohol',
+    'having slave on board': 'Slavery',
+    'having, poss counterfeit coin': 'Fraud',
+    'having, poss, concealing opium': 'Non-Alcohol Drugs',
+    'having,pass,mak.counterf.US dollars': 'Fraud',
+    'having,pass.counterf.coin': 'Fraud',
+    'having,uttering counterf.Treas.notes': 'Fraud',
+    'hazing': 'Violent',
+    'hazing,encour.hazing': 'Violent',
+    'held civil in conf': 'Violent',  # Act of rebellion/treason against the state.
+    'held civil office in confederacy': 'Violent',  # Act of rebellion/treason against the state.
+    'held elected office in conf.': 'Violent',  # Act of rebellion/treason against the state.
+    'held military office w/conf.': 'Violent',  # Act of rebellion/treason against the state.
+    'held probate court in MS': 'Violent',  # Act of rebellion/treason against the state.
+    'held steam vess.int.as Insp.St.Vess.': 'Fraud',  # Assumed illegal assumption of office or misrepresentation.
+    'held vicil off in confed': 'Violent',  # Act of rebellion/treason against the state.
+    'heldup,robb.mail train,jeop.life': 'Violent',
+    'high sea revolt': 'Violent',
+    'high seas arson & larceny': 'Property',  # Arson is property destruction, larceny is theft.
+    'high seas assault': 'Violent',
+    'high seas assault & battery': 'Violent',
+    'high seas felony': 'Violent',  # Given other high seas crimes, many are violent.
+    'high seas grand larceny': 'Property',
+    'high seas larceny': 'Property',
+    'high seas manslaughter': 'Violent',
+    'high seas murder': 'Violent',
+    'high seas piracy & robbery': 'Violent', # Piracy and robbery often involve violence.
+    'high seas revolt': 'Violent',
+    'high treason': 'Violent', # Crime against the state, often involving or threatening violence.
+    'highway robbery': 'Violent',
+    'hoard.sug.when scarce,sell.for>leg.price': 'Fraud', # Price gouging/market manipulation.
+    'hold.train,rob.ex.mess.gov.money': 'Violent',
+    'holding civil office in conf.': 'Violent', # Act of rebellion/treason against the state.
+    'holding civil office w/confed': 'Violent', # Act of rebellion/treason against the state.
+    'holding person to a cond.of peonage': 'Slavery',
+    'holding persons in servitude': 'Slavery',
+    'holding up mail carrier,robbing mail': 'Violent',
+    'holding-up, robb.mail train,jeap.life of mail cler': 'Violent',
+    'holding-up,robbing rr mail car': 'Violent',
+    'homicide': 'Violent',
+    'hooker transport': 'Sexual', # "Hooker" refers to prostitution.
+    'hooking': 'Sexual', # Slang for prostitution.
+    'horse larc. fr ind.ward on res.': 'Property',
+    'horse larceny': 'Property',
+    'horse larceny in Indian country': 'Property',
+    'horse larceny, rec.stolen prop.': 'Property',
+    'horse larceny,rec.stolen prop.': 'Property',
+    'horse stealing': 'Property',
+    'horse stealing in ind.terr': 'Property',
+    'horse theft': 'Property',
+    'horse theft (2)': 'Property',
+    'horse theft in Indian terr': 'Property',
+    'horse theft in ind.terr.': 'Property',
+    'horse theft in indian terr (2)': 'Property',
+    'horse theft in indian territory': 'Property',
+    'horsetheft': 'Property',
+    'house breaking, grand larceny': 'Property',
+    'house ill-fame near mil.port': 'Sexual', # House of ill-fame refers to a brothel.
+    'housebreaking': 'Property',
+    'housebreaking (2 charges)': 'Property',
+    'housebreaking (2)': 'Property',
+    'housebreaking and larceny': 'Property',
+    'housebreaking larceny': 'Property',
+    'housebreaking&larceny--2cases': 'Property',
+    'housebreaking, grand larceny': 'Property',
+    'housebreaking, larceny': 'Property',
+    'housebreaking, larceny (3)': 'Property',
+    'housebreaking, petit larceny': 'Property',
+    'housebreaking,grand larceny': 'Property',
+    'housebreaking,larceny': 'Property',
+    'housebreaking,robbery': 'Violent', # Robbery implies violence.
+    'housgreak.larcency.3 cases': 'Property', # Misspelling of housebreaking, larceny.
+    'howsebreaking': 'Property', # Misspelling of housebreaking.
+    'ilicit distilling': 'Alcohol',
+    'ill immigration': 'Fraud', # Assumed to involve deception of immigration authorities.
+    'ill, know.solicit.,demand,exact,receiv.money to pe': 'Fraud', # Implies extortion or bribery.
+    'ill-fame house vio.sel.serv.act': 'Sexual', # House of ill-fame refers to a brothel, connected to selective service act likely involving sex work.
+    'ill. coloring oleomargarine': 'Fraud', # Deception regarding product.
+    'ill. manufactoring oleomargarine': 'Fraud', # Regulatory violation, often involving deceit or tax evasion (categorized as fraud in this context).
+    'ill. open mail': 'Property', # Tampering with mail is a property/privacy violation.
+    'ill. operating a still': 'Alcohol',
+    'ill. operation of a still': 'Alcohol',
+    'ill. removing dist. spirits': 'Alcohol',
+    'ill. sale of intox.liq': 'Alcohol',
+    'ill. sale of liq to soldiers': 'Alcohol',
+}
+```

@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'raising and passing Fed.res.notes': 'fraud',
+    'raising, pass. PO money order': 'fraud',
+    'raising,pass.fed.res.bank note': 'fraud',
+    'rans.stolen car intst.': 'property',
+    'rape': 'sexual',
+    'rape committed on Indian woman': 'sexual',
+    'rape of indian girl': 'sexual',
+    'rape on Indian reservation': 'sexual',
+    'rape upon Indian woman': 'sexual',
+    'raped Indian woman,on reservation': 'sexual',
+    'reatil liq w/out paying tax': 'tax',
+    'reatil liq.w/out paying tax': 'tax',
+    'reatil.liq.w/out paying tax': 'tax',
+    'reatil.liq.w/out paying tax,dist.': 'tax',
+    'rebating in vio.Elkins Act': 'fraud',
+    'rec and conc smuggled opium': 'Non-Alcohol Drugs',
+    'rec stolen goods on high seas': 'property',
+    'rec stolen property': 'property',
+    'rec, selling smuggled goods': 'fraud', # Smuggling often involves evading duties/customs, which is a form of fraud against the government.
+    'rec,conc smoking opium': 'Non-Alcohol Drugs',
+    'rec,conc stolen parc.post pack.': 'property',
+    'rec,conc,fac.trans of opium': 'Non-Alcohol Drugs',
+    'rec,conc,facil.trans. of opium': 'Non-Alcohol Drugs',
+    'rec,conc,smugg merchandise': 'fraud', # Smuggling often involves evading duties/customs, which is a form of fraud against the government.
+    'rec,conc,stlen mot.veh,trans.it interst.': 'property',
+    'rec,conc,stor,sell,dispos.stol.cars': 'property',
+    'rec,conc,trans.stlen motor vehic.interst': 'property',
+    'rec,conc.ill.import.merchand.': 'fraud', # Illegally imported implies evading customs/duties.
+    'rec,conc.merch.imported illegally': 'fraud', # Illegally imported implies evading customs/duties.
+    'rec,conc.motor veh.stlen,trans.inter.': 'property',
+    'rec,conc.smugg.liquor': 'Alcohol',
+    'rec,expos.f/sale stolen shoes': 'property',
+    'rec,poss opium on a vessel': 'Non-Alcohol Drugs',
+    'rec,poss.prop.stln.f/int.shpmnt.': 'property',
+    'rec,sale bev.denat.alch,cosp.': 'Alcohol',
+    'rec,sell,fac.trans.ill.merch.': 'fraud', # Illegal merchandise likely implies smuggled or not legally obtained for sale.
+    'rec. lottery lists,assumed name': 'fraud', # Associated with illegal gambling/scams.
+    'rec. property stolen from PO': 'property',
+    'rec. rebate in interst.comm.': 'fraud',
+    'rec. soldier\'s fieldglasses': 'property', # Assuming stolen or illegally obtained military property.
+    'rec. stolen goods': 'property',
+    'rec. stolen goods fr navyard': 'property',
+    'rec. stolen goods in i.c.': 'property',
+    'rec. stolen postage stamps': 'property',
+    'rec. stolen property': 'property',
+    'rec.&conc.smuggled liquors': 'Alcohol',
+    'rec.,conc. after import. opium': 'Non-Alcohol Drugs',
+    'rec.,conc.,sell. opium': 'Non-Alcohol Drugs',
+    'rec.,conceal.,storing stolen auto.': 'property',
+    'rec.,conceal.,tran.stolen car intst.': 'property',
+    'rec.>legal fees f/proc.pension': 'fraud', # Implies illicit or excessive fees through deception.
+    'rec.articles fr stolen mails(2)': 'property',
+    'rec.bribe as Int.Rev.Storekeeper': 'fraud',
+    'rec.conc. stolen PO property': 'property',
+    'rec.conceal.and facili. the transp.and conceal.and': 'property', # Incomplete, but contextualized with other "rec.conceal.stolen" entries, implies handling stolen goods.
+    'rec.conceal.stolen bonds fr.US mail': 'property',
+    'rec.conceal.stolen int.freight': 'property',
+    'rec.conceal.stolen motor veh': 'property',
+    'rec.counterf.gov. obligation': 'fraud',
+    'rec.goods stln.f/intst shpmt': 'property',
+    'rec.manuf.trans.intox.liq': 'Alcohol',
+    'rec.money for aid.procure job': 'fraud', # Implies bribery or kickback for a service.
+    'rec.money to influ.action while': 'fraud', # Implies bribery or undue influence.
+    'rec.money while govmnt.off.f/prosecut.claims agnst': 'fraud', # Implies conflict of interest/bribery by a government official.
+    'rec.poss.conceal stolen money': 'property',
+    'rec.rebates f/RRco. on shpmnts.grain': 'fraud',
+    'rec.smug.liq,con-fac.con-trans.knowing it to be sm': 'Alcohol',
+    'rec.steel rail ship.concessions': 'fraud', # Implies illicit advantages or kickbacks.
+    'rec.stol.merch,prop.fr/int.ship.': 'property',
+    'rec.stol.prop,poss.stol.goods': 'property',
+    'rec.stolen goods': 'property',
+    'rec.stolen goods fr/inter.ship.': 'property',
+    'rec.stolen goods fr/interst.ship': 'property',
+    'rec.stolen goods,know.stolen': 'property',
+    'rec.stolen property': 'property',
+    'rec.stolen property belonging to US': 'property',
+    'rec.stolen.vehicle': 'property',
+    'rec.w/int.convert own use stlen money': 'property',
+    'receipt of illegal payments under the medicare pro': 'fraud',
+    'receipt of illegally imported animal skins': 'fraud', # Illegally imported implies evading customs/duties.
+    'receiv,conceal,transp.interst.stolen auto': 'property',
+    'receiv. money stolen f/U.S. mails': 'property',
+    'receiv.,conceal.,dispos.cars,consp.': 'property', # Assuming stolen cars given context.
+    'receiv.,conceal.,fascil.transp.liq.': 'Alcohol', # Assuming illegal liquor given context.
+    'receiv.,conceal.liq.': 'Alcohol', # Assuming illegal liquor given context.
+    'receiv.,conceal.smuggled opium': 'Non-Alcohol Drugs',
+    'receiv.,purch.mil.cloth.f/ soldiers': 'property', # Implies receiving stolen military property.
+    'receiv.bribe as prohib. Agent': 'fraud',
+    'receiv.compensation in case where USwas a party wh': 'fraud', # Implies conflict of interest or illicit payment.
+    'receiv.compensation in excess of that allowed for': 'fraud', # Implies overcharging or illicit fees.
+    'receiv.conceal.narcotics': 'Non-Alcohol Drugs',
+    'receiv.conceal.smug.liq': 'Alcohol',
+    'receiv.conceal.smugg liquor': 'Alcohol',
+    'receiv.fees in excess of law to Med.Exam.in case o': 'fraud', # Implies overcharging or illicit fees.
+    'receiv.goods stolen f/ interst.ship.': 'property',
+    'receiv.illeg.liqs.f/Mex.,receiv.and purch.cigars n': 'Alcohol', # Primary offense explicitly mentions illegal liquors, secondary likely related to smuggling/tax evasion which can fall under fraud or tax. Prioritizing alcohol.
+    'receiv.lett.contain.money not for her, for which s': 'property', # Implies misappropriation or theft.
+    'receiv.money.embezz.fr.US': 'property', # Embezzlement is a form of theft, and receiving stolen embezzled money is a property crime.
+    'receiv.poss.stolen inter.freight': 'property',
+    'receiv.prop.stolem fr/PO': 'property',
+}
+```

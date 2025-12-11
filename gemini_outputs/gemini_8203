@@ -1,0 +1,108 @@
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    's1709,title18,USC': 'Property',  # 18 USC 1709: Theft of mail matter
+    's1711,title18,USC': 'Property',  # 18 USC 1711: Misappropriation of postal funds
+    's173,title21,USC': 'Non-Alcohol Drugs',  # 21 USC 173: Repealed, formerly relating to narcotics
+    's184(s),title21,USC': 'Non-Alcohol Drugs',  # 21 USC 184(s): Repealed, formerly relating to narcotics
+    's1952,371,title18,USC': 'Fraud',  # 18 USC 1952: Interstate travel in aid of racketeering enterprises (often fraud/illicit gains); 18 USC 371: Conspiracy
+    's1955,title18,USC': 'Fraud',  # 18 USC 1955: Prohibition of illegal gambling businesses (illicit gains/schemes)
+    's2,1001,title18,USC': 'Fraud',  # 18 USC 2: Principals; 18 USC 1001: False statements
+    's2,1006,title18,USC': 'Fraud',  # 18 USC 2; 18 USC 1006: Fraud and false statements in relation to Federal credit institutions
+    's2,1341, 1961 et.seq., title18': 'Fraud',  # 18 USC 2; 18 USC 1341: Mail fraud; 18 USC 1961 et seq.: RICO (often involves fraud)
+    's2,1361,2701,title18,USC / 462(a),title50,USC': 'Property',  # 18 USC 2; 18 USC 1361: Government property-destruction; 18 USC 2701: Unauthorized access to stored communications (property/information); 50 USC 462(a): Selective Service Act (regulatory, less specific) - focusing on property
+    's2,1955,title 18,USC': 'Fraud',  # 18 USC 2; 18 USC 1955: Illegal gambling businesses
+    's2,2312,2313,title18,USC': 'Property',  # 18 USC 2; 18 USC 2312: Interstate transportation of stolen vehicles; 18 USC 2313: Sale or receipt of stolen vehicles
+    's2,2313,title18,USC': 'Property',  # 18 USC 2; 18 USC 2313: Sale or receipt of stolen vehicles
+    's2,2314,title18 / s121.titile49': 'Property',  # 18 USC 2; 18 USC 2314: Interstate transportation of stolen property; 49 USC 121: (Repealed, likely transportation of stolen goods)
+    's2,371,1955,title18,USC': 'Fraud',  # 18 USC 2; 18 USC 371: Conspiracy; 18 USC 1955: Illegal gambling businesses
+    's2,371,2312,title 8,USC': 'Property',  # Assuming 'title 8,USC' is a typo and should be 18 USC 2312 (interstate transportation of stolen vehicles). 18 USC 2; 18 USC 371: Conspiracy
+    's2,641,title18,USC': 'Property',  # 18 USC 2; 18 USC 641: Public money, property or records (theft/embezzlement)
+    's2,922(d),922(m),924(a),title18,USC': 'Violent',  # 18 USC 922(d), 922(m), 924(a): Firearms offenses (illegal possession/sale often linked to violent crime)
+    's201,371,title18,USC': 'Fraud',  # 18 USC 201: Bribery; 18 USC 371: Conspiracy
+    's2113(a)(d),2,title18,USC': 'Violent',  # 18 USC 2113(a)(d): Bank robbery and incidental crimes
+    's2113(a),title18,USC': 'Violent',  # 18 USC 2113(a): Bank robbery
+    's2113(a),title18,USC / s1001,1621,1623,title18,USC': 'Violent',  # 18 USC 2113(a): Bank robbery (primary offense); 18 USC 1001: False statements; 18 USC 1621: Perjury; 18 USC 1623: False declarations
+    's231(a)(3),titile18,USC': 'Violent',  # 18 USC 231(a)(3): Civil disorders
+    's2312, Title 18 USC': 'Property',  # 18 USC 2312: Interstate transportation of stolen vehicles
+    's2312,2313,title18,USC': 'Property',  # 18 USC 2312: Interstate transportation of stolen vehicles; 18 USC 2313: Sale or receipt of stolen vehicles
+    's2312,title18,USC': 'Property',  # 18 USC 2312: Interstate transportation of stolen vehicles
+    's2312,title18,USC / s2312,title18,USC': 'Property',  # Duplicate entry for 18 USC 2312
+    's2313,title18,USC / court martial': 'Property',  # 18 USC 2313: Sale or receipt of stolen vehicles
+    's2314,title18,USC': 'Property',  # 18 USC 2314: Interstate transportation of stolen property
+    's241,title18,USC': 'Violent',  # 18 USC 241: Conspiracy Against Rights (civil rights violations, can involve violence or threat)
+    's2421,title18,USC': 'Sexual',  # 18 USC 2421: White-slave traffic (Mann Act), involves sexual exploitation
+    's311.titile50,USC': 'Fraud',  # 50 USC 311: Repealed, related to espionage (deceit/betrayal of trust)
+    's331(q)(2),title21,USC': 'Non-Alcohol Drugs',  # 21 USC 331(q)(2): Prohibited acts relating to controlled substances
+    's331(q)(3)(A),331(q)(2),title 21,USC': 'Non-Alcohol Drugs',  # 21 USC 331(q)(3)(A), 331(q)(2): Prohibited acts relating to controlled substances
+    's331,333,title21,USC / s7201,title26,USC': 'Tax',  # 21 USC 331, 333: Prohibited acts re food/drugs (misbranding/adulteration); 26 USC 7201: Attempt to evade or defeat tax (Tax is clearer)
+    's3502,title38,s289,title18,USC': 'Fraud',  # 38 USC 3502: Forfeiture for fraud; 18 USC 289: False claims for pensions
+    's371,1341,title18,USC': 'Fraud',  # 18 USC 371: Conspiracy; 18 USC 1341: Mail fraud
+    's371,2312,2313,titile18,USC': 'Property',  # 18 USC 371: Conspiracy; 18 USC 2312: Interstate transportation of stolen vehicles; 18 USC 2313: Sale or receipt of stolen vehicles
+    's371,2511,title18,s1801(b)title22,s543(a),title23,': 'Property',  # 18 USC 371: Conspiracy; 18 USC 2511: Interception of communications (information property/theft)
+    's371,500,641,title18,USC': 'Fraud',  # 18 USC 371: Conspiracy; 18 USC 500: Money orders (often forgery/fraud); 18 USC 641: Public money, property or records
+    's371,titile18,USC': 'Fraud',  # 18 USC 371: Conspiracy (general, leaning to fraud for illicit gains if not specified)
+    's371,title18,USC': 'Fraud',  # 18 USC 371: Conspiracy
+    's371,title18,USC / court martial': 'Fraud',  # 18 USC 371: Conspiracy
+    's371,title18,USC / s7,13,title18,USC': 'Fraud',  # 18 USC 371: Conspiracy; 18 USC 7: Jurisdiction; 18 USC 13: Assimilative Crimes Act (no specific crime, default to conspiracy type)
+    's4,title18,USC / court martial': 'Fraud',  # 18 USC 4: Misprision of felony (concealment, often involves deceit)
+    's401,title22,DCC/court martial': 'Violent',  # Title 22, DC Code 401: Often serious violent crimes like murder/assault
+    's408,408(a),title18,USC / court martial': 'Property',  # 18 USC 408: Repealed, formerly relating to interstate transportation of stolen vehicles
+    's4704(a),7237(a),7701(c),title26,USC': 'Non-Alcohol Drugs',  # 26 USC 4704(a): Repealed, taxes on opiates; 26 USC 7237(a): Repealed, penalties for narcotic drug offenses
+    's4705,title26,USC': 'Non-Alcohol Drugs',  # 26 USC 4705: Repealed, taxes on narcotic drugs
+    's471,472,title18,USC': 'Fraud',  # 18 USC 471: Counterfeiting; 18 USC 472: Uttering counterfeit obligations
+    's472,title18,USC': 'Fraud',  # 18 USC 472: Uttering counterfeit obligations
+    's4744(a)(1),title26,USC': 'Non-Alcohol Drugs',  # 26 USC 4744(a)(1): Repealed, Marijuana Tax Act violations
+    's4744(a),title26,USC': 'Non-Alcohol Drugs',  # 26 USC 4744(a): Repealed, Marijuana Tax Act violations
+    's4755(a)(1),title26,USC': 'Fraud',  # 26 USC 4755(a)(1): Repealed, occupational tax on wagering (illicit gambling scheme)
+    's495,1709,title18,USC': 'Fraud',  # 18 USC 495: Forgery; 18 USC 1709: Theft of mail matter (forgery is primary)
+    's495,title18,USC': 'Fraud',  # 18 USC 495: Forgery
+    's495,title18,USC / 495,title18,USC': 'Fraud',  # Duplicate for 18 USC 495: Forgery
+    's5(b),title50,USCapp,s500.204,500.329,500.701,titl': 'Fraud',  # 50 USC App 5(b): Trading With the Enemy Act (often involves sanctions evasion, which is a form of fraud)
+    's5179(a),5173,5222,5205(a)(2),5686(a),title26': 'Alcohol',  # 26 USC sections relating to taxes/regulation of distilled spirits (illicit alcohol production/sale)
+    's5209 RevStat': 'Fraud',  # Revised Statutes 5209: False entries by banking officials
+    's542,titlel18,USC': 'Fraud',  # 18 USC 542: Entry of goods by false statements
+    's545,title18,USC': 'Fraud',  # 18 USC 545: Smuggling goods into the United States (evading customs duties is a form of fraud)
+    's5604(a)(1),title26,USC': 'Alcohol',  # 26 USC 5604(a)(1): Repealed, related to distilled spirits (illegal sale/possession)
+    's5691,title26,USC / court martial': 'Alcohol',  # 26 USC 5691: Repealed, related to illicit distilling
+    's581,title26,USC': 'Violent',  # 26 USC 581: Repealed, formerly related to tax on firearms (NFA violations are generally categorized as violent/safety)
+    's5816(d),5861(e),5871,title26,USC': 'Violent',  # 26 USC 5816(d), 5861(e), 5871: National Firearms Act violations
+    's5861(a),title26,USC': 'Violent',  # 26 USC 5861(a): National Firearms Act violations
+    's5861(d),5871,title26 usc': 'Violent',  # 26 USC 5861(d), 5871: National Firearms Act violations
+    's5861(d),5871,title26,USC': 'Violent',  # 26 USC 5861(d), 5871: National Firearms Act violations
+    's5861(d),title26,USC': 'Violent',  # 26 USC 5861(d): National Firearms Act violations
+    's641,title18,USC': 'Property',  # 18 USC 641: Public money, property or records (theft/embezzlement)
+    's656,1005,title18,USC': 'Fraud',  # 18 USC 656: Embezzlement by bank officer; 18 USC 1005: False entries (fraudulent aspect is key)
+    's656,1014,title18,USC': 'Fraud',  # 18 USC 656: Embezzlement by bank officer; 18 USC 1014: False statements for loans
+    's656,title18,USC': 'Property',  # 18 USC 656: Embezzlement by bank officer or employee
+    's656,title18,USC / court martial': 'Property',  # 18 USC 656: Embezzlement by bank officer or employee
+    's657,title18,USC': 'Property',  # 18 USC 657: Embezzlement from lending, credit, etc. institutions
+    's659,title18,USC': 'Property',  # 18 USC 659: Theft from interstate shipment
+    's659,title18,USC / court martial': 'Property',  # 18 USC 659: Theft from interstate shipment
+    's696L(a)(b),title18,USC': 'Property',  # Unidentified section, assuming general illicit appropriation or similar (Property/Fraud)
+    's703,title16,USC / s703,707,title16,USC': 'Property',  # 16 USC 703, 707: Migratory Bird Treaty Act (unlawful taking of natural resources)
+    's7201,7206(1),7206(2),title26,USC': 'Tax',  # 26 USC 7201: Attempt to evade or defeat tax; 26 USC 7206: Fraud and false statements
+    's7201,7206(1),title26,USC': 'Tax',  # 26 USC 7201: Attempt to evade or defeat tax; 26 USC 7206: Fraud and false statements
+    's7201,title26,USC': 'Tax',  # 26 USC 7201: Attempt to evade or defeat tax
+    's7203,title26,USC': 'Tax',  # 26 USC 7203: Willful failure to file return, supply information, or pay tax
+    's7206(1),title26,USC': 'Tax',  # 26 USC 7206(1): Fraud and false statements (on tax returns)
+    's812,841(a)(1),841(b)(1)(A),title21,USC': 'Non-Alcohol Drugs',  # 21 USC 812: Controlled substances schedules; 21 USC 841: Prohibited acts (manufacture, distribution of controlled substances)
+    's841(a)(1),title21,USC': 'Non-Alcohol Drugs',  # 21 USC 841(a)(1): Prohibited acts (manufacture, distribution of controlled substances)
+    's846,title21,USC': 'Non-Alcohol Drugs',  # 21 USC 846: Attempt and conspiracy (related to controlled substances)
+    's88,336,338,title18,USC': 'Fraud',  # 18 USC 88 (old conspiracy); 18 USC 336 (old, lottery tickets); 18 USC 338 (old, frauds and swindles) - all related to fraud schemes
+    's88,title18,USC / 1152(a),1162,1182,1184,title26,U': 'Alcohol',  # 18 USC 88 (old conspiracy); 26 USC 1152(a), 1162, 1182, 1184 (historical tax provisions relating to intoxicating liquors/alcohol)
+    's92(c),924(a)': 'Violent',  # Likely 18 USC 922(c) and 924(a): Firearms offenses
+    's921,922(b)(4),922(m),923,924(a),title18,USC': 'Violent',  # 18 USC 921, 922, 923, 924: Firearms offenses
+    's922(a)(6),title18': 'Fraud',  # 18 USC 922(a)(6): False statements in connection with acquisition of firearm
+    's922(b)(3),924(a),2,title18,USC': 'Violent',  # 18 USC 922(b)(3): Unlawful sale of firearms; 18 USC 924(a): Penalties
+    's922(b)(3),924(a),title18,USC': 'Violent',  # 18 USC 922(b)(3): Unlawful sale of firearms; 18 USC 924(a): Penalties
+    's922(m),924(a),title18,USC': 'Violent',  # 18 USC 922(m): Firearms records; 18 USC 924(a): Penalties
+    's924(a),2,title18, USC': 'Violent',  # 18 USC 924(a): Penalties for firearms offenses
+    's952(a),960(a)(1),title21,USC': 'Non-Alcohol Drugs',  # 21 USC 952(a): Importation of controlled substances; 21 USC 960(a)(1): Prohibited acts
+    's952,960,963,title21,USC': 'Non-Alcohol Drugs',  # 21 USC 952: Importation of controlled substances; 21 USC 960: Prohibited acts; 21 USC 963: Conspiracy
+    's952,title21,USC': 'Non-Alcohol Drugs',  # 21 USC 952: Importation of controlled substances
+}
+```

@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'sale of methamphetamine': 'Non-Alcohol Drugs',
+    'sale of narcotics': 'Non-Alcohol Drugs',
+    'sale poss.intox.liq': 'Alcohol',
+    'sale, importation of narcotics': 'Non-Alcohol Drugs',
+    'sale,poss,purch.narc,vio Harrison Act': 'Non-Alcohol Drugs',
+    'sale,trans,poss.intox.liq,maint.nuisance': 'Alcohol',
+    'sale.intox.liq,maint.comm.nuisance': 'Alcohol',
+    'sale.trans.intox.liq,vio.Nat.Proh.Act': 'Alcohol',
+    'same mutadis mutandis': 'Alcohol', # Inferring based on preceding alcohol-related offenses, as it implies "the same offense with necessary changes"
+    'same mutatis mutanda': 'Alcohol', # Same inference
+    'same mutatis mutandis': 'Alcohol', # Same inference
+    'sat.tv.decrypt.devices': 'Property', # Theft of service or intellectual property related to devices
+    'saving,loan fraud': 'Fraud',
+    'scand.cond.tend.detr.morals,drunk.': 'Alcohol', # Due to "drunk."
+    'scand.cond.tend.to destru.good morals': 'Property', # General public order offense, hard to categorize, defaulting to Property as a broad catch-all for non-violent, non-explicitly drug/alcohol/fraud/tax/sexual.
+    'scheme and artiface to defraud': 'Fraud',
+    'scheme to defraud': 'Fraud',
+    'scheme to defraud US': 'Fraud',
+    'schooner fofeited': 'Property', # Forfeiture of an asset
+    'schooner forfeited': 'Property',
+    'seaman act violation': 'Property', # Violations often involve wages, conditions, or property related to the ship/crew.
+    'sec 1 act of 12/17/14': 'Non-Alcohol Drugs', # Refers to the Harrison Narcotics Tax Act
+    'sec,embezz letter w/valuable': 'Property',
+    'sec,embezz letters': 'Property',
+    'second deg. murder': 'Violent',
+    'second degree murder': 'Violent',
+    'second degree murder, bombs,consp.defr.US': 'Violent', # Primary offense is violent
+    'second war powers act': 'Property', # Violations often involved rationing or requisitioning of goods/property
+    'second-degree murder': 'Violent',
+    'secr,emb.lett.fr/mail as post.emp.': 'Property',
+    'secr,embezz,dest.lett.w/art.of value, stealing fro': 'Property',
+    'secret, embezz a letter': 'Property',
+    'secret, embezz, destroy letter': 'Property',
+    'secret,destroying letters': 'Property',
+    'secret,embez.lett.w/mon.in post.serv.': 'Property',
+    'secret,embezz.lett.as PO employ.': 'Property',
+    'secret,embezz.letter fr/US mail': 'Property',
+    'secret,embezz.letter fr/mail': 'Property',
+    'secret,steal.letter,taking,steal.bank notes fr/let': 'Property',
+    'secret.,embezz.mail matter': 'Property',
+    'secreting and embezz.letters': 'Property',
+    'secreting and embezz.mail matter': 'Property',
+    'secreting and embezzling a letter': 'Property',
+    'secreting pack.belonging to mail': 'Property',
+    'secreting&embezz mail package': 'Property',
+    'secreting, embezz.letter': 'Property',
+    'secreting,embezz.,opening letters': 'Property',
+    'secreting,embezz.mail matter': 'Property',
+    'secreting,embezz.parc.packages': 'Property',
+    'sect 1396(b)(1),title 42 usc': 'Fraud', # Medicaid fraud
+    'sect 1472,title 49 usc': 'Violent', # Aviation offenses like aircraft piracy or carrying weapons.
+    'sect 171,173,174,title 21,sect 4704(a),4705(a),723': 'Non-Alcohol Drugs', # Sections related to drug control and narcotics taxes.
+    'sect 2,656,title 18 usc': 'Property', # Embezzlement by bank officers.
+    'sect 231, 232 title 18 USC': 'Violent', # Sections related to Civil Disorders.
+    'sect 2312,title 18 usc': 'Property', # Transportation of Stolen Vehicles.
+    'sect 2810,2833,2834,title 26,sect.371,title 18, us': 'Tax', # Distilled spirits tax evasion.
+    'sect 371,1621,title 18, usc': 'Fraud', # Conspiracy and Perjury.
+    'sect 371,title 18 ,sect.186(a),title 29 usc': 'Fraud', # Conspiracy and illegal payments to labor organizations (bribery/corruption).
+    'sect 371,title 18 usc': 'Fraud', # Conspiracy to Defraud United States.
+    'sect 4744(a)(2) title 26 usc': 'Non-Alcohol Drugs', # Marijuana Tax Act related.
+    'sect 5841, 5851,title 26 usc': 'Property', # National Firearms Act violations (unregistered firearms).
+    'sect 5861(d),title 26 usc': 'Property', # National Firearms Act violations (unregistered firearms).
+    'sect 656,title 18 usc': 'Property', # Embezzlement by bank officers.
+    'sect 659,title 18 usc': 'Property', # Theft from interstate shipment.
+    'sect 922(m),924(a),title 18': 'Fraud', # Firearms dealer record-keeping violations (false statements/concealment).
+    'sect 95(a),title 12 usc, exec order 6260': 'Property', # Banking emergencies, hoarding gold/illegal transactions of assets.
+    'sect 95(a),title 12, usc,exec order 1591,title 19': 'Fraud', # Banking and customs violations, likely involving deception.
+    'sect. 1001,title 18 usc': 'Fraud', # False statements to the government.
+    'sect. 13,2,3150,title 18 usc': 'Fraud', # Failure to appear (bail jumping), often related to deceiving the court.
+    'sect. 1341,title 18 usc': 'Fraud', # Mail Fraud.
+    'sect. 1709,title 18 usc': 'Property', # Theft of mail matter.
+    'sect. 2,2511,title 18 usc': 'Property', # Wiretapping (unauthorized interception of communications/data as property).
+    'sect. 241.title 18 usc': 'Violent', # Conspiracy Against Rights of Citizens (often involves intimidation or violence).
+    'sect. 2591(1),title 26 usc': 'Non-Alcohol Drugs', # Marijuana Tax Act transfer tax.
+    'sect. 371,title 18 usc': 'Fraud', # Conspiracy to Defraud United States.
+    'sect. 522(a)(1),5173,5179(a),5601(a)(1),5601(a)(4)': 'Alcohol', # Illegal distilled spirits production/tax evasion.
+    'sect. 5861(d),5871,title 26 usc': 'Property', # National Firearms Act violations.
+    'sect. 656,title 18 usc': 'Property', # Embezzlement by bank officers.
+    'sect. 657,title 18 usc': 'Property', # Embezzlement/misapplication of funds by financial institution employees.
+    'sect. 659,title 18': 'Property', # Theft from interstate shipment.
+    'sect. 661,title 18 usc,sect.844(a),title 21 usc': 'Non-Alcohol Drugs', # Theft and simple possession of controlled substances.
+    'sect. 675,title 18 usc': 'Property', # Theft of bottles and cases.
+    'sect. 7201,title 26 usc': 'Tax', # Attempt to evade or defeat tax.
+    'sect. 874,title 18 usc': 'Fraud', # Kickbacks from public works employees.
+    'sect. 922(a)(6) and 924(a),title 18 usc': 'Fraud', # False statements in connection with firearm acquisition.
+    'sect. 922(b)(2),922(b)(3),922(m),titile 18 usc': 'Fraud', # Unlawful firearm transfers/sales/record-keeping violations (false statements/concealment).
+    'sect.1,2 of Act /vio.prob./sect.37 usc,sect.1,2,8': 'Property', # Too vague, general fallback for unknown legal violations.
+    'sect.1001,287,title 18 usc': 'Fraud', # False statements and false claims.
+    'sect.1001,title 18 usc': 'Fraud', # False statements to the government.
+    'sect.1005,title 18 usc': 'Fraud', # False entries in bank records.
+    'sect.1008,title 18 usc': 'Fraud', # False entries related to federal credit institutions.
+    'sect.1010,2(a),371,title 18 usc': 'Fraud', # False statements to HUD, conspiracy.
+    'sect.1010,title 18 usc': 'Fraud', # False statements to HUD.
+    'sect.1014,title 18 usc': 'Fraud', # False statements on loan/credit applications.
+    'sect.106,502,3204,title 22 dc code': 'Violent', # D.C. Code sections likely referring to assault or robbery.
+    'sect.106,506,title 17,sect.2,title 18 usc': 'Property', # Copyright infringement (intellectual property).
+    'sect.1084,1952,title 18 usc': 'Fraud', # Wire Act (wagering information), Travel Act (racketeering).
+    'sect.111,1114,title 18 usc': 'Violent', # Assaulting/resisting federal officers.
+    'sect.111,title 18 usc': 'Violent', # Assaulting/resisting federal officers.
+    'sect.1153,title 18 usc': 'Violent' # Offenses committed within Indian country (often refers to serious felonies like murder, rape, assault).
+}
+```

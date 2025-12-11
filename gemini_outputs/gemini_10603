@@ -1,0 +1,143 @@
+```python
+offenses_sample = [
+    'violating passenger act',
+    'violating pension laws',
+    'violating selective service act',
+    'violating war powers act of 1942',
+    'violation AK prohibition law',
+    'violation Harrison Narc.Act',
+    'violation Mann Act',
+    'violation bankruptcy act',
+    'violation collection laws',
+    'violation espionage act',
+    'violation immigration laws',
+    'violation importation laws',
+    'violation int.rev.laws',
+    'violation intern rev.laws',
+    'violation internal revenue laws',
+    'violation irs laws',
+    'violation militia laws',
+    'violation national bank laws',
+    'violation neutrality laws',
+    'violation of 3/3/1807 Cong Act',
+    'violation of 61st & 94th Articles of War',
+    'violation of 75th Article of War',
+    'violation of 93rd & 94th Articles of War',
+    'violation of Act of Febraury 17, 1914',
+    'violation of Article 121, Uniform Code of Military',
+    'violation of Articles 121 & 107, Uniform Code of M',
+    'violation of Articles 121, 107, 92 & 134 of the Un',
+    'violation of Internal Revenue Laws related to liqu',
+    'violation of Lacey act and airborne hunting act',
+    'violation of Mann Act',
+    'violation of National Prohibition Act',
+    'violation of PO laws',
+    'violation of US laws',
+    'violation of a bond',
+    'violation of act',
+    'violation of an act',
+    'violation of banking laws',
+    'violation of bankruptcy act',
+    'violation of bond',
+    'violation of consuls act',
+    'violation of criminal code',
+    'violation of espionage act',
+    'violation of espionage act (3)',
+    'violation of federal food, drug, and cosmetic act',
+    'violation of federal securities laws',
+    'violation of gasoline rationing orders',
+    'violation of internal revenue laws',
+    'violation of law',
+    'violation of liquor taxes',
+    'violation of nat.proh.act',
+    'violation of oleomargarine law',
+    'violation of opium act',
+    'violation of peace',
+    'violation of pension laws',
+    'violation of pension laws (2)',
+    'violation of policy laws',
+    'violation of postal laws',
+    'violation of ration order pursuant to Emergency Pr',
+    'violation of recognizance',
+    'violation of regulations of futures trading and fo',
+    'violation of revenue laws',
+    'violation of revise statutes',
+    'violation of revised statutes',
+    'violation of tariff act',
+    'violation of the 93rd & 96th Articles of War',
+    'violation of the Internal Revenue Liquor Laws',
+    'violation of the lacey act, violation of the bald',
+    'violation oleomargarine act',
+    'violation oleomargarine laws',
+    'violation pension laws',
+    'violation policy law',
+    'violation postal laws',
+    'violation recognizance',
+    'violation revenue laws',
+    'violation select.serv.act',
+    'violation slave transportation',
+    'violations of postal laws',
+    'violent',
+    'violent ass & batt',
+    'violn.nat.prohib.act',
+    'violof nat.motor vehicle theft act',
+    'vol.serv. on a slaver',
+    'voluntarily allow.prisoners escape while a guard',
+    'voluntary manslaughter',
+    'want,mischiev.kicking open PO box',
+    'war conspiracy',
+    'war powers act',
+    'war regulations',
+    'warrant anywhere ???',
+    'was rebel postmaster',
+    'wearing a Navy uniform',
+    'white slave traffic',
+    'white slave traffic,grand larceny',
+    'whol,retail liq w/out paying tax',
+    'whol,retail.liq.w/out pay.tax',
+    'whole.liq.deal.w/o pay.tax',
+    'wholes.bus.deal.oleo.w/out pay tax',
+    'wholesale dealer of intox.liq.',
+    'will.fail. register for draft',
+    'willful misapplication of bank funds'
+]
+
+offense_categorization = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax'
+}
+
+for offense in offenses_sample:
+    offense_lower = offense.lower()
+
+    if 'liquor' in offense_lower or 'prohibition' in offense_lower or 'intox.liq.' in offense_lower or 'intox. liq.' in offense_lower or 'liq w/out paying tax' in offense_lower:
+        offense_categorization[offense] = 'Alcohol'
+    elif 'drug' in offense_lower or 'narcotic' in offense_lower or 'opium' in offense_lower or 'cosmetic act' in offense_lower:
+        offense_categorization[offense] = 'Non-Alcohol Drugs'
+    elif 'slave' in offense_lower or 'slaver' in offense_lower or 'slavery' in offense_lower:
+        offense_categorization[offense] = 'Slavery'
+    elif 'violent' in offense_lower or 'ass & batt' in offense_lower or 'manslaughter' in offense_lower or 'wounding' in offense_lower or 'peace' in offense_lower or ('articles of war' in offense_lower and ('61st' in offense_lower or '94th' in offense_lower or '93rd' in offense_lower or '96th' in offense_lower)):
+        offense_categorization[offense] = 'Violent'
+    elif 'property' in offense_lower or 'theft' in offense_lower or 'larceny' in offense_lower or 'kicking open po box' in offense_lower or 'lacey act' in offense_lower or 'motor vehicle theft act' in offense_lower or 'article 121' in offense_lower or 'eagle protection act' in offense_lower:
+        offense_categorization[offense] = 'Property'
+    elif 'mann act' in offense_lower or 'white slave traffic' in offense_lower:
+        offense_categorization[offense] = 'Sexual'
+    elif 'tax' in offense_lower or 'revenue' in offense_lower or 'irs' in offense_lower or 'tariff' in offense_lower or 'oleomargarine' in offense_lower:
+        offense_categorization[offense] = 'Tax'
+    # 'Fraud' acts as a broad category for regulatory non-compliance, evasion, false statements, and financial crimes
+    elif 'false' in offense_lower or 'fraud' in offense_lower or 'misapplication' in offense_lower or 'bank' in offense_lower or 'securities' in offense_lower or 'pension' in offense_lower or 'espionage' in offense_lower or 'rationing' in offense_lower or 'bankruptcy' in offense_lower or 'bond' in offense_lower or 'recognizance' in offense_lower or 'collection laws' in offense_lower or 'postal laws' in offense_lower or 'policy law' in offense_lower or 'register for draft' in offense_lower or 'selective service act' in offense_lower or 'uniform' in offense_lower or 'conspiracy' in offense_lower or 'postmaster' in offense_lower or 'consuls act' in offense_lower or 'futures trading' in offense_lower or 'immigration laws' in offense_lower or 'war powers act' in offense_lower or 'war regulations' in offense_lower or 'militia laws' in offense_lower or 'importation laws' in offense_lower or 'passenger act' in offense_lower or 'desertion' in offense_lower or 'allow.prisoners escape' in offense_lower:
+        offense_categorization[offense] = 'Fraud'
+    # Catch-all for very vague terms not caught by specific keywords.
+    # These are often general legal violations that don't fit other specific categories well.
+    elif 'violation of act' in offense_lower or 'violation of an act' in offense_lower or 'violation of law' in offense_lower or 'violation of us laws' in offense_lower or 'criminal code' in offense_lower or 'revise statutes' in offense_lower or 'revised statutes' in offense_lower or 'warrant anywhere' in offense_lower:
+        offense_categorization[offense] = 'Fraud'
+    else:
+        # Fallback for any highly unique or extremely vague offenses that didn't match above,
+        # ensuring all items are categorized as requested.
+        offense_categorization[offense] = 'Fraud'
+
+# Final output dictionary
+print(offense_categorization)
+```

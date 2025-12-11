@@ -1,0 +1,110 @@
+Here is the Python dictionary with the offenses from your `offensesample` dataset categorized according to your provided list:
+
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'robb.po-of.station,use of dang.weap.': 'violent',
+    'robb.post office': 'violent',
+    'robb.post office w/force and arms': 'violent',
+    'robb.post office,jeopar.custod\'s.life': 'violent',
+    'robb.post office,threat.postal empl.': 'violent',
+    'robb.w/firearms': 'violent',
+    'robbed US mail': 'violent',
+    'robbed US mail, jeopardized life of carrier': 'violent',
+    'robbed mail while a postmaster': 'violent',
+    'robbed mail, jeop.life of carrier': 'violent',
+    'robbed mail,jeop.carrier life': 'violent',
+    'robbed mail,placed carrier life in jeop.': 'violent',
+    'robbed mails, jeop.life carrier': 'violent',
+    'robbery': 'violent',
+    'robbery (2)': 'violent',
+    'robbery (2), assault w/intent to kill': 'violent',
+    'robbery (5 cases)': 'violent',
+    'robbery and larceny': 'violent',  # Robbery takes precedence as it implies violence
+    'robbery f/ person': 'violent',
+    'robbery in PO bulding': 'violent',
+    'robbery in the Indian country': 'violent',
+    'robbery mails': 'violent',
+    'robbery of US mails': 'violent',
+    'robbery of US mails,conspiracy': 'violent',
+    'robbery of a mail train': 'violent',
+    'robbery of bulding used as PO': 'violent',
+    'robbery of mail': 'violent',
+    'robbery of mail truck': 'violent',
+    'robbery of mails,consp.': 'violent',
+    'robbery of the mails': 'violent',
+    'robbery on the high seas': 'violent',
+    'robbery on the highway': 'violent',
+    'robbery w/a dangerous weapon': 'violent',
+    'robbery, endangered mail carrier': 'violent',
+    'robbery,burglary': 'violent',  # Robbery takes precedence as it implies violence
+    'robbery,larceny fr/US': 'violent',  # Robbery takes precedence as it implies violence
+    'robbery/ dangerous weapon': 'violent',
+    'robbing PO': 'violent',
+    'robbing PO (2 cases)': 'violent',
+    'robbing PO by force of arms': 'violent',
+    'robbing US mail': 'violent',
+    'robbing US mail of valuable lett.': 'violent',
+    'robbing US mail sack': 'violent',
+    'robbing US mails': 'violent',
+    'robbing US mails on the highway': 'violent',
+    'robbing US post office': 'violent',
+    'robbing a PO': 'violent',
+    'robbing a bargue': 'violent',
+    'robbing a mail carrier': 'violent',
+    'robbing a mail coach': 'violent',
+    'robbing a post office': 'violent',
+    'robbing a rural free delivery box': 'violent',
+    'robbing bank': 'violent',
+    'robbing carrier of US mail': 'violent',
+    'robbing interst. shipment': 'violent',
+    'robbing letter boxes': 'violent',  # "Robbing" implies force or threat, distinguishing it from simple theft.
+    'robbing mail': 'violent',
+    'robbing mail car': 'violent',
+    'robbing mail carrier': 'violent',
+    'robbing mail carrier,jeop.life postal clerk': 'violent',
+    'robbing mail,threat.life of carrier': 'violent',
+    'robbing mails': 'violent',
+    'robbing post office': 'violent',
+    'robbing postmaster': 'violent',
+    'robbing the PO': 'violent',
+    'robbing the US mail': 'violent',
+    'robbing the US mails': 'violent',
+    'robbing the mail': 'violent',
+    'robbing the mail (2)': 'violent',
+    'robbing the mail as PO employee': 'violent',
+    'robbing the mail as/PO empl.': 'violent',
+    'robbing the mails': 'violent',
+    'robbing the post office': 'violent',
+    'robed mail with force and arms': 'violent', # Assuming "robed" is a typo for "robbed"
+    'rs5209false entries(financial)': 'fraud',
+    'running a mail express': 'fraud',  # Assuming it implies an illegal operation or false pretenses.
+    'running an illicit distillery': 'alcohol',
+    'running gambling house': 'fraud',  # Illegal operation, often involves elements of deception or illegal financial gain.
+    'running illicit distilling': 'alcohol',
+    'running unreg. Distillery': 'alcohol',
+    's1001,title18,USC': 'fraud',  # False statements/entries
+    's1005,titile18,USC': 'fraud',  # False entries by bank officers
+    's1071,title18,USC / s472,title18,USC': 'fraud',  # Concealing fugitives (often involves false statements) combined with uttering counterfeit (fraud)
+    's1152A,title26': 'tax',  # Title 26 is the Internal Revenue Code
+    's1201,title18,USC': 'violent',  # Kidnapping
+    's13,title18,USC': 'fraud',  # Assimilative Crimes Act (procedural, but if an "offense," often involves deception to avoid local law, or a general default for statutory violations that aren't clearly violent/property). This is a challenging one to categorize without the underlying state offense, so 'fraud' is chosen as a somewhat broad fit for illegal circumvention.
+    's1341,1342,title18,USC': 'fraud',  # Mail fraud, fictitious name/address
+    's1341,1342,title18USC': 'fraud',
+    's1341,1342,title18USC / court martial': 'fraud',
+    's1341,1343,2314,titl18 usc': 'fraud',  # Mail fraud, wire fraud, transportation of stolen goods (which can involve fraud)
+    's1341,1343,title18,USC': 'fraud',  # Mail fraud, wire fraud
+    's1341,title18,USC': 'fraud',  # Mail fraud
+    's1368,title42,USC': 'fraud',  # Environmental reporting (if involving false reporting or misrepresentation to avoid compliance)
+    's141,titile18,USC': 'fraud',  # Extradition (procedural; if violation, often involves deceit to evade legal process)
+    's145(a)(b),title26 usc': 'tax',  # Tax evasion/failure to file
+    's145(b),title26,USC': 'tax',
+    's1703(a),1709,title18,USC': 'property',  # Delay/destruction of mail, theft of mail
+    's1708,1702,title18,USC': 'property',  # Theft/receipt of stolen mail, obstruction of correspondence
+    's1709, title 18 usc': 'property',  # Theft of mail
+    's1709,titl18 usc': 'property'
+}
+```

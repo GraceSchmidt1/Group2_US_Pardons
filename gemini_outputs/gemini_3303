@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'court martial (murder)': 'Violent',
+    'court martial / s912,title18.USC / 912,title18,USC': 'Fraud', # Title 18, Section 912 relates to false personation of a federal officer, which is a form of fraud.
+    'court martial / s922(a)(1),924(a),title18,USC': 'Property', # Title 18, Section 922(a)(1) relates to unlicensed dealing in firearms, an illegal trade in goods (property).
+    'court martial / vio.marajuana tax': 'Non-Alcohol Drugs', # The core offense involves marijuana. Tax violation is secondary to the drug itself.
+    'court martial(2)': 'Violent', # Generic court martial offenses often involve serious military discipline or violence.
+    'court martial, shoplifint': 'Property', # Shoplifting is a form of theft.
+    'court martial,absent w/out leave': 'Violent', # Military absence without leave is a serious disciplinary offense, often grouped with general severe military misconduct.
+    'court martial-larceny, stragling, larceny': 'Property', # Larceny is theft.
+    'court martialed': 'Violent', # Generic court martial offense.
+    'couterfeiting coins': 'Fraud', # Creating fake currency is fraud.
+    'creating a revolt on the high seas': 'Violent', # Revolt implies direct conflict and potential violence.
+    'crimes against United States': 'Violent', # Vague, but generally refers to serious federal offenses against the state, often involving violence or severe disruption.
+    'crimes against United States and fraud, making fal': 'Fraud', # Explicitly mentions fraud.
+    'crimes against United States and narcotics, 846': 'Non-Alcohol Drugs', # Explicitly mentions narcotics.
+    'crimes against United States and narcotics, 846, 8': 'Non-Alcohol Drugs', # Explicitly mentions narcotics.
+    'crimes against United States312': 'Violent', # Vague, similar to "crimes against United States".
+    'criminal libel': 'Violent', # While not physical, libel is an offense against a person's reputation, grouped under 'Violent' as a personal harm.
+    'criminal offense': 'Violent', # Generic serious offense, assigned to 'Violent' as a default for severe but unspecified crimes.
+    'crrying on bus.of a dstller, wrking.in a distiller': 'Alcohol', # "Distiller" indicates alcohol production.
+    'crt mart-disch.musk.at pris.': 'Violent', # Discharging a musket at prisoners is a violent act.
+    'crt.mart-desertion': 'Violent', # Military desertion is a serious breach of discipline, categorized similarly to AWOL.
+    'crt.mart-embezzlement': 'Fraud', # Embezzlement is misappropriation of funds, a form of fraud.
+    'cruel treatment of seamen (2 offences)': 'Violent',
+    'cruel,inhmumane beating of negro': 'Slavery', # The context of "negro" and "inhumane beating" points strongly to offenses related to slavery or its aftermath.
+    'cruelty to a seaman': 'Violent',
+    'cruelty to seaman': 'Violent',
+    'culp.neglig,ineff.perf.duty': 'Fraud', # Culpable negligence or inefficient performance of duty, if an offense, often implies a breach of trust resulting in financial or other harm.
+    'cult.pot plants,consp.distrib': 'Non-Alcohol Drugs', # "Pot plants" and "distrib" clearly indicate drug-related activity.
+    'customs': 'Tax', # Customs duties are a form of tax.
+    'customs laws -- deported unless pardoned': 'Tax',
+    'customs violation': 'Tax',
+    'customs violations': 'Tax',
+    'cut timb. on gov.land': 'Property', # Illegally cutting timber on government land is a property crime.
+    'cut timber fr/public lands': 'Property',
+    'cut timber from public lands': 'Property',
+    'cut,rem. timber fr gov.lands': 'Property',
+    'cut,removed timber fr/pub.land': 'Property',
+    'cutt.mail bag': 'Property', # Damaging or cutting a mail bag is a crime against property.
+    'cutt.timb. US land': 'Property',
+    'cutt.timber US land': 'Property',
+    'cutt.timber gov.land': 'Property',
+    'cutt.timber on gov.land': 'Property',
+    'cutt.timber on pub.lands': 'Property',
+    'cutting a telephone wire': 'Property', # Damage to property.
+    'cutting mail pouch w/ intent rob mail': 'Property', # Robbery of mail involves theft, a property crime.
+    'cutting public land timber': 'Property',
+    'cutting timber f/US lands': 'Property',
+    'cutting timber on US lands': 'Property',
+    'cutting timber on govt.land': 'Property',
+    'cutting timber on govt.lands': 'Property',
+    'cutting timber on public land': 'Property',
+    'cutting timber on public lands': 'Property',
+    'cutting,remov.timber on public land': 'Property',
+    'cutting,taking timber f/pub.lands': 'Property',
+    'dc code': 'Violent', # A generic reference to a legal code, similar to "crimes against US," implies a serious, unspecified offense.
+    'dc798(murder)': 'Violent', # Explicitly mentions murder.
+    'dc802': 'Violent', # Generic code reference.
+    'deadly assault': 'Violent',
+    'deal.cigars on which no tax pd.': 'Tax', # "No tax paid" is a tax violation.
+    'deal.counterfeit natl.bank currency': 'Fraud', # Dealing in counterfeit currency is fraud.
+    'deal.dispen.distrib.morphine w/out hav.regist.paid': 'Non-Alcohol Drugs', # Morphine is a non-alcohol drug, the core offense.
+    'deal.in counterf.money': 'Fraud',
+    'deal.in lott.tickets before pay.tax': 'Tax', # "Before pay.tax" indicates a tax violation.
+    'deal.in narcs.w/out registra.license': 'Non-Alcohol Drugs', # Narcotics are the core offense.
+    'deal.in sugar w/out license': 'Tax', # Operating a business without a required license often relates to regulatory compliance and taxation.
+    'deal.in tob.w/out paying tax': 'Tax',
+    'deal.leaf tob.w/out keep deal.book': 'Tax', # Failure to keep records for tobacco dealing is typically a regulatory/tax compliance issue.
+    'deal.liq,tob.w/out paying taxes': 'Tax', # Explicitly mentions "paying taxes."
+    'deal.narc,smugg.narc,con.vio.said acts': 'Non-Alcohol Drugs', # Narcotics and smuggling narcotics.
+    'dealing counterf.money': 'Fraud',
+    'dealing firearms with license': 'Property', # Assuming this entry, despite "with license," implies an illegal aspect of dealing firearms (e.g., illegal types of firearms, or the offense is related to how the dealing was done despite having a license). In context of offenses, "dealing firearms" typically refers to illegal trade.
+    'dealing in counterf.money': 'Fraud',
+    'dealing in counterfeit money': 'Fraud',
+    'dealing in firearms': 'Property', # Assuming illegal dealing, as it's listed as an offense.
+    'dealing in firearms without license': 'Property',
+    'dealing in morphine': 'Non-Alcohol Drugs',
+    'dealing in narcotics': 'Non-Alcohol Drugs',
+    'dealing in unstampted tobaccoo': 'Tax', # "Unstamped" implies a tax evasion.
+    'dealing in,pass.counter.money': 'Fraud',
+    'dealing narcotics': 'Non-Alcohol Drugs',
+    'dealt in counterf.fract.currency': 'Fraud',
+    'debt': 'Fraud', # If a "debt" is listed as an offense, it typically implies a fraudulent debt or criminal non-payment.
+    'debt due': 'Fraud',
+    'debt due US': 'Fraud', # Debt owed to the US as an offense implies defrauding the government.
+    'debt to U.S.': 'Fraud',
+    'debts due to US': 'Fraud',
+    'decree in admiralty': 'Property', # Admiralty law often deals with maritime property (ships, cargo) and related violations (e.g., smuggling, salvage disputes), which can lead to property seizure.
+    'decrees of condemnation & sale': 'Property', # Condemnation and sale typically refers to the seizure and sale of property (e.g., contraband goods, assets from an illegal enterprise).
+    'def,att.def.US of tax on dist.spirtis,separating a': 'Tax', # Defrauding the US of tax.
+    'def. US of int.rev. tax': 'Tax', # Defrauding the US of internal revenue tax.
+    'def. US oleomargarine tax': 'Tax', # Defrauding the US of oleomargarine tax.
+    'def. US public lands': 'Property', # Defrauding the US of public lands refers to illegal acquisition or use of government property.
+    'def.US of tax on dist.spirits,remov,conc.untaxed d': 'Tax', # Defrauding the US of tax on distilled spirits.
+    'def.US of taxes due on whisk.,failing reg.still': 'Tax', # Taxes due on whiskey and failing to register a still are tax violations.
+    'def.US.tax assess': 'Tax', # Tax assessment issues.
+    'defacing a building': 'Property', # Damage to property.
+    'defalcation as postmaster': 'Fraud', # Defalcation is embezzlement or misappropriation of funds.
+    'defalcation in PO': 'Fraud', # Misappropriation in the Post Office.
+    'defalcation in postal service': 'Fraud',
+    'default fine payment': 'Fraud' # Defaulting on a fine payment, if criminalized, often implies an attempt to evade a financial obligation, potentially through fraudulent means.
+}
+```

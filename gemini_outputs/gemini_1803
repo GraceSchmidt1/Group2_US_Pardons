@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'bond surety': 'fraud',  # Implies a breach of a financial or legal obligation, often through misrepresentation or default.
+    'bondsman in recognizance violation': 'fraud', # Breach of a formal legal agreement/trust.
+    'book entry violation': 'fraud',  # Relates to falsifying records or financial deception.
+    'bootlegging': 'alcohol',  # Illegal production or sale of alcohol.
+    'bottl.foment.liq.on brewery premises': 'alcohol',  # Illegal handling/production of alcohol.
+    'bound in a bond': 'fraud', # Assumes a breach of the bond, similar to surety/recognizance violations.
+    'br.seal RR car int.ship (2)': 'property',  # Breaking seal with intent to steal from freight.
+    'br.seal int.rr car w/int.steal': 'property',  # Breaking seal with intent to steal.
+    'br.seal rr car,ent,steal.int.sh.': 'property',  # Breaking seal, entering, stealing from interstate shipment.
+    'br.seal,ent.rr car w/int.ship.': 'property',  # Breaking seal, entering RR car, likely with intent to steal from interstate shipment.
+    'br.seal,enter.freight car,steal.': 'property',  # Breaking seal, entering freight car, stealing.
+    'breach commercial intercourse': 'fraud',  # Violation of trade laws, often involving circumvention or deception.
+    'breach of US fishery laws': 'property',  # Illegal taking or use of natural resources/property.
+    'breach of consuls law': 'fraud',  # Breach of official duties or legal protocols, often involving trust.
+    'breach of crew list bond': 'fraud',  # Breach of a legal bond/agreement.
+    'breach of duty': 'fraud',  # Failure to fulfill a legal or contractual obligation, often with deceptive elements or leading to financial harm.
+    'breach of int.rev.laws': 'tax',  # Violation of internal revenue laws.
+    'breach of neutrality laws': 'fraud',  # Violation of international laws, often involving deceptive actions or illegal support.
+    'breach of peace': 'violent',  # Disrupting public order, often involving confrontational or aggressive behavior.
+    'breach of peace-default payment': 'violent',  # Disturbing the peace, even if related to financial matters, the "breach of peace" aspect is primary.
+    'breach of public peace': 'violent',  # Same as breach of peace.
+    'breach of revenue laws': 'tax',  # Violation of government revenue laws.
+    'breach seaman protection law': 'fraud',  # Exploitation or misrepresentation concerning seamen's rights/wages.
+    'breaches of peace': 'violent',
+    'break entering PO, theft': 'property',
+    'break, ent PO, attempt rob': 'violent',  # Robbery implies force or threat of force.
+    'break, ent PO, attempt,rob': 'violent',
+    'break, enter PO building': 'property',  # Burglary/unlawful entry.
+    'break,ent PO building to larcen': 'property',  # Breaking and entering with intent to steal.
+    'break,ent.PO build,w/int.comm.larceny': 'property',
+    'break,ent.PO w/intent to larcen': 'property',
+    'break,enter PO,stealing funds': 'property',
+    'break,enter.distill.ware': 'property',  # Breaking into a building; specific contents not mentioned as target.
+    'break,entering PO': 'property',
+    'break,entering a PO': 'property',
+    'break.,enter.post office,steal.money,postage stamp': 'property',
+    'break.PO': 'property',
+    'break.PO build,intent to larcen,larceny of moneys': 'property',
+    'break.PO, steal. money': 'property',
+    'break.RR.car,steal,poss.': 'property',
+    'break.and enter.rr car,steal.goods f/intst.ship,po': 'property',
+    'break.car.interst.comm': 'property',
+    'break.enter.PO': 'property',
+    'break.enter.steal fr/PO': 'property',
+    'break.in PO': 'property',
+    'break.in PO w/felonious intent': 'property',
+    'break.in PO w/int.comm.larceny': 'property',
+    'break.in PO w/intent to larcen': 'property',
+    'break.in PO, steal.prop.US': 'property',
+    'break.in PO,larceny US money': 'property',
+    'break.in US post office': 'property',
+    'break.in gov.warehouse': 'property',
+    'break.in/box car,steal.intst.freight': 'property',
+    'break.in/post off.,committ.depredation,steal.,purl': 'property',
+    'break.in/post off.and stealing postage stamps and': 'property',
+    'break.in/post office w/intent steal': 'property',
+    'break.into PO steal.stamps': 'property',
+    'break.into PO, stealing': 'property',
+    'break.into and entering freight car': 'property',
+    'break.into house': 'property',
+    'break.post.off': 'property',
+    'break.robb.bank': 'violent',  # Robbery implies force or threat of force.
+    'break.rr seal,enter,steal,poss.': 'property',
+    'break.seal of rr car,steal.and hav.goods stol.f/in': 'property',
+    'break.seal rr car,enter.w/int.larc,steal.fr/int.sh': 'property',
+    'break.seal.rr car,steal.liq.': 'alcohol',  # Specific theft of liquor.
+    'break.seals,enter.boxcars,steal.,poss.interst.frei': 'property',
+    'break.steal.US post office': 'property',
+    'breaking and entering': 'property',
+    'breaking and entering PO': 'property',
+    'breaking and entering a PO': 'property',
+    'breaking enter PO': 'property',
+    'breaking glass of PO box,stealing letter': 'property',
+    'breaking in Boston PO': 'property',
+    'breaking in PO': 'property',
+    'breaking in PO to comm. larceny': 'property',
+    'breaking in PO, stealing': 'property',
+    'breaking in PO, stealing PO prop.': 'property',
+    'breaking in US post office': 'property',
+    'breaking in buiding used as PO': 'property',
+    'breaking in ditill.warehouse': 'property',  # Breaking into a building; specific contents not mentioned as target.
+    'breaking in, stealing fr PO': 'property',
+    'breaking in, stealing fr/PO': 'property',
+    'breaking in, stealing from PO': 'property',
+    'breaking in/boxcar,steal.intst comm.': 'property',
+    'breaking in/post office': 'property',
+    'breaking into PO': 'property',
+    'breaking into PO boxes,stealing letters': 'property',
+    'breaking into PO building': 'property',
+    'breaking into PO&stealing post.stamps': 'property',
+    'breaking into PO, stealing': 'property',
+    'breaking into PO, stealing funds': 'property',
+    'breaking into PO, stealing prop.': 'property',
+    'breaking into PO,steal.govt.prop.': 'property',
+    'breaking into PO,steal.reg.letters,forged name of': 'fraud',  # Forgery is a primary element of fraud.
+    'breaking into U.S. post office': 'property',
+    'breaking into a PO': 'property',
+    'breaking into a building used as PO': 'property',
+    'breaking into a govt. distillery': 'property',  # Breaking into a building; specific contents not mentioned as target.
+    'breaking into and stealing fr/PO,conceal.post.stam': 'property'
+}
+```

@@ -1,0 +1,110 @@
+Here is the Python dictionary with the assigned categories for each offense. For entries that are too vague or are just codes without descriptive text, I've assigned `None` as the category, as a specific category could not be reasonably inferred from the provided string.
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'cc29forging treasury check': 'Fraud',
+    'cc333(rob mail truck)': 'Violent',  # Robbery implies threat or use of force
+    'cc37': None,  # Too vague to categorize
+    'cc80(lying in naturalization proceeding)': 'Fraud',
+    'cc85,332,37extortion': 'Violent',  # Extortion often involves threats
+    'charg.excess.fees as pension agent': 'Fraud',
+    'cio Sect 318, title 18 U.S.C.': None,  # Too vague to categorize
+    'cm': None,  # Too vague to categorize
+    'cnosp.commit perjury': 'Fraud',
+    'cocaine distrib': 'Non-Alcohol Drugs',
+    'cocaine poss': 'Non-Alcohol Drugs',
+    'cocaine, adultery, checks': 'Non-Alcohol Drugs',  # Prioritizing the most specific offense
+    'coceal.distill.spirits': 'Alcohol',
+    'cognizance violation': None,  # Too vague to categorize
+    'collect.misapp.money of another': 'Fraud',
+    'collection act violation': None,  # Too vague to categorize
+    'collection violation': None,  # Too vague to categorize
+    'collus.w/dist,others def.US rev.taxes': 'Tax',
+    'comm. depredations on property': 'Property',
+    'comm.nuisance,poss.sell.liq': 'Alcohol',
+    'commerce/shipment': None,  # Too vague to categorize
+    'commercial violation': None,  # Too vague to categorize
+    'committed perjury during trial': 'Fraud',
+    'common cheating': 'Fraud',
+    'common nuisance': None,  # Too vague to categorize without context
+    'comsp.vio.Moter Veh Act': 'Property',  # Implies motor vehicle theft
+    'con,acc.before fact to murder': 'Violent',
+    'con,break.in PO,steal.funds,forg.mon.ord': 'Fraud',  # Forgery is a strong fraud indicator
+    'con,conc.assets f/bankr.trust.': 'Fraud',
+    'con,embezz.and sell. govmnt.prop.': 'Property',  # Embezzlement is often about misappropriation of property
+    'con,ent.RR car&stlng.f/int.ship.': 'Property',
+    'con,make,poss,conc,pass.counterf.notes': 'Fraud',
+    'con,oppress.and intim.US citz,aid.vio.select.serv.': 'Violent',  # Oppression and intimidation imply threat/harm
+    'con,poss,pass.altered Fed.res.notes': 'Fraud',
+    'con,poss.narc.w/o reg,w/o pay.tax': 'Non-Alcohol Drugs',
+    'con,rec,conc.dutiable goods smugg.to US': 'Tax',  # Evasion of duties
+    'con,receiv.goods stolen f/int.ship.': 'Property',
+    'con,receiving govt prop.knowing stolen': 'Property',
+    'con,steal.gov prop,poss.stoln gov.prop.': 'Property',
+    'con,stlng f/int.ship,poss,conc.stln.goods': 'Property',
+    'con,tran.int.&sell.st.aut,conc.&sell.autos': 'Property',
+    'con,use mails in conn.w/lottery scheme': 'Fraud',
+    'con,used mails f/fraud.purp.': 'Fraud',
+    'con,used mails in a scheme to defraud': 'Fraud',
+    'con,using mails in scheme to defraud': 'Fraud',
+    'con,viol.nat.mot.vehicle theft act': 'Property',
+    'con., using mails to defraud': 'Fraud',
+    'con.,aid.a/abett.mak.false entries in natl.bank bo': 'Fraud',
+    'con.,conceal.assets f/creditors': 'Fraud',
+    'con.,extort.,imperson.govmnt.officer': 'Violent',  # Extortion implies threat
+    'con.,import.facil.transport.and conceal.of opium': 'Non-Alcohol Drugs',
+    'con.,larceny of intst.shipm.of freight': 'Property',
+    'con.,mak.poss.negs.prints for $10 Fed.Res.notes': 'Fraud',
+    'con.,poss.,pass.counterf.$10 notes': 'Fraud',
+    'con.,poss.,sell.liq.maint.com.nuisance': 'Alcohol',
+    'con.,poss.plates for counterfeiting': 'Fraud',
+    'con.,poss.sell.narcotics': 'Non-Alcohol Drugs',
+    'con.,poss.stolen U.S. securities': 'Property',
+    'con.,sell.narcs.,aid.and abett.such sale': 'Non-Alcohol Drugs',
+    'con.,steal.f/intst.ship.,poss.sto.gds.': 'Property',
+    'con.,steal.f/intst.shipms.,poss.conc.stolen goods': 'Property',
+    'con.,steal.intst.shipm.,poss.stol.goods': 'Property',
+    'con.,unlawf.enter.post.car,jeopard.life of custod,': 'Violent',  # Jeopardizing life
+    'con.,using US mails to defraud': 'Fraud',
+    'con.,using mails to defraud': 'Fraud',
+    'con.,viol.natl.motor veh.theft act': 'Property',
+    'con.adm.alien to US;acc.money infl.dec.imm.offP-R': 'Fraud',  # Bribery/corruption
+    'con.again.US in ask.and receiv.bribe': 'Fraud',
+    'con.aid,abett sale prop.f/int.ship.frght': 'Property',
+    'con.aid.evad.draft,accept.bribe': 'Fraud',
+    'con.and steal.f/intst.ship,con.and aid.theft of fo': 'Property',
+    'con.and steal.f/mails': 'Property',
+    'con.appropr,disp.prop.furnished US mil.': 'Property',
+    'con.ass.US off,assault,result.death': 'Violent',
+    'con.bribe US off.and vio.nat.proh.act': 'Fraud',  # Bribery is a form of fraud
+    'con.bring chin.aliens in US': 'Fraud',  # Illegal immigration often involves deception
+    'con.cause f/record.by cust.coll.': 'Tax',  # Likely customs fraud/evasion of duties
+    'con.cause insub,disloy,ref.duty in mil/naval force': None,  # Does not fit given categories well
+    'con.comm.larc.of money-order funds': 'Property',
+    'con.comm.off US, import opium': 'Non-Alcohol Drugs',
+    'con.comm.off,import chinese': 'Fraud',  # Illegal immigration often involves deception
+    'con.comm.off. US smugg. chinese': 'Fraud',  # Illegal immigration often involves deception
+    'con.comm.off.vs.US in vio.sec.37 US code': None,  # Too vague to categorize
+    'con.comm.perj.in nat.proc.': 'Fraud',
+    'con.con. est.assets fr/trust.': 'Fraud',
+    'con.conc.ass f/bank trsust': 'Fraud',
+    'con.conc.ass.fr/trust.bank.': 'Fraud',
+    'con.conc.assets f/bankr.trust.': 'Fraud',
+    'con.conc.assets f/bankrupt.trust.': 'Fraud',
+    'con.conc.assets f/est.in bankr.': 'Fraud',
+    'con.conc.assets fr/bankr.trust': 'Fraud',
+    'con.conc.assets in bankruptcy': 'Fraud',
+    'con.conce.assets fr/trustee bnkrptcy': 'Fraud',
+    'con.conceal assets f/bankr trust.': 'Fraud',
+    'con.conceal assets f/bankr.trust': 'Fraud',
+    'con.conceal assets f/bankr.trust,aiding abbett suc': 'Fraud',
+    'con.conceal assets f/bankr.trust.': 'Fraud',
+    'con.conceal assets fr/bankr.trust': 'Fraud',
+    'con.conceal assets fr/trustee bnkrptcy': 'Fraud',
+    'con.conceal asssets fr/bankr.trust.': 'Fraud'
+}
+```

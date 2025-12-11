@@ -1,0 +1,110 @@
+Here is the Python dictionary with each offense from your `offensesample` dataset manually assigned to one of your specified categories:
+
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'violent',
+    'false swearing nat. proceeding': 'fraud',
+    'ownership dispute': 'property',
+    'filing a false income-tax return': 'tax',
+    'sect.1162,1185,1184,title 26 usc': 'alcohol',  # Taxation of distilled spirits/wine
+    'sect.1202(a)(1),title 18': 'violent',  # Historical: Possession of firearms by felons
+    'sect.1202(a)(1),title 18 usc': 'violent',  # Historical: Possession of firearms by felons
+    'sect.13,title 18 usc': 'property',  # Assimilative Crimes Act, typically covers minor state crimes like theft/vandalism on federal land
+    'sect.1341,title 18 usc': 'fraud',  # Mail Fraud
+    'sect.1341,title18 usc': 'fraud',  # Mail Fraud
+    'sect.1341,tittle 18 usc': 'fraud',  # Mail Fraud
+    'sect.1343,title 18, usc': 'fraud',  # Wire Fraud
+    'sect.1361,title 18 usc': 'property',  # Government Property or Contracts (theft/destruction)
+    'sect.144, title 8 usc': 'fraud',  # False statements in naturalization proceedings
+    'sect.145(b),7201,title 26 usc': 'tax',  # Tax evasion
+    'sect.145(b),title 26 usc': 'tax',  # Tax evasion
+    'sect.145(b).title 26,sect.408,title 42 usc': 'fraud',  # Tax evasion + Social Security Act fraud
+    'sect.1461,title 18 usc': 'sexual',  # Mailing Obscene Matter
+    'sect.1465,title 18 usc': 'sexual',  # Transportation of Obscene Matters
+    'sect.152,title 18 usc': 'fraud',  # Bankruptcy Fraud (concealment of assets, false oaths)
+    'sect.1593(b),title 18 usc / sect.2593(a),title 26': 'slavery',  # 18 USC 1593(b) is Child Sex Trafficking (Slavery); 26 USC 2593(a) was Marijuana Tax Act (Non-Alcohol Drugs). Prioritizing the more severe/modern meaning of 1593(b).
+    'sect.1621,title 18 usc': 'fraud',  # Perjury
+    'sect.1623,title 18 usc': 'fraud',  # False Declarations Before Grand Jury or Court
+    'sect.1701,title 18': 'property',  # Obstruction of Mail
+    'sect.1702,1708,title 18 usc': 'property',  # Obstruction of Correspondence / Theft or Receipt of Stolen Mail
+    'sect.1703(a),title 18 usc': 'property',  # Delay or Destruction of Mail
+    'sect.1703(b),title 18 usc': 'property',  # Delay or Destruction of Mail
+    'sect.1703,title 18 usc': 'property',  # Delay or Destruction of Mail
+    'sect.1708,2314,title 18, usc': 'property',  # Theft of Stolen Mail / Transportation of Stolen Goods
+    'sect.1708,title 18 usc': 'property',  # Theft or Receipt of Stolen Mail
+    'sect.1709, title 18 usc': 'property',  # Theft of Mail by Officer or Employee
+    'sect.1709,title 18 usc': 'property',  # Theft of Mail by Officer or Employee
+    'sect.1709,title 18,usc': 'property',  # Theft of Mail by Officer or Employee
+    'sect.1711,title 18 usc': 'fraud',  # Misappropriation of Postal Funds (embezzlement)
+    'sect.173,174,title 21 usc': 'non-alcohol drugs',  # Historical: Narcotic Drugs Import and Export Act
+    'sect.174,title 21 usc': 'non-alcohol drugs',  # Historical: Narcotic Drugs Import and Export Act
+    'sect.174,title 21,sect.4705(a),title 26 usc': 'non-alcohol drugs',  # Historical: Narcotic Sales & Taxation
+    'sect.176(a),title 21,sect.2,546,titile 18 usc': 'non-alcohol drugs',  # Historical: Smuggling Marijuana + Smuggling Goods
+    'sect.176(a),title 21,sect.4744(a)(2),title 26 usc': 'non-alcohol drugs',  # Historical: Smuggling Marijuana + Marijuana Tax Act
+    'sect.183,189,title 18 usc': 'property',  # Theft of Trade Secrets (intellectual property)
+    'sect.1953,title 18 usc': 'fraud',  # Interstate Transportation of Wagering Paraphernalia (illegal gambling)
+    'sect.1955,title 18 usc': 'fraud',  # Prohibition of Illegal Gambling Businesses
+    'sect.2,1001,title 18 usc': 'fraud',  # Principals + False Statements
+    'sect.2,1005,title 18 usc': 'fraud',  # Principals + False Bank Entries
+    'sect.2,1010,title 18 usc': 'fraud',  # Principals + False Statements in FHA transactions
+    'sect.2,1343,title 18 usc': 'fraud',  # Principals + Wire Fraud
+    'sect.2,1382,title 18 usc, sect.2313,title 18': 'property',  # Unlawful entry military property + Sale/Receipt of Stolen Vehicles
+    'sect.2,1712,title 18 usc': 'fraud',  # Principals + Misappropriation of Postal Funds
+    'sect.2,1951,1961,1962© and 1963, title 18 usc': 'violent',  # Racketeering (RICO) + Interference with commerce by threats or violence
+    'sect.2,1955,1961,1962(d),1963(a), title 18 usc': 'fraud',  # Racketeering (RICO) + Illegal Gambling Businesses
+    'sect.2,2113(a)(d),title 18 usc': 'violent',  # Principals + Bank Robbery (with assault/dangerous weapon)
+    'sect.2,2113(a),title 18 usc': 'violent',  # Principals + Bank Robbery
+    'sect.2,371 and 2113(d),title 18 usc': 'violent',  # Conspiracy + Bank Robbery with assault/dangerous weapon
+    'sect.2,371,1084,1952,title 18 usc': 'fraud',  # Conspiracy + Transmission of wagering information + Interstate travel in aid of racketeering
+    'sect.2,371,1952,title 18 usc': 'fraud',  # Conspiracy + Interstate travel in aid of racketeering
+    'sect.2,371,656,1005,titile 18 usc': 'fraud',  # Conspiracy + Bank Embezzlement/Misapplication + False Bank Entries
+    'sect.2,542,title 18 usc': 'fraud',  # Principals + Entry of goods by false statements (Customs fraud)
+    'sect.2,641,title 18 usc': 'property',  # Principals + Theft/Embezzlement of Government Property
+    'sect.2,656,title 18 usc': 'fraud',  # Principals + Bank Embezzlement/Misapplication
+    'sect.2,657, title 18 usc': 'fraud',  # Principals + Embezzlement/Misapplication from Lending/Credit Institutions
+    'sect.2,844(h)(1),1001,1343,2275, title 18, secct.': 'violent',  # Use of fire/explosive to commit felony (844(h)(1)) is a violent act, alongside fraud and property destruction.
+    'sect.2,title 18,sect.963,952(a),960(b),841(a)(1),t': 'non-alcohol drugs',  # Conspiracy to import/distribute controlled substances
+    'sect.201(f),title 18 usc': 'fraud',  # Bribery of Public Officials
+    'sect.2023,title 7 usc': 'fraud',  # Food Stamp/WIC Fraud
+    'sect.2113(a)(b),924©(1),title 18 usc': 'violent',  # Bank Robbery + Use of firearm during crime of violence
+    'sect.2113(a),title 18 usc': 'violent',  # Bank Robbery
+    'sect.2113(d),2314,title 18 usc': 'violent',  # Bank Robbery with assault/dangerous weapon + Transportation of Stolen Goods
+    'sect.2113,title 18, sect 2113(a),2113(d), title 18': 'violent',  # Bank Robbery
+    'sect.2231,title 18 usc': 'violent',  # Assault or Resistance to Seizure
+    'sect.2312, title 18 usc': 'property',  # Transportation of Stolen Vehicles (Dyer Act)
+    'sect.2312,titile 18 usc': 'property',  # Transportation of Stolen Vehicles
+    'sect.2312,title 18 usc': 'property',  # Transportation of Stolen Vehicles
+    'sect.2312,title 18 usc, sect.661,title 18 usc': 'property',  # Transportation of Stolen Vehicles + Theft
+    'sect.2312,title 18 usc, vio.parole x2': 'property',  # Transportation of Stolen Vehicles
+    'sect.2312,title 18 usc,vio.prob': 'property',  # Transportation of Stolen Vehicles
+    'sect.2313,2,title 18 usc': 'property',  # Sale or Receipt of Stolen Vehicles + Principals
+    'sect.2314,title 18 usc': 'property',  # Transportation of Stolen Goods, Securities, Moneys (can also include sexual exploitation, but primary is property/fraud)
+    'sect.2314,title 18 usc, sect.2312,title 18 usc': 'property',  # Transportation of Stolen Goods + Stolen Vehicles
+    'sect.241,title 18 usc': 'violent',  # Conspiracy Against Rights (often involves threats/intimidation)
+    'sect.2421,title 18 usc': 'sexual',  # Mann Act (Transportation for illegal sexual activity)
+    'sect.2511(a),title 18 usc': 'property',  # Interception of communications (unlawful surveillance, treated as property/privacy violation)
+    'sect.2553(a),2554(a),title 26,sect.174,title 21,se': 'non-alcohol drugs',  # Historical: Harrison Narcotics Tax Act + Narcotic Drugs Import Act
+    'sect.2591(a),2593(a),2596,title 16 usc': 'non-alcohol drugs',  # Historical: Marihuana Tax Act (assuming Title 26 was intended, not 16)
+    'sect.2591(a),tiel 26 usc': 'non-alcohol drugs',  # Historical: Marihuana Tax Act
+    'sect.2593,title 26, usc': 'non-alcohol drugs',  # Historical: Marihuana Tax Act
+    'sect.265,550,title 18 usc': 'fraud',  # Counterfeiting/Forgery + Removing goods from customs custody without duty
+    'sect.2703(a),title 42 usc': 'fraud',  # Public Health Service Act related offenses (e.g., healthcare fraud)
+    'sect.2810,2833.title 26 usc': 'alcohol',  # Historical: Distilled spirits taxes and distilleries
+    'sect.2810,2834,title 26 usc': 'alcohol',  # Historical: Distilled spirits taxes and distilleries
+    'sect.2833,title 26 usc': 'alcohol',  # Historical: Distilled spirits plants (illegal operation/tax evasion)
+    'sect.286,title 18 usc': 'fraud',  # Conspiracy to Defraud the Government with Respect to Claims
+    'sect.287,1001,title 18 usc': 'fraud',  # False Claims against U.S. + False Statements
+    'sect.287,title 18 usc': 'fraud',  # False Claims against U.S.
+    'sect.287.title 18 usc': 'fraud',  # False Claims against U.S.
+    'sect.2901,title 22 dc code': 'sexual',  # Historical DC Code: Prostitution or similar sexual offenses. (Modern might be human trafficking, but assuming historical context for a sample)
+    'sect.3,1341,title 18 usc': 'fraud',  # Mail Fraud (assuming 'sect.3' is either a typo or refers to a general accessory provision not affecting categorization)
+    'sect.3,371,title 18 usc': 'fraud',  # Conspiracy (assuming 'sect.3' as above)
+    'sect.311,title 50 usc': 'fraud',  # Espionage Act (gathering defense information, involves deceit)
+    'sect.317,title 18 usc': 'property',  # Historical: Transportation of Stolen Property
+    'sect.318,titile 18 usc': 'property',  # Historical: Transportation of Stolen Property
+    'sect.3261(b),title 26 usc': 'tax',  # Historical: Tax on wagering (illegal gambling tax evasion)
+    'sect.37, title 18 usc': 'violent',  # Violence at international airports
+    'sect.371,1010,title 18 usc': 'fraud',  # Conspiracy + False Statements in FHA transactions
+    'sect.371,1341, title 18 usc / sect. 371,1341, titl': 'fraud'  # Conspiracy + Mail Fraud
+}
+```

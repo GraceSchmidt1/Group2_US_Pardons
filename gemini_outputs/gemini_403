@@ -1,0 +1,110 @@
+Here is the Python dictionary categorizing each offense as requested:
+
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    '19 U.S.C. 1593(a)': 'Property',  # Customs smuggling offenses
+    '19 U.S.C. 1593(a)(b)': 'Property',
+    '19 U.S.C. 1593, 18 U.S.C. 550': 'Property',  # Smuggling & receiving stolen property
+    '19 U.S.C. 1593a,b; 18 U.S.C. 88': 'Property',  # Smuggling & conspiracy
+    '19 U.S.C. 398': 'Property',  # Customs/bonded warehouses
+    '19 U.S.C. 88 (21 U.S.C. 174)': 'Non-Alcohol Drugs',  # 21 U.S.C. 174 is narcotics
+    '19 U.S>C> 1593a,b': 'Property',  # Typo for 19 U.S.C. 1593a,b (smuggling)
+    '19 U.SC. 1691': 'Property',  # Customs supervision of lading
+    '192 Crim. Code': 'Property',  # Old code, often related to government property/operations or postal offenses
+    '194, 218 Crim. Code': 'Fraud',  # Old codes, 218 is mail fraud, 194 related to postal theft/fraud
+    '195 Crim. Code': 'Fraud',  # Old code, often postal fraud/embezzlement
+    '1st degree murder': 'Violent',
+    '2 U.S.C. 3,6,25': 'Fraud',  # Campaign finance/electoral fraud
+    '2 counts consp.def.US,trading w/enemy': 'Fraud',  # Conspiracy to defraud U.S.
+    '2,4 Act of June 15, 1917': 'Fraud',  # Espionage Act, often false statements/deceit
+    '2,6 Act of 12/17/14': 'Non-Alcohol Drugs',  # Harrison Narcotics Tax Act
+    '21 U.S.C. 173, 174': 'Non-Alcohol Drugs',  # Narcotics
+    '21 U.S.C. 173, 174 -- deported unless pardoned': 'Non-Alcohol Drugs',
+    '21 U.S.C. 173, 174 deported unless pardoned': 'Non-Alcohol Drugs',
+    '21 U.S.C. 173, 174; 26 U.S.C. 692, 696': 'Non-Alcohol Drugs',  # Narcotics + narcotics tax
+    '21 U.S.C. 173,174': 'Non-Alcohol Drugs',
+    '21 U.S.C. 173,174; 18 U.S.C. 88': 'Non-Alcohol Drugs',  # Narcotics + conspiracy
+    '21 U.S.C. 174': 'Non-Alcohol Drugs',
+    '21 U.S.C. 174 & 26 U.S.C. 4704(a) & 4705(a)': 'Non-Alcohol Drugs',  # Narcotics + narcotics tax
+    '21 U.S.C. 174 & 26 U.S.C. 692': 'Non-Alcohol Drugs',  # Narcotics + narcotics tax
+    '21 U.S.C. 174 (18 U.S.C. 501 & 371, 18 U.S.C. 2314': 'Non-Alcohol Drugs', # Narcotics and conspiracy, with property elements
+    '21 U.S.C. 174 and 26 U.S.C. 1043': 'Non-Alcohol Drugs',  # Narcotics + narcotics tax
+    '21 U.S.C. 174, 178; 18 U.S.C. 88': 'Non-Alcohol Drugs',  # Narcotics + conspiracy
+    '21 U.S.C. 174, 26 U.S.C. 692': 'Non-Alcohol Drugs',  # Narcotics + narcotics tax
+    '21 U.S.C. 174; 19 U.S.C. 493, 496-497; 18 U.S.C. 8': 'Non-Alcohol Drugs',  # Narcotics + customs
+    '21 U.S.C. 174; 26 U.S.C. 1043 -- deported unless p': 'Non-Alcohol Drugs',  # Narcotics + narcotics tax
+    '21 U.S.C. 174; 26 U.S.C. 692, 696': 'Non-Alcohol Drugs',  # Narcotics + narcotics tax
+    '21 U.S.C. 176': 'Non-Alcohol Drugs',  # Narcotics
+    '21 U.S.C. 176 (b)': 'Non-Alcohol Drugs',
+    '21 U.S.C. 176(a)': 'Non-Alcohol Drugs',
+    '21 U.S.C. 176a & 184a': 'Non-Alcohol Drugs',  # Marijuana importation + narcotics control
+    '21 U.S.C. 331': 'Fraud',  # Prohibited acts under Food, Drug, and Cosmetic Act (often misbranding/adulteration)
+    '21 U.S.C. 331a': 'Fraud',  # Prohibited acts under Food, Drug, and Cosmetic Act
+    '21 U.S>C> 2,8,9,10': 'Non-Alcohol Drugs',  # Assuming drug-related given 21 U.S.C. context
+    '211 Crim. Code': 'Violent',  # Old code, often extortion by threats
+    '212crimcode': 'Sexual',  # Old code, often related to obscene material in mails
+    '215 Crim. Code': 'Fraud',  # Mail fraud
+    '22 Code of D.C. 2403': 'Sexual',  # D.C. Code, Prostitution and pandering
+    '22 D.C. Code 2401': 'Sexual',  # D.C. Code, Rape
+    '22 DC Code 2901': 'Sexual',  # D.C. Code, Carnal knowledge
+    '22 Dis. Col. Code 2401': 'Sexual',  # D.C. Code, Rape
+    '22 U.S.C. 1504': 'Fraud',  # False statements in passport applications
+    '22 U.S.C. 1801,2201': 'Non-Alcohol Drugs',  # 1801 is International Narcotics Control
+    '22 U.S.C. 220': 'Fraud',  # Misuse of passport
+    '22 U.S.C. 220 -- deported unless pardoned -- hards': 'Fraud',  # Misuse of passport
+    '22 U.S.C. 2201, 2204, 2902': 'Fraud',  # Diverse sections, defaulting to fraud for general federal offenses
+    '22 U.S.C. 2403': 'Sexual',  # Assuming typo for 22 D.C. Code 2403 (Prostitution)
+    '22 U.S.C. 2901': 'Sexual',  # Assuming typo for 22 D.C. Code 2901 (Carnal knowledge)
+    '22 U.S.C. 2902': 'Sexual',  # Assuming typo for 22 D.C. Code 2902 (Indecent liberties)
+    '22 US.C. 1001, 2202': 'Fraud',  # Assuming 18 U.S.C. 1001 (False statements)
+    '22-2405 DC Code': 'Sexual',  # D.C. Code, Assault with intent to commit rape
+    '2201 of T22 DC Code': 'Sexual',  # D.C. Code, Incest
+    '22:22:2201 Dist. Col. Code': 'Sexual',  # D.C. Code, Incest
+    '24 Stat. 603': 'Fraud',  # Interstate Commerce Act violations (economic fraud/unfair practices)
+    '245 Crim Code': 'Non-Alcohol Drugs',  # Old code, bringing opium into U.S.
+    '25 U.S.C. 241': 'Alcohol',  # Selling/possessing liquor in Indian Country
+    '25 U.S.C. 244; 27 U.S.C. (1926 Edition) 27': 'Alcohol',  # Liquor in Indian Country + Prohibition enforcement
+    '2591 Crim. Code': 'Property',  # Generic criminal code (high number, assumed property crime in absence of specifics)
+    '26  U.S.C. 1152a': 'Alcohol',  # Distilled spirits tax violations
+    '26  U.S.C. 2833, 2810': 'Alcohol',  # Liquor dealers/distilled spirits
+    '26 I.S.C. 306': 'Tax',  # Typo for 26 U.S.C. 306 (income tax, assumed evasion context)
+    '26 U,S.C. 3224,1004': 'Non-Alcohol Drugs',  # Narcotics tax (e.g., opium)
+    '26 U.S. 696': 'Non-Alcohol Drugs',  # Typo for 26 U.S.C. 696 (narcotics tax)
+    '26 U.S..C. 4744 & 21 U.S.C. 176': 'Non-Alcohol Drugs',  # Marijuana Tax Act + Narcotics Importation
+    '26 U.S.C 4744': 'Non-Alcohol Drugs',  # Marijuana Tax Act
+    '26 U.S.C.': 'Tax',  # Generic Internal Revenue Code violation, implies tax offense
+    '26 U.S.C.  4704(a) & 7237': 'Non-Alcohol Drugs',  # Narcotics tax + narcotics penalties
+    '26 U.S.C. (1934 ed.) 1132d': 'Alcohol',  # Industrial alcohol
+    '26 U.S.C. (1940 Ed.) 145b': 'Tax',  # Failure to file income tax returns
+    '26 U.S.C. 1043, 1044; 21 U.S.C. 173, 174; 18 U.S.C': 'Non-Alcohol Drugs',  # Narcotics tax + narcotics + conspiracy
+    '26 U.S.C. 1043, 14044': 'Non-Alcohol Drugs',  # Narcotics tax (typo 14044 for 1044)
+    '26 U.S.C. 1043, 21 U.S.C. 174': 'Non-Alcohol Drugs',  # Narcotics tax + narcotics
+    '26 U.S.C. 1043a, 1044; 18 U.S.C. 88': 'Non-Alcohol Drugs',  # Narcotics tax + conspiracy
+    '26 U.S.C. 1043a; 21 U.S.C. 174 -- deported unless': 'Non-Alcohol Drugs',  # Narcotics tax + narcotics
+    '26 U.S.C. 1044(a)': 'Non-Alcohol Drugs',  # Narcotics tax
+    '26 U.S.C. 1044-a, 1047-b-a': 'Non-Alcohol Drugs',  # Narcotics tax
+    '26 U.S.C. 1044; 18 U.S.C. 88': 'Non-Alcohol Drugs',  # Narcotics tax + conspiracy
+    '26 U.S.C. 1044; 21 U.S.C. 174; 18 U.S.C. 88': 'Non-Alcohol Drugs',  # Narcotics tax + narcotics + conspiracy
+    '26 U.S.C. 1044a': 'Non-Alcohol Drugs',  # Narcotics tax
+    '26 U.S.C. 1102, 1105, 1182, 1185; 18 U.S.C. 88': 'Alcohol',  # Alcohol tax + conspiracy
+    '26 U.S.C. 1132': 'Alcohol',  # Industrial alcohol
+    '26 U.S.C. 1134, 1162, 1182': 'Alcohol',  # Alcohol taxes/regulations
+    '26 U.S.C. 1152': 'Alcohol',  # Distilled spirits taxes
+    '26 U.S.C. 1152(a)': 'Alcohol',
+    '26 U.S.C. 1152(a), 1152(g), 1155(f), 1163, 1165, 1': 'Alcohol',  # Alcohol taxes/regulations
+    '26 U.S.C. 1152(a), 1237': 'Alcohol',  # Alcohol tax + Liquor Enforcement Act
+    '26 U.S.C. 1152(a), 1441': 'Alcohol',  # Alcohol tax (1441 sometimes relates to firearms, but context suggests alcohol)
+    '26 U.S.C. 1152(a),1184,1185': 'Alcohol',  # Alcohol taxes/penalties
+    '26 U.S.C. 1152(a); prohibition': 'Alcohol',
+    '26 U.S.C. 1152, 1162, 1163': 'Alcohol',  # Alcohol taxes/regulations
+    '26 U.S.C. 1152-a, 1155-f, 1184, 1185, 1441-a, 1162': 'Alcohol',  # Alcohol taxes/regulations
+    '26 U.S.C. 1152-a, 1162, 1184, 1185': 'Alcohol',  # Alcohol taxes/regulations
+    '26 U.S.C. 1152a': 'Alcohol',
+    '26 U.S.C. 1152a, 1152b, 1162, 1170, 1184, 1185, 12': 'Alcohol',  # Alcohol taxes/regulations
+    '26 U.S.C. 1152a, 1162': 'Alcohol',
+}
+```

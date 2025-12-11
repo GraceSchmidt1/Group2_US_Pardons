@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'vio.national proh.act': 'Alcohol',
+    'vio.national prohibition act': 'Alcohol',
+    'vio.natl prohib.act': 'Alcohol',
+    'vio.natl. =prohib.act': 'Alcohol',
+    'vio.natl. prohib.act': 'Alcohol',
+    'vio.natl.bank laws': 'Fraud', # Violations often involve false entries, embezzlement, or misapplication of funds.
+    'vio.natl.bank laws as bank officer': 'Fraud',
+    'vio.natl.banking laws': 'Fraud',
+    'vio.natl.motor-vehicle theft act': 'Property', # Involves theft of property.
+    'vio.natl.proh.act': 'Alcohol',
+    'vio.natl.prohib.act': 'Alcohol',
+    'vio.natl.prohib.act--2counts': 'Alcohol',
+    'vio.natl.prohib.act--3cases': 'Alcohol',
+    'vio.naturalization laws': 'Fraud', # Often involves false statements or misrepresentation to gain citizenship.
+    'vio.navy reg. under select.act': 'Fraud', # Likely related to draft evasion or false claims to avoid military service.
+    'vio.neutral.laws': 'Property', # Often involves illegal trade (e.g., arms), or actions impacting national assets/resources for war.
+    'vio.neutrality laws': 'Property',
+    'vio.of Intern.Reven. laws': 'Tax', # Internal Revenue directly relates to taxes.
+    'vio.of act to reg.commerce': 'Property', # Violations often relate to illegal monopolies, unfair practices, or control of economic assets.
+    'vio.of rev.laws (by forg.pens.app.)': 'Fraud', # Forgery is a form of fraud.
+    'vio.oleomargarine act': 'Tax', # Historically involved taxation and regulation to protect butter industry.
+    'vio.oleomargarine laws,consp.': 'Tax',
+    'vio.opium act': 'Non-Alcohol Drugs', # Opium is a non-alcohol drug.
+    'vio.passenger act': 'Fraud', # Often related to false manifests, illegal transport for profit, or evading immigration/safety rules.
+    'vio.passenger laws': 'Fraud',
+    'vio.passenger regulations': 'Fraud',
+    'vio.pens.law in making f.cert.': 'Fraud', # Making a false certificate.
+    'vio.pens.laws as examining surgeon': 'Fraud', # Making false certifications for pensions.
+    'vio.pension laws': 'Fraud', # Usually involves submitting false claims or misuse of funds.
+    'vio.pension laws,vio.postal laws': 'Fraud', # Pension laws are fraud; postal laws often involve mail fraud.
+    'vio.policy law': 'Fraud', # Historically refers to illegal lottery/policy games, which are fraudulent schemes.
+    'vio.policy laws DC': 'Fraud',
+    'vio.post office laws': 'Fraud', # Frequently involves mail fraud; can also be theft, but fraud is common.
+    'vio.post.law.consist.of 8 off.': 'Fraud',
+    'vio.post.laws (2)': 'Fraud',
+    'vio.postal laws': 'Fraud',
+    'vio.postal laws (2)': 'Fraud',
+    'vio.postal laws (5 cases,4 ind.cons.)': 'Fraud',
+    'vio.postal laws as PO worker': 'Fraud', # Can be theft, but also embezzlement or mail fraud.
+    'vio.postal laws while postmaster': 'Fraud',
+    'vio.postal laws,vio.internal rev.laws': 'Fraud', # Postal laws (Fraud) and Internal Revenue laws (Tax). Prioritizing the first mentioned/common.
+    'vio.prov.of sect.5439,R.S. of US': 'Fraud', # Section 5439 R.S. concerned forging/counterfeiting bids, bonds, etc., with intent to defraud.
+    'vio.provisions of Sect. 3169 of R.S.': 'Fraud', # Section 3169 R.S. concerned extortion/bribery by revenue officers, involving abuse of position for gain.
+    'vio.recognizance': 'Fraud', # Failure to appear or fulfill court obligations, often interpreted as an attempt to evade justice through deception.
+    'vio.regulation passengers': 'Fraud',
+    'vio.rel.carry.passengers': 'Fraud',
+    'vio.rel.preservation of timber': 'Property', # Involves illegal logging, theft of timber, or damage to natural resources.
+    'vio.rev.laws': 'Tax', # Revenue laws are tax-related.
+    'vio.rev.laws (3259,3260 R.S.)': 'Alcohol', # Sections 3259, 3260 R.S. related to revenue from distilleries.
+    'vio.rev.laws (import w/out duty)': 'Tax', # Avoiding customs duties (taxes).
+    'vio.rev.laws (sect.3451)': 'Tax', # Section 3451 R.S. concerned fraudulent attempts to evade internal revenue taxes.
+    'vio.rev.laws (unstamped cigars)': 'Tax', # Unstamped goods imply unpaid taxes.
+    'vio.rev.laws rel.dist,liq.dealers': 'Alcohol', # Revenue laws related to alcohol.
+    'vio.rev.laws rel.dist.spir.': 'Alcohol',
+    'vio.rev.laws rel.to dist.': 'Alcohol',
+    'vio.rev.stat.': 'Fraud', # General violation of Revised Statutes; many common ones were fraud against the government.
+    'vio.revenue laws': 'Tax',
+    'vio.revenur laws': 'Tax',
+    'vio.river and harbor act': 'Property', # Violations involve unauthorized construction, obstruction, or damage to public waterways/infrastructure.
+    'vio.sec. 3869 Rev.US Stat.': 'Tax', # Section 3869 R.S. concerned carrying letters out of the mail, violating postal monopoly and depriving revenue.
+    'vio.sec. 5209, 5392 R.US.S.': 'Fraud', # Section 5209 R.S. (bank fraud/embezzlement); Section 5392 R.S. (perjury).
+    'vio.sec. 5469, R.S. of US': 'Property', # Section 5469 R.S. concerned receiving stolen mail or property stolen from the mail.
+    'vio.sec. 5511, R.S.': 'Fraud', # Section 5511 R.S. concerned interference with elections, including fraudulent registration/voting.
+    'vio.sec.2139 of R.S. of US': 'Alcohol', # Section 2139 R.S. concerned introduction of spirituous liquor into Indian country.
+    'vio.sec.2258 Rev.US.Stat.': 'Property', # Section 2258 R.S. concerned unlawful enclosures of public lands or false claims to them.
+    'vio.sec.245 Criminal Code of US': 'Sexual', # Section 245 of the Criminal Code (later 18 U.S.C. § 1461) concerned mailing obscene matter.
+    'vio.sec.29(b) nat.bnkrptcy.act': 'Fraud', # Section 29(b) of the National Bankruptcy Act concerned concealing property or making false oaths.
+    'vio.sec.3 of esp.act': 'Fraud', # Section 3 of the Espionage Act concerned making false statements to interfere with military operations.
+    'vio.sec.3242,5796, Rev.US Stat.': 'Alcohol', # Section 3242 R.S. concerned carrying on the business of a distiller/liquor dealer without paying special tax.
+    'vio.sec.3242,Rev.US.Stat.': 'Alcohol',
+    'vio.sec.3354 R.S.': 'Tax', # Section 3354 R.S. concerned removing tobacco from a manufactory without paying taxes/stamping.
+    'vio.sec.3893 R.S.': 'Sexual', # Section 3893 R.S. concerned mailing obscene matter.
+    'vio.sec.4,Chap.840,US Stat.': 'Fraud', # Vague, but many general federal statutes of this era concerned fraud against the government or financial impropriety.
+    'vio.sec.4046 of R.S. of US': 'Fraud', # Section 4046 R.S. concerned wrongful deposit/withdrawal of public moneys by postal employees (embezzlement).
+    'vio.sec.4046,Rev.US Stat.': 'Fraud',
+    'vio.sec.4438, R.US.S.': 'Fraud', # Section 4438 R.S. concerned false certificates of inspection by vessel officers.
+    'vio.sec.4438, Rev.US Stat.': 'Fraud',
+    'vio.sec.5209 of R.S. of US': 'Fraud', # Section 5209 R.S. concerned national bank officers embezzling, misapplying funds, or making false entries.
+    'vio.sec.5209, R.S. of US': 'Fraud',
+    'vio.sec.5209,R.US.S.(4 counts)': 'Fraud',
+    'vio.sec.5209,Rev.Stat.of US': 'Fraud',
+    'vio.sec.5209,Rev.US Stat.': 'Fraud',
+    'vio.sec.5392,Rev.US Stat.': 'Fraud', # Section 5392 R.S. concerned perjury.
+    'vio.sec.5398, R.S. of US': 'Fraud', # Section 5398 R.S. concerned subornation of perjury.
+    'vio.sec.5413,5431 R.S. of US': 'Fraud', # Section 5431 R.S. concerned forging/counterfeiting U.S. obligations/securities.
+    'vio.sec.5415, R.S. of US': 'Fraud', # Section 5415 R.S. concerned forging/altering postal money orders.
+    'vio.sec.5418 of R.S. of US': 'Fraud', # Section 5418 R.S. concerned forging/counterfeiting bids, public records, etc.
+    'vio.sec.5438 of R.US.S.': 'Fraud', # Section 5438 R.S. concerned conspiracy to defraud the U.S.
+    'vio.sec.5440,5421,5435,R.US.S': 'Fraud', # Sections involved conspiracy to defraud, false impersonation, uttering forged papers.
+    'vio.sec.5457 R.S.,rel.to count.mon.': 'Fraud', # Section 5457 R.S. related to counterfeiting coin.
+    'vio.sec.5467 of postal laws': 'Property', # Section 5467 R.S. concerned robbing or stealing mail matter.
+    'vio.sec.5467, R.S. of US': 'Property',
+    'vio.sec.5467,3891,R.S.of US': 'Property', # Both sections relate to stealing mail.
+    'vio.sec.5467,R.US.S. (4 ind)': 'Property',
+    'vio.sec.5467,Rev.US Stat': 'Property',
+    'vio.sec.5469, R.S. of US': 'Property', # Section 5469 R.S. concerned receiving stolen mail or property stolen from the mail.
+    'vio.sec.5480, R.S. of US': 'Fraud', # Section 5480 R.S. concerned using the mails to defraud (mail fraud).
+    'vio.sec.5480,Rev.US Stat.': 'Fraud',
+    'vio.sec.5515': 'Fraud', # Section 5515 R.S. concerned conspiracy to prevent accepting office/discharging duties, or voter intimidation (subverting democratic process).
+    'vio.sec.5515 of R.S.': 'Fraud'
+}
+```

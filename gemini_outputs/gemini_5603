@@ -1,0 +1,108 @@
+```python
+offense_categorization = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'intro. liq indian country': 'Alcohol',
+    'intro. liq into indian country': 'Alcohol',
+    'intro. liq on indian reservation': 'Alcohol',
+    'intro. liq on reservation': 'Alcohol',
+    'intro. liq upon indian res.': 'Alcohol',
+    'intro. liq. in indian territory': 'Alcohol',
+    'intro. liq. into indian country': 'Alcohol',
+    'intro. liqour indian reservation': 'Alcohol',
+    'intro. liquor in indian country': 'Alcohol',
+    'intro. liquor to indians': 'Alcohol',
+    'intro. whiskey indian country': 'Alcohol',
+    'intro.,sell.liq.in Indian country': 'Alcohol',
+    'intro.,sell.liq.in Indian terr.': 'Alcohol',
+    'intro.ardent spirits in/Ind.country': 'Alcohol',
+    'intro.disp.liq in indian country': 'Alcohol',
+    'intro.intox.liq.in Indian country': 'Alcohol',
+    'intro.intox.liq.into eastern dist.OK': 'Alcohol',
+    'intro.liq in ind.terr.': 'Alcohol',
+    'intro.liq indian territory': 'Alcohol',
+    'intro.liq. In indian country': 'Alcohol',
+    'intro.liq.in Indian country': 'Alcohol',
+    'intro.liq.in ind.terr.': 'Alcohol',
+    'intro.liq.in indi.terr.': 'Alcohol',
+    'intro.liq.in indian country': 'Alcohol',
+    'intro.liq.in indian terr,retail': 'Alcohol',
+    'intro.liq.in indian terr.': 'Alcohol',
+    'intro.liq.in part of OK form.ind.terr': 'Alcohol',
+    'intro.liq.ind.terr. (2)': 'Alcohol',
+    'intro.liq.ind.terr.(2)': 'Alcohol',
+    'intro.liq.indian country': 'Alcohol',
+    'intro.liq.indian terr.': 'Alcohol',
+    'intro.liq.indian territory': 'Alcohol',
+    'intro.liq.indian.res': 'Alcohol',
+    'intro.liq.into Indian Country': 'Alcohol',
+    'intro.liq.into Indian country': 'Alcohol',
+    'intro.liq.into Indian terr.': 'Alcohol',
+    'intro.liq.into ind.terr.': 'Alcohol',
+    'intro.liq.into.ind.terr.': 'Alcohol',
+    'intro.liquor into Indian country': 'Alcohol',
+    'intro.merch.in/US false wgts.measures': 'Fraud', # Using false weights and measures implies deception.
+    'intro.res.liq, gave to indians': 'Alcohol',
+    'intro.sell.liq.ind.terr': 'Alcohol',
+    'intro.spir.in indian terr.': 'Alcohol',
+    'intro.spir.liq. in indian country': 'Alcohol',
+    'intro.spir.liq. in indian terr.': 'Alcohol',
+    'intro.spir.liq.ind.terr.': 'Alcohol',
+    'intro.spir.liq.to indian country': 'Alcohol',
+    'introd,sell.intox.liq.in Ind.terr.': 'Alcohol',
+    'introd.,dispos.of liq.in Indian country': 'Alcohol',
+    'introd.liq.in Indian country': 'Alcohol',
+    'introd.liq.into Indian country': 'Alcohol',
+    'introduc.liq.into Indian country': 'Alcohol',
+    'introduc.liq.into former Ind.terr,carrying on bus.': 'Alcohol', # The primary offense mentioned is introducing liquor.
+    'introduced liq. to reservation': 'Alcohol',
+    'introducing liq': 'Alcohol',
+    'introducing liq.indian terr.': 'Alcohol',
+    'introducing liquor': 'Alcohol',
+    'introduction liquor': 'Alcohol',
+    'introduction liquors': 'Alcohol',
+    'introduction of liquor': 'Alcohol',
+    'invol.manslaughter,commit.on gov.reserv.': 'Violent',
+    'involuntary mansalugher': 'Violent',
+    'involuntary manslaughter': 'Violent',
+    'irregularities, 22 bags of coffee': 'Property', # Implies mishandling, theft, or embezzlement of goods.
+    'iss.bus.cards in liken.US treas notes': 'Fraud', # Counterfeiting or attempting to pass off as official currency.
+    'iss.cert.overdrawn account check': 'Fraud', # Issuing a certificate for an overdrawn account implies an intent to deceive or defraud.
+    'issed narcot.prescrip.w/o proper license': 'Non-Alcohol Drugs', # Related to illegal handling of narcotics.
+    'issued false cert.dep.nat.bank': 'Fraud', # Issuing a false certificate is an act of deception.
+    'issuing spurious check': 'Fraud', # A spurious check is a fake or false check, used for deception.
+    'issuing worthless checks': 'Fraud', # Issuing a check known to be worthless, typically with intent to defraud.
+    'joy riding': 'Property', # Unlawful taking or use of a vehicle.
+    'joyriding': 'Property',
+    'judgment for cognizance': 'Violent', # "Cognizance" in this context often refers to a bond for keeping the peace, implying an underlying threat or potential for violence.
+    'judgment for costs': 'Property', # A financial obligation, typically related to a court case concerning property or money.
+    'judgment for debt': 'Property', # A financial obligation.
+    'judgment for recognizance': 'Violent', # Similar to cognizance, a bond for good behavior, often to prevent a breach of peace or violence.
+    'judgment rendered for debts': 'Property',
+    'judgment vs him': 'Property', # A judgment against an individual is typically for monetary damages or property.
+    'judgment vs. him': 'Property',
+    'juv.delinquincy': 'Property', # Juvenile delinquency is a broad category, but often includes minor property crimes, vandalism, or status offenses; 'Property' is the most general fit among the choices for general misbehavior affecting assets or order.
+    'juvenile delinquencey': 'Property',
+    'keep.house ill-fame by mil.camp': 'Sexual', # "House of ill-fame" is a common term for a brothel.
+    'keeping a "policy shop"': 'Property', # An illegal gambling operation (policy games involve wagers on numbers).
+    'keeping a bawdy house': 'Sexual', # A brothel.
+    'keeping a faro bank': 'Property', # Faro is a card game associated with gambling houses.
+    'keeping a faro table': 'Property', # Gambling operation.
+    'keeping a gaming house': 'Property', # Illegal gambling establishment.
+    'keeping a gaming table': 'Property', # Illegal gambling operation.
+    'keeping a hotel w/o pay.tax': 'Tax', # Failure to pay taxes for a business.
+    'keeping a house of "ill fame" near a naval base': 'Sexual', # Brothel.
+    'keeping bawdy house': 'Sexual',
+    'keeping billiards table': 'Property', # While billiards itself isn't a crime, "keeping a billiards table" as an offense typically implies it was unlicensed or used for illegal gambling/commercial activity, which falls under property/financial regulation.
+    'keeping disorderly house': 'Sexual', # Historically, often associated with prostitution or other illicit sexual activities that disturb public order.
+    'keeping house of ill fame': 'Sexual',
+    'keeping unlicenced bar': 'Alcohol', # Operating an establishment for alcohol sales without proper licensing.
+    'keeping unlicensed bar': 'Alcohol',
+    'keepking a bawdy house': 'Sexual',
+    'kept Faro Bank (gamb.house)': 'Property',
+    'kept place f/sale of lott.tick.': 'Property', # Operating an illegal lottery.
+    'kept place to sale lottery tickets': 'Property', # Operating an illegal lottery.
+}
+```

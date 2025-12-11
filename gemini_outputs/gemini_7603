@@ -1,0 +1,108 @@
+```python
+offense_categorizations = {
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+    'preten.to be Fed.officer.,demand,obtining money as': 'Fraud',
+    'pretend.prohib agent': 'Fraud',
+    'prev.bby force.intim.threat': 'Violent',
+    'print,poss count.US obl.secu.': 'Fraud',
+    'print/photo of banknote': 'Fraud',
+    'prioty regulations cocerning veterans housing': 'Property',
+    'prison transfer': 'Property', # Assuming offenses related to illegal actions concerning custody or state control over individuals.
+    'prisoner': 'Property', # Assuming offenses by or related to prisoners, such as escape from custody (state control).
+    'probhition and 18 U.S.C. 331': 'Alcohol',
+    'probhition/fisheries': 'Alcohol',
+    'probition': 'Alcohol',
+    'proc.eng.plate f/count.in.rev.stmps': 'Tax', # Counterfeiting internal revenue stamps directly relates to taxation.
+    'procur,aid.in engrav.counterf.plate': 'Fraud',
+    'procur.,advis.,assist.another to secrete,embezz.,d': 'Fraud',
+    'procur.false affid.in homestead': 'Fraud',
+    'procur.false testim.in natural.procee.': 'Fraud',
+    'procur.free entry import.merch.using f.and fraud l': 'Fraud',
+    'procur.naturaliza.thru fraud.means': 'Fraud',
+    'procured cast.ill.votes in Cong.elec.': 'Fraud',
+    'procuring false naturaliz.papers': 'Fraud',
+    'procuring illegal votes': 'Fraud',
+    'procuring,enticing soldiers to desert': 'Fraud', # Involves deception/inducement to abandon duty, a form of fraud against the state.
+    'prod.dist.spirits for beverages': 'Alcohol',
+    'profanity': 'Violent', # Categorized as a breach of public peace or disorderly conduct, a very broad interpretation of 'Violent'.
+    'prohibited acts- importation of wildlife': 'Property', # Involves illegal trade or possession of regulated goods.
+    'prohibited acts-communication facility': 'Property', # Could involve damage, unauthorized access, or misuse of property.
+    'prohibited acts-firearm possession': 'Violent', # Possession of firearms is often linked to the potential for violent crime.
+    'prohibition': 'Alcohol',
+    'prohibition and 18 U.S.C. 37': 'Alcohol',
+    'prohibition and 19 U.S.C. 1593': 'Alcohol',
+    'prohibition and 26 U.S.C. 1152a': 'Alcohol',
+    'prohibition and 37 Crim. Code': 'Alcohol',
+    'prohibition and 37 Crim. Coe': 'Alcohol',
+    'prohibition violations (5)': 'Alcohol',
+    'prohibition, Tafiff Act 1922': 'Alcohol',
+    'prohibition, and 25 U.S.C. 244': 'Alcohol',
+    'prohibition; 18 U.S.C. 88': 'Alcohol',
+    'prohibition; sections 3258 and 3282 Revised Statut': 'Alcohol',
+    'promoting policy': 'Fraud', # Interpreted as illegal or fraudulent influence/lobbying in policy promotion.
+    'property.dam,explo': 'Property',
+    'prost. in proh.mil.camp zone': 'Sexual',
+    'prostitution': 'Sexual',
+    'prostitution by army camp': 'Sexual',
+    'prostitution by army cantonment': 'Sexual',
+    'prostitution near army camp': 'Sexual',
+    'prostitution near military camp': 'Sexual',
+    'protecting and assisting a deserter from the US ar': 'Fraud', # Obstructing duty/justice, similar to enticing a deserter.
+    'prov.opp.to defraud US of tax, perjury,': 'Tax', # The primary intent is to defraud the US of tax.
+    'pss,poss.counterf.coin': 'Fraud',
+    'pssing counterf.coin': 'Fraud',
+    'public gambling table': 'Property', # Involves illegal business operations and money.
+    'public gaming table': 'Property', # Involves illegal business operations and money.
+    'public offence': 'Violent', # A very general term; broadly categorized as a breach of public peace/order.
+    'purch.,conceal.opium': 'Non-Alcohol Drugs',
+    'purch.,poss. morphine': 'Non-Alcohol Drugs',
+    'purch.,poss.,sell.narcotic drugs': 'Non-Alcohol Drugs',
+    'purch.,poss.narcotic drugs': 'Non-Alcohol Drugs',
+    'purch.,sell. morphine': 'Non-Alcohol Drugs',
+    'purch.,sell.,conceal.morphine,consp.': 'Non-Alcohol Drugs',
+    'purch.,sell.narcot.drugs': 'Non-Alcohol Drugs',
+    'purch.,sell.narcotics': 'Non-Alcohol Drugs',
+    'purch.US army clothing': 'Property',
+    'purch.cloth.fr/soldiers': 'Property',
+    'purch.cocaine': 'Non-Alcohol Drugs',
+    'purch.mil.stores f/ Army sold.': 'Property',
+    'purch.narcot.drugs': 'Non-Alcohol Drugs',
+    'purch.narcotics': 'Non-Alcohol Drugs',
+    'purch.pistol from soldier': 'Property',
+    'purch.poss.sell.morphine': 'Non-Alcohol Drugs',
+    'purch.sell.narcotics': 'Non-Alcohol Drugs',
+    'purch.sell.narcs.': 'Non-Alcohol Drugs',
+    'purchased soldier\'s mil.clothing': 'Property',
+    'purchasing clothing f/ a soldier': 'Property',
+    'purchasing clothing fr/soldiers': 'Property',
+    'purchasing clothing illegally f/soldier': 'Property',
+    'purchasing goos belonging to US': 'Property',
+    'purchasing uniform from US soldier': 'Property',
+    'purchasing whiskey for an indian': 'Alcohol', # Refers to historical specific prohibition.
+    'purchasing,dealing narcotics': 'Non-Alcohol Drugs',
+    'purjury in naturlaization proceeding': 'Fraud',
+    'purloin.lett.fr/US mails as PO emp.': 'Property',
+    'purloin.letters from PO': 'Property',
+    'purloin.money fr/lett.as PO clerk': 'Property',
+    'purloined letters from PO': 'Property',
+    'purloining a letter from PO': 'Property',
+    'purloining letter contain.money f/mail': 'Property',
+    'purloining letters': 'Property',
+    'purloining letters from PO': 'Property',
+    'purloining money from letters': 'Property',
+    'purloining money from mail': 'Property',
+    'putting tickets in ballot box': 'Fraud',
+    'quit,desert mail in his charge': 'Fraud', # Dereliction of duty and breach of trust/contract, seen as fraud against employer/state.
+    'quitting & deserting mail': 'Fraud', # Dereliction of duty and breach of trust/contract.
+    'quitting the mail in his charge': 'Fraud', # Dereliction of duty and breach of trust/contract.
+    'racketeering': 'Violent', # Racketeering often involves threats, extortion, and violence as means of operation.
+    'racketeering, aiding and abetting Hoobs Act extort': 'Violent', # Extortion is typically carried out through threats or force.
+    'racketeering,extortion by an indian tribal officia': 'Violent', # Extortion is typically carried out through threats or force.
+    'rais.denom.bill,passing same': 'Fraud',
+    'raising $1 bills to $10,poss.and pass.counterfeit': 'Fraud',
+    'raising PO money order': 'Fraud'
+}
+```

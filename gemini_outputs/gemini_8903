@@ -1,0 +1,112 @@
+```python
+offense_categories = {
+    'send.obscene lit.thr/US mails': 'Sexual',
+    'send.obscene matter in mails': 'Sexual',
+    'send.obscene matter thr/mails': 'Sexual',
+    'send.obscene matter through mails': 'Sexual',
+    'send.obscene matter thru mails': 'Sexual',
+    'send.obscene matter thru.mail': 'Sexual',
+    'send.obscene mattter thru mail': 'Sexual',
+    'send.threatening letters thr/mail': 'Violent',
+    'sending fraud.advertis.thru mail': 'Fraud',
+    'sending non-mailable matter thru mail': 'Property', # General illegal items/contraband
+    'sending obscene letters in mail': 'Sexual',
+    'sending obscene letters thru mail': 'Sexual',
+    'sending obscene letters thru mails': 'Sexual',
+    'sending obscene matter intst': 'Sexual',
+    'sending obscene matter thr/US mails': 'Sexual',
+    'sending obscene matter thru mail': 'Sexual',
+    'sending poison thr/mails': 'Violent',
+    'sending unlawful matter thru the mails': 'Property', # General illegal items/contraband
+    'sending unmailable matter thru mails': 'Property', # General illegal items/contraband
+    'sent forged papers to pension off.': 'Fraud',
+    'sent ill.matter through mail': 'Property', # General illegal items/contraband
+    'sent ill.matter through mails': 'Property', # General illegal items/contraband
+    'sent in mail obsc,lewd,lasciv.book': 'Sexual',
+    'sent indecent post cards thru mail': 'Sexual',
+    'sent lett.thru mails w/int.to def.': 'Fraud',
+    'sent letters w intent to defraud': 'Fraud',
+    'sent nonmailable matter in mail': 'Property', # General illegal items/contraband
+    'sent nonmailable matter in mails': 'Property', # General illegal items/contraband
+    'sent obsc. matter through mails': 'Sexual',
+    'sent obsc.letter in US mails': 'Sexual',
+    'sent obsc.letters through mail': 'Sexual',
+    'sent obsc.letters,pictures thru mail': 'Sexual',
+    'sent obsc.matter thr/mail': 'Sexual',
+    'sent obscene lett.thru mail': 'Sexual',
+    'sent obscene letters in mail': 'Sexual',
+    'sent obscene matter in mail,conspiracy (2)': 'Sexual',
+    'sent prohibited matter in mails': 'Property', # General illegal items/contraband
+    'sent scurriloud postcard': 'Violent', # Non-physical harm/harassment
+    'sent scurrilous letter in mails': 'Violent', # Non-physical harm/harassment
+    'sent threat.letter thru mail': 'Violent',
+    'sent.unlawf.matter thru mail': 'Property', # General illegal items/contraband
+    'sent.unlawful matter thru mail': 'Property', # General illegal items/contraband
+    'served as med.off.f/confed.': 'Violent', # Acts of rebellion/warfare
+    'served in confederate army': 'Violent', # Acts of rebellion/warfare
+    'served rebels': 'Violent', # Acts of rebellion/warfare
+    'serving as a pilot w/o lic.': 'Property', # Illegal operation/misuse of property/privilege
+    'set house ill fame by mil.camp': 'Sexual',
+    'set, oper. unreg, unbond.distill': 'Alcohol',
+    'set,oper unreg,unbond.distill': 'Alcohol',
+    'set-up, kept house of prost.': 'Sexual',
+    'set.fire timber on gov.domain': 'Property',
+    'set.house ill-fame near barracks': 'Sexual',
+    'set.ill fame house near barracks': 'Sexual',
+    'setn obscene letter in mail': 'Sexual',
+    'sett.fire Gov.camouf.a.ordnance whousesa/stack of': 'Property',
+    'sett.fire Gov.ordnance a/camouf. whouses': 'Property',
+    'sett.fire Gov.supply a/ordnance whouses': 'Property',
+    'sett.fire Gov.warehouse,attemp.burncanteen bldg.': 'Property',
+    'sett.fire Gov.whouse,attemp.burn': 'Property',
+    'setting fires': 'Property',
+    'setting up unreg. still': 'Alcohol',
+    'setting up,maintain.gambling table': 'Property', # Illegal business operation/misuse of property
+    'ship regulation violation': 'Property', # Illegal operation/misuse of property (vessel)
+    'shipp, poss counterf. coins': 'Fraud',
+    'shippin bob veal': 'Property', # Shipping illegal goods (regulated property)
+    'shipping filled milk in IC': 'Property', # Shipping illegal goods (regulated property)
+    'shipping liq into indian country': 'Alcohol',
+    'shipping liq to dry state': 'Alcohol',
+    'shipping liq. into NC (2)': 'Alcohol',
+    'shipping misbranded liq interst,ship.liq.prohib.zo': 'Alcohol',
+    'shooting at US officers': 'Violent',
+    'shooting at someone': 'Violent',
+    'shooting at,wounding a negro man': 'Violent',
+    'shooting with intent to kill': 'Violent',
+    'shotting w/intent to kill': 'Violent',
+    'sign,rec,use.proc.2 for.mon.ord.': 'Fraud',
+    'simple assault': 'Violent',
+    'sinking a vessel at sea': 'Property',
+    'sinking vessel': 'Property',
+    'slander': 'Violent', # Non-physical harm/aggression
+    'slave act violation': 'Slavery',
+    'slave import violation': 'Slavery',
+    'slave importation': 'Slavery',
+    'slave importation violation': 'Slavery',
+    'slave importing': 'Slavery',
+    'slave intro violation': 'Slavery',
+    'slave intro. violation': 'Slavery',
+    'slave introduction': 'Slavery',
+    'slave introduction breach': 'Slavery',
+    'slave introduction violation': 'Slavery',
+    'slave permit violation': 'Slavery',
+    'slave statute violation': 'Slavery',
+    'slave trade': 'Slavery',
+    'slave trade violation': 'Slavery',
+    'slave trading': 'Slavery',
+    'slave traffic': 'Slavery',
+    'slaves w/out required manifest': 'Slavery',
+    'sleeping on duty': 'Property', # Dereliction of duty related to stewardship of resources/position
+    'smug.liquor': 'Alcohol',
+    'smug.poss.narcatic drugs': 'Non-Alcohol Drugs'
+}
+
+# The provided examples for validation:
+# 'beating and wounding a seaman':'violent'
+# 'false swearing nat. proceeding':'fraud'
+# 'ownership dispute':'property'
+# 'filing a false income-tax return':'tax'
+
+# No additional examples needed as the request was to complete the list provided.
+```

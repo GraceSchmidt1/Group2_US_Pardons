@@ -1,0 +1,113 @@
+Here is the Python dictionary with each offense categorized as requested.
+
+```python
+offense_categorization = {
+    # Examples provided by user:
+    'beating and wounding a seaman': 'Violent',
+    'false swearing nat. proceeding': 'Fraud',
+    'ownership dispute': 'Property',
+    'filing a false income-tax return': 'Tax',
+
+    # Categorizations for the provided list:
+    'murder in Indian Territory': 'Violent',
+    'murder in first degree, w/o cap.punish.': 'Violent',
+    'murder in indian territory': 'Violent',
+    'murder in second degree': 'Violent',
+    'murder in the first degree': 'Violent',
+    'murder in the second degree': 'Violent',
+    'murder indian country': 'Violent',
+    'murder of George Banks': 'Violent',
+    'murder of an Indian': 'Violent',
+    'murder of her infant': 'Violent',
+    'murder of indian woman': 'Violent',
+    'murder on Sante Fe road': 'Violent',
+    'murder on a reservation': 'Violent',
+    'murder on gov. reservation': 'Violent',
+    'murder on gov.reservation': 'Violent',
+    'murder on high seas': 'Violent',
+    'murder on high seas (approv.gov.reprieve)': 'Violent',
+    'murder on reservation': 'Violent',
+    'murder on the body of a friendly indian!': 'Violent',
+    'murder on the high seas': 'Violent',
+    'murder upon high seas': 'Violent',
+    'murder via conspiracy': 'Violent',
+    'murder w/o capital punishment': 'Violent',
+    'murder, commited on a govt. reservation': 'Violent',
+    'murder, committed on govt reservation': 'Violent',
+    'murder, committed on govt. reservation': 'Violent',
+    'murder, robbery': 'Violent', # Robbery is a violent crime
+    'murder, w/o cap.punish.': 'Violent',
+    'murder, w/o cap.punishment': 'Violent',
+    'murder,being a geurilla': 'Violent',
+    'murder,commited on govt reservation': 'Violent',
+    'murder,kidnap,being a guerilla': 'Violent', # Kidnapping is a violent crime
+    'murder,manslaughter': 'Violent',
+    'murder,vio.laws of war': 'Violent',
+    'murder,w/o cap. punishment': 'Violent',
+    'murder/U.S. Navy': 'Violent',
+    'murdering a chinaman': 'Violent',
+    'mutilation of coins': 'Property', # Altering or defacing government property
+    'mutinous conduct': 'Violent', # Often involves insubordination with threat or use of force
+    'mutinous conduct at sea': 'Violent',
+    'mutiny': 'Violent',
+    'mutiny - Houston Riot': 'Violent',
+    'mutiny on board a ship': 'Violent',
+    'mutiny, unsoldierlike conduct': 'Violent',
+    'narcotics': 'Non-Alcohol Drugs',
+    'narcotics (Act of December 17, 1914 and Act of Feb': 'Non-Alcohol Drugs',
+    'narcotics (Act of December 17, 1914)': 'Non-Alcohol Drugs',
+    'narcotics -- permanently excludible from U.S. unle': 'Non-Alcohol Drugs',
+    'narcotics and crimes against United States': 'Non-Alcohol Drugs',
+    'narcotics enterprise': 'Non-Alcohol Drugs',
+    'narcotics, marijuana': 'Non-Alcohol Drugs',
+    'narcotics, money laundering': 'Non-Alcohol Drugs', # Money laundering often secondary to drug trafficking
+    'narcotics,conspiracy against the United States': 'Non-Alcohol Drugs',
+    'narcotics-LSD': 'Non-Alcohol Drugs',
+    'narcotics-LSD, false statement in passport applica': 'Non-Alcohol Drugs', # Primary offense is narcotics
+    'narcotics-cocaine': 'Non-Alcohol Drugs',
+    'narcotics-cocaine and cocaine base': 'Non-Alcohol Drugs',
+    'narcotics-crack cocaine and marijuana': 'Non-Alcohol Drugs',
+    'narcotics-marijuana': 'Non-Alcohol Drugs',
+    'narcotics-marijuana, murder-3 counts, money launde': 'Violent', # Murder (3 counts) makes this primarily a violent offense
+    'nat': 'Fraud', # Highly ambiguous; categorized as 'Fraud' as a common federal offense when unspecified (e.g., related to "national" laws as seen in surrounding entries)
+    'nat bank laws': 'Fraud', # Violations of national banking laws often involve fraud or embezzlement
+    'nat.motor veh act': 'Property', # Violations of motor vehicle acts often concern theft, unauthorized use, or damage of property
+    'nat.proh.act': 'Alcohol', # National Prohibition Act
+    'national bank act': 'Fraud',
+    'national banking act': 'Fraud',
+    'national banking laws': 'Fraud',
+    'national bankruptcy act': 'Fraud',
+    'national housing act': 'Fraud', # Violations often involve mortgage fraud, misrepresentation
+    'national prohibition act': 'Alcohol',
+    'nationality act of 1944': 'Fraud', # Violations often involve false statements or fraud related to citizenship/naturalization
+    'natl.bank embezz.': 'Fraud', # Embezzlement is a form of fraud
+    'natruralization': 'Fraud', # Typo for naturalization, violations often involve fraud
+    'naturalization': 'Fraud', # Violations often involve fraud
+    'naturalization fraud': 'Fraud',
+    'naturalization papers fraud': 'Fraud',
+    'nav (customs) laws violation': 'Tax', # Customs duties are a form of tax
+    'navigation act violation': 'Tax', # Often related to customs, duties, or smuggling (which involves tax evasion or property)
+    'navigation laws violation': 'Tax', # Same reasoning as above
+    'near army camp for immoral purp.': 'Sexual', # Implies prostitution or similar sexual offenses
+    'neg,ref destroy oleo stamp,sold>10lbs oleo at once': 'Tax', # Oleomargarine stamps were related to taxation
+    'neg.of duty as manag.elect.': 'Fraud', # Official misconduct, breach of trust in an elected position
+    'negl.canc.spir.cask,cig.box rev.stmps': 'Tax', # Revenue stamps indicate tax-related violations
+    'negl.cancel i.r.stamps on beer kegs': 'Tax', # IRS stamps are tax-related, even on alcohol products
+    'negl.destroy.tob.stamp boxes': 'Tax', # Tobacco stamps are tax-related
+    'negl.displ.sign of whol.liq.deal.': 'Alcohol', # Regulatory violation specific to liquor dealing
+    'negl.duty as int.rev.officer': 'Tax', # Neglect of duty by a revenue officer directly impacts tax collection
+    'negl.duty as mail carrier': 'Property', # Neglect of duty for mail often leads to mail theft or destruction of property
+    'negl.keep books as wholesale.liq.deal.': 'Alcohol', # Regulatory violation specific to liquor dealing
+    'negl.pay retail.liq.tax': 'Tax',
+    'negl.pay.retail.liq.tax': 'Tax',
+    'negl.pay.tax as retail.liq.deal.': 'Tax',
+    'negl.stamp.prop.medicines': 'Tax', # Stamps on medicines for tax purposes
+    'negl.to pay retail.liq.deal.tax': 'Tax',
+    'neglect canc.spirit cask stamps': 'Tax', # Spirit cask stamps are tax-related
+    'neglect of duty as Revenue officer': 'Tax',
+    'neglect of duty, violence to guard': 'Violent', # Explicitly states violence
+    'neglect pay retail.liquor tax': 'Tax',
+    'neglect to pay duty on dist.liq.': 'Tax', # Duty on distilled liquor is a tax
+    'neglect.keep liq.dealer book': 'Alcohol', # Regulatory violation specific to liquor dealing
+}
+```
